@@ -16,14 +16,10 @@
   }
 
   &-item {
-    @apply mb-6 lg:hover:bg-beige transition-all lg:hover:border-beige;
+    @apply mb-6 transition-all;
 
     &:last-child {
       @apply mb-0;
-    }
-
-    &.open {
-      @apply bg-beige;
     }
   }
 

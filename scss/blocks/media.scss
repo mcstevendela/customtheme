@@ -24,7 +24,7 @@
 
     &::after {
       content: "";
-      @apply absolute top-0 left-0 w-full h-full bg-maroon opacity-30 z-[3];
+      @apply absolute top-0 left-0 w-full h-full  opacity-30 z-[3];
     }
   }
 
@@ -46,6 +46,6 @@
 
   &__text {
     font-family: 'Gilda', sans-serif;
-    @apply text-[22px] text-maroon;
+    @apply text-[22px] ;
   }
 }

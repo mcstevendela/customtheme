@@ -26,7 +26,7 @@
     }
 
     &-icon {
-      @apply p-5 bg-beige transition-all;
+      @apply p-5  transition-all;
     }
 
     &__icon {
@@ -39,15 +39,12 @@
     }
 
     &__text {
-      @apply text-para transition-all my-0;
+      @apply  transition-all my-0;
     }
   }
 
   &-item {
     @screen lg {
-      &:hover {
-        @apply border-maroon;
-      }
 
       &:hover::before {
         @apply opacity-100;
@@ -55,7 +52,7 @@
 
       &:hover::after {
         content: "";
-        @apply absolute w-full h-full top-0 left-0 bg-maroon opacity-90 z-[2];
+        @apply absolute w-full h-full top-0 left-0  opacity-90 z-[2];
       }
 
       &:hover &-wrapper {
@@ -83,13 +80,9 @@
     &__text {
       @apply relative text-[28px] font-medium text-black inline-block pb-6 lg:pb-0 lg:pr-[55px] text-center lg:text-left;
 
-      &:nth-child(even) {
-        @apply text-maroon;
-      }
-
       &::after {
         content: "";
-        @apply absolute left-1/2 lg:left-auto -translate-x-1/2 bottom-2 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 lg:right-[23px] w-[7px] h-[7px] rounded-full bg-maroon;
+        @apply absolute left-1/2 lg:left-auto -translate-x-1/2 bottom-2 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 lg:right-[23px] w-[7px] h-[7px] rounded-full ;
       }
 
       &:last-child {

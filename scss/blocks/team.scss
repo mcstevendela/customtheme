@@ -7,7 +7,7 @@
     }
 
     &__text {
-      @apply w-full lg:max-w-[569px] text-para;
+      @apply w-full lg:max-w-[569px] ;
     }
   }
 
@@ -29,7 +29,7 @@
     }
 
     &__job {
-      @apply inline-block mt-6 text-para;
+      @apply inline-block mt-6 ;
     }
   }
 

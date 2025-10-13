@@ -23,12 +23,9 @@ module.exports = {
     },
     extend: {
       colors: {
-        'maroon': '#96805F',
-        'beige': '#F9F4EC',
-        'beige-border': '#E3DCD1',
-        'para': '#626B71',
-        'black': '#191919',
-        'brown': '#7E7B76',
+        'blue': '#1470AF',
+        'light-blue': '#EFF6FA',
+        'black': '#000',
         'gray': '#E3E3E3',
         'white30': 'rgba(255, 255, 255, 0.3)',
         'white12': 'rgba(255, 255, 255, 0.12)',

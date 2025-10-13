@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+vendor/
+package-lock.json
+composer.lock
+
+# Build output
+build/
+
+# OS/Editor files
+.DS_Store
+*.log
+.vscode/
+.idea/
+
+# Development files (optional)
+theme_changes_breakdown.csv
+
+# WordPress
+wp-config.php
+.htaccess

@@ -23,7 +23,7 @@
     }
 
     &__job {
-      @apply inline-block mt-6 mb-6 text-para;
+      @apply inline-block mt-6 mb-6 ;
     }
   }
 
@@ -43,7 +43,7 @@
     }
 
     &__job {
-      @apply inline-block my-4 lg:my-6 text-para;
+      @apply inline-block my-4 lg:my-6 ;
     }
 
     &-main {

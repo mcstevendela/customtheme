@@ -10,7 +10,7 @@
 
   &::after {
     content: "";
-    @apply absolute w-full h-full bg-beige top-0 left-0 z-[2] opacity-[96.5%];
+    @apply absolute w-full h-full  top-0 left-0 z-[2] opacity-[96.5%];
   }
 
   &-content {
@@ -38,11 +38,7 @@
   }
 
   & .ff-default .ff-el-form-control:not(.ff-el-phone) {
-    @apply rounded-none border-beige-border text-black p-4;
-
-    &::placeholder {
-      @apply text-brown;
-    }
+    @apply rounded-none text-black p-4;
   }
 
   & .ff-default .ff-el-phone {
@@ -64,7 +60,7 @@
   & .ff-btn.ff-btn-submit {
     font-family: 'Jost', sans-serif;
     @apply inline-block px-10 py-5 text-center text-sm leading-normal font-semibold border transition-all uppercase;
-    @apply bg-maroon text-white border-maroon lg:hover:bg-para lg:hover:border-para lg:hover:text-white;
+    @apply  text-white    lg:hover:text-white;
     @apply w-full lg:w-auto lg:px-[145px] py-4 mt-[10px];
   }
 }

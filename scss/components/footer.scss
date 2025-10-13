@@ -120,7 +120,7 @@
     }
 
     &-item__link {
-      @apply flex justify-center items-center w-[46px] h-[46px] border border-white12 rounded-full lg:hover:bg-maroon lg:hover:border-maroon;
+      @apply flex justify-center items-center w-[46px] h-[46px] border border-white12 rounded-full;
     }
   }
 
@@ -141,10 +141,6 @@
 
     &-copy {
       @apply text-white text-center lg:text-left my-0;
-
-      & span {
-        @apply text-maroon;
-      }
     }
 
     &-links {

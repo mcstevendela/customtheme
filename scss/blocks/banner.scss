@@ -27,11 +27,11 @@
   }
 
   &__tag {
-    @apply relative flex items-center justify-center lg:justify-start lg:gap-[15px] text-maroon lg:font-semibold text-center;
+    @apply relative flex items-center justify-center lg:justify-start lg:gap-[15px]  lg:font-semibold text-center;
 
     &::before {
       content: "";
-      @apply w-[60px] h-[1px] bg-maroon hidden lg:block;
+      @apply w-[60px] h-[1px] hidden lg:block;
     }
   }
 

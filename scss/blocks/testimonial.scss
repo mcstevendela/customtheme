@@ -32,7 +32,7 @@
   }
 
   & rp-review-inner {
-    @apply bg-beige p-[30px] rounded-none;
+    @apply  p-[30px] rounded-none;
     box-shadow: none;
   }
 
@@ -51,7 +51,7 @@
   }
 
   & rp-review-time {
-    @apply text-lg text-para mt-2;
+    @apply text-lg  mt-2;
   }
 
   & rp-review-img img {
@@ -59,7 +59,7 @@
   }
 
   & rp-review-text {
-    @apply text-lg text-para leading-[1.7] mt-6;
+    @apply text-lg  leading-[1.7] mt-6;
   }
 
   & rp-controls {

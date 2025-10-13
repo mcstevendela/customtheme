@@ -25,7 +25,7 @@
     @apply flex items-center gap-[120px];
 
     &__button {
-      @apply py-4 px-8 text-base lg:hover:bg-white lg:hover:text-maroon;
+      @apply py-4 px-8 text-base lg:hover:bg-white;
       display: none !important;
 
       @screen xl {
@@ -48,7 +48,7 @@
     }
 
     &-top__link {
-      @apply text-brown text-lg font-medium lg:hover:text-black inline-block py-1 lg:py-3;
+      @apply text-lg font-medium lg:hover:text-black inline-block py-1 lg:py-3;
     }
 
     &-top__link.dropdown {
@@ -76,7 +76,7 @@
     }
 
     &-drop__link {
-      @apply block py-1 lg:py-2 px-4 text-white bg-maroon lg:hover:bg-black text-lg;
+      @apply block py-1 lg:py-2 px-4 text-white  lg:hover:bg-black text-lg;
     }
 
     &-drop-sub {
@@ -94,7 +94,7 @@
   }
 
   &-mobile {
-    @apply w-[50px] h-[50px] px-[14px] py-4 bg-maroon flex items-center justify-center flex-col gap-[6px];
+    @apply w-[50px] h-[50px] px-[14px] py-4  flex items-center justify-center flex-col gap-[6px];
 
     & span {
       @apply block w-full h-[2px] bg-white transition-all;
@@ -118,7 +118,7 @@
   }
 
   &-mobile-menu {
-    @apply absolute w-full top-full left-0 bg-maroon py-6 max-h-[600px] overflow-y-scroll hidden;
+    @apply absolute w-full top-full left-0  py-6 max-h-[600px] overflow-y-scroll hidden;
 
     & .rd-header-menu-top__link {
       @apply block text-white;
