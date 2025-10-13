@@ -1,0 +1,34 @@
+{#
+  Title: Inner Banner
+  Description: Inner Banner block
+  Category: RD-blocks
+  Icon: money
+  Keywords: banner
+  Mode: edit
+  Align: left
+  PostTypes: page post
+  SupportsAlign: left right
+  SupportsMode: true
+  SupportsMultiple: true
+#}
+
+<section class="rd-block rd-spacing rd-banner rd-banner-inner">
+  <div class="rd-banner-bg">
+    {% if fields.background %}
+      <img src="{{ fields.background.url }}" alt="{{ fields.background.alt }}" class="rd-banner-bg__image rd-responsive rd-grayscale">
+    {% endif %}
+  </div>
+  <div class="rd-container rd-banner-wrapper">
+    <div class="rd-banner-content">
+      {% if fields.title %}
+        <h1 class="rd-banner__title">{{ fields.title }}</h1>
+      {% endif %}
+      {% if fields.description %}
+        <p class="rd-banner__text">{{ fields.description }}</p>
+      {% endif %}
+      {% if fields.button %}
+        <a href="{{ fields.button.url }}" target="{{ fields.button.target }}" class="rd-banner__button btn btn-primary">{{ fields.button.title }}</a>
+      {% endif %}
+    </div>
+  </div>
+</section>

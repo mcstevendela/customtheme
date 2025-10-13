@@ -1,0 +1,39 @@
+.rd-team {
+  &-heading {
+    @apply flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-5 text-center lg:text-left;
+
+    &__title {
+      @apply my-0 w-full lg:max-w-[430px];
+    }
+
+    &__text {
+      @apply w-full lg:max-w-[569px] text-para;
+    }
+  }
+
+  &-list {
+    @apply pt-10 lg:pt-20 grid grid-cols-1 lg:grid-cols-3 gap-[30px] lg:gap-[45px];
+  }
+
+  &-item {
+    &-image {
+      @apply w-full lg:max-w-[360px] md:h-[350px];
+
+      & img {
+        @apply object-top;
+      }
+    }
+
+    &__name {
+      @apply mt-5 lg:mt-7 mb-0 text-[28px];
+    }
+
+    &__job {
+      @apply inline-block mt-6 text-para;
+    }
+  }
+
+  &-btn {
+    @apply pt-10 lg:pt-20 text-center;
+  }
+}

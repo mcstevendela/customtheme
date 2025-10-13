@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind variants;
+
+@import 'plugins/swiper';
+
+@import 'components/fonts';
+@import 'components/colors';
+@import 'components/images';
+@import 'components/typography';
+@import 'components/buttons';
+@import 'components/spacing';
+@import 'components/grid';
+@import 'components/responsive';
+@import 'components/transitions';
+@import 'components/extras';
+@import 'components/forms';
+@import 'components/wpadmin';
+@import 'components/slider';
+
+@import 'components/header';
+@import 'components/footer';
+
+@import 'blocks/banner';
+@import 'blocks/media';
+@import 'blocks/card';
+@import 'blocks/cta';
+@import 'blocks/team';
+@import 'blocks/faq';
+@import 'blocks/logo';
+@import 'blocks/testimonial';
+@import 'blocks/form';
+@import 'blocks/flexible';
+@import 'blocks/about';
+@import 'blocks/inmedia.scss';
+
+@import 'core/core';

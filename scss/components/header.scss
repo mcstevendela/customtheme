@@ -1,0 +1,143 @@
+.rd-header {
+  @apply shadow-sm fixed top-0 left-0 w-full bg-white z-[999];
+
+  & ul {
+    @apply pl-0 my-0;
+
+    & li::before {
+      @apply hidden;
+    }
+  }
+
+  &-container {
+    @apply py-4;
+  }
+
+  &-wrapper {
+    @apply flex justify-between;
+  }
+
+  &-logo {
+    @apply max-w-[103px] lg:max-w-[140px]
+  }
+
+  &-nav {
+    @apply flex items-center gap-[120px];
+
+    &__button {
+      @apply py-4 px-8 text-base lg:hover:bg-white lg:hover:text-maroon;
+      display: none !important;
+
+      @screen xl {
+        display: inline-block !important;
+      }
+    }
+  }
+
+  &-menu {
+    &-list {
+      @apply flex gap-[50px];
+    }
+
+    &-top {
+      @apply relative;
+
+       &:hover > .rd-header-menu-drop {
+        @apply lg:block;
+       }
+    }
+
+    &-top__link {
+      @apply text-brown text-lg font-medium lg:hover:text-black inline-block py-1 lg:py-3;
+    }
+
+    &-top__link.dropdown {
+       &:hover > span > .rd-icon {
+        @apply lg:transform lg:rotate-180;
+      }
+    }
+
+    &-top__link.dropdown.open {
+      & > span > .rd-icon {
+        @apply transform rotate-180 p-[17px] pl-0;
+      }
+    }
+
+    &-top__link-text {
+      @apply flex items-center justify-between gap-[5px];
+    }
+
+    &-drop {
+      @apply lg:absolute lg:top-full lg:left-0 w-full lg:w-[220px] hidden;
+
+      &.open {
+        @apply block;
+      }
+    }
+
+    &-drop__link {
+      @apply block py-1 lg:py-2 px-4 text-white bg-maroon lg:hover:bg-black text-lg;
+    }
+
+    &-drop-sub {
+      @apply lg:absolute lg:top-0 lg:left-full w-full lg:hidden;
+    }
+
+    &-drop-sub &-drop__link {
+      @apply pl-8 lg:pl-7;
+    }
+
+    &-drop-sub-trigger:hover > &-drop-sub {
+      @apply lg:block;
+    }
+
+  }
+
+  &-mobile {
+    @apply w-[50px] h-[50px] px-[14px] py-4 bg-maroon flex items-center justify-center flex-col gap-[6px];
+
+    & span {
+      @apply block w-full h-[2px] bg-white transition-all;
+    }
+  }
+
+  &-mobile.open {
+    @apply gap-0;
+
+    & span:first-child {
+      @apply transform rotate-45 translate-y-1/2;
+    }
+
+    & span:last-child {
+      @apply transform -rotate-45 -translate-y-1/2;
+    }
+
+    & span:nth-child(2) {
+      @apply hidden;
+    }
+  }
+
+  &-mobile-menu {
+    @apply absolute w-full top-full left-0 bg-maroon py-6 max-h-[600px] overflow-y-scroll hidden;
+
+    & .rd-header-menu-top__link {
+      @apply block text-white;
+    }
+
+    & .rd-header-menu-top__link-text {
+      @apply justify-between;
+    }
+
+    & .rd-header-menu-top__link-text .rd-icon {
+      @apply w-[42px] h-[42px] p-[17px] pr-0;
+    }
+  }
+
+  &-mobile-menu.open {
+    @apply block;
+  }
+
+  &--icon-right {
+    @apply -rotate-90;
+  }
+}

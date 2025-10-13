@@ -1,0 +1,54 @@
+{#
+  Title: Team
+  Description: Team block
+  Category: RD-blocks
+  Icon: groups
+  Keywords: team
+  Mode: edit
+  Align: left
+  PostTypes: page post
+  SupportsAlign: left right
+  SupportsMode: true
+  SupportsMultiple: true
+#}
+
+<section class="rd-block rd-spacing rd-team bg-beige">
+  <div class="rd-container">
+    <!-- Heading -->
+    <div class="rd-team-heading">
+      {% if fields.title %}
+        <h2 class="rd-team-heading__title">{{ fields.title }}</h2>
+      {% endif %}
+      {% if fields.description %}
+        <span class="rd-team-heading__text">{{ fields.description }}</span>
+      {% endif %}
+    </div>
+    <!-- Heading End -->
+    <!-- Content -->
+    {% if fields.teams %}
+      <div class="rd-team-list">
+        {% for item in fields.teams %}
+          <div class="rd-team-item">
+            {% if item.image %}
+              <div class="rd-team-item-image">
+                <img src="{{ item.image.url }}" alt="{{ item.name }}" class="rd-responsive">
+              </div>
+            {% endif %}
+            {% if item.name %}
+              <h4 class="rd-team-item__name">{{ item.name }}</h4>
+            {% endif %}
+            {% if item.job %}
+              <span class="rd-team-item__job">{{ item.job }}</span>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <!-- Content End -->
+    {% if fields.button %}
+    <div class="rd-team-btn">
+      <a href="{{ fields.button.url }}" target="{{ fields.button.target }}" class="btn btn-primary">{{ fields.button.title }}</a>
+    </div>
+    {% endif %}
+  </div>
+</section>

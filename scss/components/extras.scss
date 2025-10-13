@@ -1,0 +1,10 @@
+
+.rd {
+  &-desktop {
+    @apply hidden xl:block;
+  }
+
+  &-mobile {
+    @apply block xl:hidden;
+  }
+}

@@ -1,0 +1,41 @@
+.rd-cta {
+  &-wrapper {
+    @apply relative overflow-x-hidden;
+
+    &::before {
+      content: "";
+      background: linear-gradient(180deg, #96805F -0.01%, #96805F 47.59%, rgba(150, 128, 95, 100) 54.54%, rgba(150, 128, 95, 0) 99.99%);
+      @apply absolute top-0 left-0 w-full h-full z-[2];
+
+      @screen lg {
+        background: linear-gradient(90deg, #96805F 0%, #96805F 49.5%, rgba(150, 128, 95, 0.94) 56.33%, rgba(150, 128, 95, 0.1) 64.75%, rgba(150, 128, 95, 0) 100%);
+      }
+    }
+  }
+
+  &-content {
+    @apply relative w-full max-w-[689px] px-5 lg:px-[88px] pt-[52px] pb-[340px] lg:py-[60px] z-[3] text-center lg:text-left mx-auto lg:ml-0;
+  }
+
+  &-image {
+    width: 110%;
+    @apply absolute bottom-0 lg:bottom-auto lg:top-0 right-0 lg:w-1/2 h-[45%] lg:h-full z-[1];
+  }
+
+  &__image {
+    @apply object-top;
+  }
+
+  &__title,
+  &__text {
+    @apply text-white;
+  }
+
+  &__title {
+    @apply mt-0;
+  }
+
+  &-btn {
+    @apply mt-8;
+  }
+}

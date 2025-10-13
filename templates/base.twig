@@ -1,0 +1,22 @@
+{% include 'html-header.twig' %}
+
+<body class="{{body_class}} w-full">
+  <!-- skip to content link for accessibility -->
+  <a class="sr-only" href="/#main">skip to content link</a>
+  <header class="rd-header">
+    {% block header %}
+      {% include 'partial/header.twig' %}
+    {% endblock %}
+  </header>
+  <main id="main" class="body-wrapper rd-main">
+    {% block content %}
+    {% endblock %}
+  </main>
+  {% block footer %}
+  {% include 'partial/footer.twig' %}
+  {% endblock %}
+  {% block scripts %}
+  {{ function('wp_footer') }}
+  {% endblock %}
+</body>
+</html>

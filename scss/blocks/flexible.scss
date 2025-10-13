@@ -1,0 +1,28 @@
+.rd-flexible {
+  @apply py-0 my-[60px] lg:my-[140px];
+
+  &-image {
+    @apply flex gap-10 my-[30px] lg:my-[60px];
+  }
+
+  &-button {
+    @apply my-[30px] lg:my-[60px];
+  }
+
+  &-main {
+    & *:last-child {
+      @apply mb-0;
+    }
+  }
+
+  &-content {
+    & a, & a span {
+      @apply underline;
+      font-weight: 700 !important;
+
+      &:hover {
+        @apply text-black;
+      }
+    }
+  }
+}

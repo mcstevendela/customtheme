@@ -1,0 +1,17 @@
+html {
+  overflow-x: hidden;
+}
+body {
+  @apply bg-white;
+  font-family: 'Jost', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+
+:focus {
+  outline: none;
+}

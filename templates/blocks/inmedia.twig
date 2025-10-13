@@ -1,0 +1,52 @@
+{#
+  Title: In The Media
+  Description: In The Media block
+  Category: RD-blocks
+  Icon: groups
+  Keywords: team
+  Mode: edit
+  Align: left
+  PostTypes: page post
+  SupportsAlign: left right
+  SupportsMode: true
+  SupportsMultiple: true
+#}
+
+<section class="rd-block rd-spacing rd-inmedia bg-beige">
+  <div class="rd-container">
+    <!-- Heading -->
+    <div class="rd-inmedia-heading">
+      {% if fields.title %}
+        <h2 class="rd-inmedia-heading__title">{{ fields.title }}</h2>
+      {% endif %}
+      {% if fields.text %}
+        <span class="rd-inmedia-heading__text">{{ fields.text }}</span>
+      {% endif %}
+    </div>
+    <!-- Heading End -->
+    <!-- Content -->
+    {% if fields.media %}
+      <div class="rd-inmedia-list">
+        {% for item in fields.media %}
+          <a href="{{ item.link.url }}" class="rd-inmedia-item" target="_blank">
+            {% if item.image %}
+              <div class="rd-inmedia-item-image">
+                <img src="{{ item.image.url }}" alt="{{ item.name }}" class="rd-responsive">
+              </div>
+            {% endif %}
+            <div class="rd-inmedia-item-text">
+              {% if item.title %}
+                <h4 class="rd-inmedia-item__name">{{ item.title }}</h4>
+              {% endif %}
+              {% if item.description %}
+                <span class="rd-inmedia-item__text">{{ item.description }}</span>
+              {% endif %}
+              <span class="btn btn-primary">Read More</span>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+    <!-- Content End -->
+  </div>
+</section>

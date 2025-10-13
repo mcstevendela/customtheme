@@ -1,0 +1,46 @@
+<div class="rd-header-mobile">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<div class="rd-header-mobile-menu rd-container">
+  {% if menu %}
+    <nav aria-label="menu navigation">
+      <ul>
+        {% for item in menu.items %}
+          <li class="{{ item.classes | join(' ') }}">
+            {% if item.children %}
+              <a class="rd-header-menu-top__link dropdown" href="{{ item.link }}" target="{{ item.target }}">
+                <span class="rd-header-menu-top__link-text">
+                  {{ item.title }}
+                  <img src="{{ site.theme.link }}/images/icons/arrow-down.svg" class="injectable rd-icon rd-icon--white rd-icon--handler" alt="Arrow Down">
+                </span>
+              </a>
+              <ul class="rd-header-menu-drop">
+              {% for child in item.children %}
+                <li class="rd-header-menu-drop-item">
+                  <a class="rd-header-menu-drop__link" target="{{ child.target }}" href="{{ child.link }}">{{ child.title }}</a>
+                  {% if child.children %}
+                  <ul class="rd-header-menu-drop-sub">
+                    {% for sub in child.children %}
+                      <a class="rd-header-menu-drop__link" target="{{ sub.target }}" href="{{ sub.link }}">{{ sub.title }}</a>
+                    {% endfor %}
+                  </ul>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+            {% else %}
+              <a class="rd-header-menu-top__link" href="{{ item.link }}" target="{{ item.target }}">
+                <span class="rd-header-menu-top__link-text">
+                  {{ item.title }}
+                </span>
+              </a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  {% endif %}
+</div>

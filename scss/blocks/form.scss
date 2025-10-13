@@ -1,0 +1,70 @@
+.rd-form {
+  @apply relative py-[60px] lg:py-[96px];
+
+  &::before {
+    content: "";
+    @apply absolute w-full h-full top-0 left-0 z-[1];
+    background: url("../images/form.jpg") no-repeat center;
+    background-size: cover;
+  }
+
+  &::after {
+    content: "";
+    @apply absolute w-full h-full bg-beige top-0 left-0 z-[2] opacity-[96.5%];
+  }
+
+  &-content {
+    @apply relative z-[3];
+  }
+
+  &__title {
+    @apply text-center my-0;
+  }
+
+  &-main {
+    @apply pt-10 lg:pt-14;
+  }
+
+  & .ff-default .ff-el-input--label label {
+    @apply text-black font-normal;
+  }
+
+  & .ff-el-input--label.ff-el-is-required.asterisk-right label:after {
+    @apply ml-0;
+  }
+
+  & .ff-el-input--label {
+    @apply mb-3;
+  }
+
+  & .ff-default .ff-el-form-control:not(.ff-el-phone) {
+    @apply rounded-none border-beige-border text-black p-4;
+
+    &::placeholder {
+      @apply text-brown;
+    }
+  }
+
+  & .ff-default .ff-el-phone {
+    @apply py-4 pl-16 rounded-none;
+  }
+
+  & .iti__selected-flag {
+    border-radius: 0 !important;
+  }
+
+  & select.ff-el-form-control:not([size]):not([multiple]) {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: white url('data:image/svg+xml;utf8,<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.44368 9.18748L11.1188 6.51231C11.2829 6.34817 11.3751 6.12557 11.375 5.89348C11.3749 5.6614 11.2827 5.43884 11.1186 5.27477C10.9544 5.1107 10.7318 5.01856 10.4997 5.01862C10.2676 5.01867 10.0451 5.11092 9.88101 5.27507L7.20643 7.95023C7.17933 7.97739 7.14715 7.99894 7.11171 8.01365C7.07628 8.02835 7.03829 8.03592 6.99993 8.03592C6.96156 8.03592 6.92357 8.02835 6.88814 8.01365C6.8527 7.99894 6.82052 7.97739 6.79343 7.95023L4.11884 5.27506C3.95477 5.11092 3.73222 5.01867 3.50013 5.01862C3.26805 5.01856 3.04545 5.1107 2.8813 5.27477C2.71715 5.43884 2.62491 5.6614 2.62485 5.89348C2.6248 6.12557 2.71694 6.34817 2.88101 6.51231L5.55618 9.18748C5.93945 9.5697 6.45864 9.78434 6.99993 9.78434C7.54121 9.78434 8.0604 9.5697 8.44368 9.18748Z" fill="%237E7B76"/></svg>') no-repeat right 12px center;
+    background-size: 14px 14px;
+  }
+
+  & .ff-btn.ff-btn-submit {
+    font-family: 'Jost', sans-serif;
+    @apply inline-block px-10 py-5 text-center text-sm leading-normal font-semibold border transition-all uppercase;
+    @apply bg-maroon text-white border-maroon lg:hover:bg-para lg:hover:border-para lg:hover:text-white;
+    @apply w-full lg:w-auto lg:px-[145px] py-4 mt-[10px];
+  }
+}

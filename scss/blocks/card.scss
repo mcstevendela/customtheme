@@ -1,0 +1,108 @@
+.rd-card {
+  &-heading {
+    @apply text-center;
+  }
+
+  &__title {
+    @apply mt-0 mb-4;
+  }
+
+  &-main {
+    @apply pt-10 lg:pt-20 grid grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-[33px];
+  }
+
+  &-item {
+    @apply relative border border-gray transition-all;
+
+    &::before {
+      content: "";
+      @apply absolute w-full h-full top-0 left-0 z-[1] opacity-0;
+      background: url("../images/card-bg.jpg") no-repeat center;
+      background-size: cover;
+    }
+
+    &-wrapper {
+      @apply p-8 flex flex-col items-center gap-6 lg:gap-8 text-center transition-all;
+    }
+
+    &-icon {
+      @apply p-5 bg-beige transition-all;
+    }
+
+    &__icon {
+      @apply w-8 h-8 transition-all;
+    }
+
+    &__title {
+      font-family: 'Gilda', sans-serif;
+      @apply text-2xl text-black transition-all;
+    }
+
+    &__text {
+      @apply text-para transition-all my-0;
+    }
+  }
+
+  &-item {
+    @screen lg {
+      &:hover {
+        @apply border-maroon;
+      }
+
+      &:hover::before {
+        @apply opacity-100;
+      }
+
+      &:hover::after {
+        content: "";
+        @apply absolute w-full h-full top-0 left-0 bg-maroon opacity-90 z-[2];
+      }
+
+      &:hover &-wrapper {
+        @apply relative z-[3];
+      }
+
+      &:hover &-icon {
+        @apply bg-white;
+      }
+
+      &:hover &__title,
+      &:hover &__text {
+        @apply text-white;
+      }
+
+      &:hover &__button {
+        @apply bg-transparent border-white text-white;
+      }
+    }
+  }
+
+  &-tag {
+    @apply flex flex-col lg:flex-row justify-center pt-10 lg:pt-20;
+
+    &__text {
+      @apply relative text-[28px] font-medium text-black inline-block pb-6 lg:pb-0 lg:pr-[55px] text-center lg:text-left;
+
+      &:nth-child(even) {
+        @apply text-maroon;
+      }
+
+      &::after {
+        content: "";
+        @apply absolute left-1/2 lg:left-auto -translate-x-1/2 bottom-2 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 lg:right-[23px] w-[7px] h-[7px] rounded-full bg-maroon;
+      }
+
+      &:last-child {
+        @apply pb-0 lg:pr-0;
+
+        &::after {
+          @apply hidden;
+        }
+      }
+    }
+  }
+
+  &-btn {
+    @apply pt-10 lg:pt-20 flex justify-center;
+  }
+}

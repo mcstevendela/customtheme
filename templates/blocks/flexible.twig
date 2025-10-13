@@ -1,0 +1,45 @@
+{#
+  Title: Flexible Content
+  Description: Flexible Content block
+  Category: RD-blocks
+  Icon: layout
+  Keywords: flexible
+  Mode: edit
+  Align: left
+  PostTypes: page post
+  SupportsAlign: left right
+  SupportsMode: true
+  SupportsMultiple: true
+#}
+
+{% if fields.content %}
+<section class="rd-block rd-spacing rd-flexible bg-white">
+  <div class="rd-container">
+    <div class="rd-flexible-main">
+      {% for item in fields.content %}
+        {% if item.content %}
+          <div class="rd-flexible-content">
+            {{ item.content }}
+          </div>
+        {% endif %}
+        {% if item.image %}
+          <div class="rd-flexible-image">
+            <img src="{{ item.image.url }}" alt="{{ item.image.alt }}" class="rd-responsive">
+          </div>
+        {% endif %}
+        {% if item.first_image and item.second_image %}
+          <div class="rd-flexible-image">
+            <img src="{{ item.first_image.url }}" alt="{{ item.first_image.alt }}" class="rd-responsive">
+            <img src="{{ item.second_image.url }}" alt="{{ item.second_image.alt }}" class="rd-responsive">
+          </div>
+        {% endif %}
+        {% if item.button %}
+          <div class="rd-flexible-button">
+            <a href="{{ item.button.url }}" target="{{ item.button.target }}" class="btn btn-primary">{{ item.button.title }}</a>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

@@ -1,0 +1,30 @@
+<div class="rd-header-container rd-container">
+  <div class="rd-header-wrapper flex justify-between items-center">
+    <!-- Logo -->
+    <div class="rd-header-logo">
+      <a href="{{ site.link }}">
+        <img src="{{ global.header_logo.url }}" alt="{{ site.title }} - logo" title={{ global.logo_image.title }}>
+      </a>
+    </div>
+    <!-- Logo End -->
+    <!-- Nav -->
+    <div class="rd-header-nav">
+      <!-- Menu -->
+      <div class="rd-header-menu">
+        <div class="rd-desktop">
+          {% include 'partial/menu.twig'%}
+        </div>
+        <div class="rd-mobile">
+          {% include 'partial/menu-mobile.twig'%}
+        </div>
+      </div>
+      <!-- Menu End -->
+      <!-- Button -->
+      <a href="{{ global.header_button.url }}" target="{{ global.header_button.target }}" class="btn btn-primary rd-header-nav__button">
+        {{ global.header_button.title }}
+      </a>
+      <!-- Button End -->
+    </div>
+    <!-- Nav End -->
+  </div>
+</div>

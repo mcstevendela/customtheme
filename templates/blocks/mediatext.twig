@@ -1,0 +1,40 @@
+{#
+  Title: Media + Text
+  Description: Media + Text block
+  Category: RD-blocks
+  Icon: money
+  Keywords: mediatext
+  Mode: edit
+  Align: left
+  PostTypes: page post
+  SupportsAlign: left right
+  SupportsMode: true
+  SupportsMultiple: true
+#}
+
+<section class="rd-block rd-spacing rd-media bg-white">
+  <div class="rd-container rd-media-wrapper">
+    <!-- Media -->
+    <div class="rd-media-image">
+      {% if fields.image %}
+        <img src="{{ fields.image.url }}" alt="{{ fields.image.alt }}" class="rd-media__image">
+      {% endif %}
+    </div>
+    <!-- Media End -->
+    <!-- Content -->
+    <div class="rd-media-content">
+      {% if fields.title %}
+        <h2 class="rd-media__title">{{ fields.title }}</h2>
+      {% endif %}
+      {% if fields.description %}
+        <span class="rd-media__text">{{ fields.description }}</span>
+      {% endif %}
+      {% if fields.content %}
+        <div class="rd-media-main rd-content">
+          {{ fields.content }}
+        </div>
+      {% endif %}
+    </div>
+    <!-- Content End -->
+  </div>
+</section>

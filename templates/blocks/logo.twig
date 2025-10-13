@@ -1,0 +1,29 @@
+{#
+  Title: Logo
+  Description: Logo block
+  Category: RD-blocks
+  Icon: podio
+  Keywords: logo
+  Mode: edit
+  Align: left
+  PostTypes: page post
+  SupportsAlign: left right
+  SupportsMode: true
+  SupportsMultiple: true
+#}
+
+{% if fields.logos %}
+<section class="rd-block rd-logo bg-beige">
+	<div class="rd-container">
+		<div class="swiper logos rd-logo-list">
+			<div class="swiper-wrapper">
+			{% for logo in fields.logos %}
+				<div class="swiper-slide">
+					<img src="{{ logo.image.url }}" alt="{{ logo.image.alt }}" class="rd-logo__image">
+				</div>
+			{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+{% endif %}

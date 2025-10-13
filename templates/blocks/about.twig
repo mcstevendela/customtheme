@@ -1,0 +1,56 @@
+{#
+  Title: About
+  Description: About block
+  Category: RD-blocks
+  Icon: money
+  Keywords: format-status
+  Mode: edit
+  Align: left
+  PostTypes: page post
+  SupportsAlign: left right
+  SupportsMode: true
+  SupportsMultiple: true
+#}
+
+<div class="rd-block rd-spacing rd-about bg-white">
+  <div class="rd-container">
+    {% if fields.title %}
+      <h2 class="rd-about__title">{{ fields.title }}</h2>
+    {% endif %}
+    {% if fields.cards %}
+      <div class="rd-about-main">
+        <!-- Top -->
+        <div class="rd-about-top" id="aboutcard">
+          {% for item in fields.cards %}
+          <a href="#about{{ loop.index }}" class="rd-about-top-item">
+            <img class="rd-about-top__image rd-responsive" src="{{ item.image_card.url }}" alt="{{ item.image_card.alt }}">
+            <h4 class="rd-about-top__name">{{ item.name }}</h4>
+            <span class="rd-about-top__job">{{ item.job }}</span>
+            <span class="btn btn-primary">Read More</span>
+          </a>
+          {% endfor %}
+        </div>
+        <!-- Top End -->
+        <!-- Main -->
+        <div class="rd-about-content">
+          {% for item in fields.cards %}
+            <div class="rd-about-content-item" id="about{{ loop.index }}">
+              <div class="rd-about-content-image">
+                <img src="{{ item.image_content.url }}" alt="{{ item.image_content.alt }}" class="rd-about-content__image rd-responsive">
+              </div>
+              <div class="rd-about-content-main">
+                <h4 class="rd-about-content__name">{{ item.name }}</h4>
+                <span class="rd-about-content__job">{{ item.job }}</span>
+                <div class="rd-about-content-text">
+                  {{ item.content }}
+                </div>
+                <a href="#aboutcard" class="btn btn-primary">Back to top</a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <!-- Main End -->
+      </div>
+    {% endif %}
+  </div>
+</div>

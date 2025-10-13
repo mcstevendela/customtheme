@@ -1,0 +1,13 @@
+.rd {
+  &-container {
+    @apply max-w-[1240px] mx-auto px-5;
+  }
+}
+
+.rd-spacing {
+  @apply py-[60px] lg:py-[140px];
+}
+
+.rd-block.bg-white + .rd-block.bg-white {
+  @apply pt-0 mt-0;
+}

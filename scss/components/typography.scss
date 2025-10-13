@@ -1,0 +1,65 @@
+body {
+  @apply text-lg text-brown leading-[30px];
+}
+
+.gilda {
+  font-family: 'Gilda', sans-serif;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: 'Gilda', sans-serif;
+  @apply text-black;
+}
+
+h1, .h1 {
+  @apply text-4xl lg:text-[64px] leading-snug lg:leading-[66px] my-10;
+}
+
+h2, .h2 {
+  @apply text-4xl lg:text-[50px] leading-snug lg:leading-[60px] mt-12 mb-6;
+}
+
+h3, .h3 {
+  @apply text-xl lg:text-2xl leading-snug lg:leading-[46px] my-4;
+}
+
+h4, .h4 {
+  @apply text-lg leading-snug lg:leading-[22px] my-4;
+}
+
+h5, .h5 {
+  @apply text-lg leading-snug lg:leading-[18px] my-4;
+}
+
+h6, .h6 {
+  @apply text-lg lg:text-xl leading-[16px];
+}
+
+// Links
+a {
+  @apply lg:transition-all;
+}
+
+// Paragraph
+p {
+  @apply my-4;
+}
+
+// List
+.rd-main ul {
+  @apply pl-7 my-[30px];
+
+  & li {
+    @apply relative leading-[30px];
+
+    &::before {
+      content: "";
+      @apply absolute -left-4 top-3 w-1 h-1 rounded-full bg-brown;
+    }
+  }
+}
+
+.rd-main ol {
+  @apply pl-7 list-decimal my-[30px];
+}

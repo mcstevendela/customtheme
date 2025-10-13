@@ -1,0 +1,13 @@
+body.admin-bar {
+  & .rd-header {
+    @apply top-[46px];
+
+    @screen md {
+      @apply top-8;
+    }
+  }
+}
+
+.rd-main {
+  @apply mt-[82.02px] lg:mt-[100px];
+}

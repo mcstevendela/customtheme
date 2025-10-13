@@ -1,0 +1,23 @@
+.rd-icon {
+  @apply lg:transition-all;
+
+  &--black path {
+    @apply fill-black;
+  }
+
+  &--white path {
+    @apply fill-white;
+  }
+
+  &--maroon path {
+    @apply fill-maroon;
+  }
+}
+
+.rd-responsive {
+  @apply w-full h-full object-cover;
+}
+
+.rd-grayscale {
+  filter: grayscale(1);
+}
