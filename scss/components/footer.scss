@@ -1,5 +1,21 @@
 .rd-footer {
-  @apply bg-black;
+  @apply relative;
+  background: url("../images/background.png") no-repeat center;
+  background-size: cover;
+
+  &::before {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full opacity-90;
+    background-color: #808080;
+    background-blend-mode: luminosity;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+  }
+
+  &::after {
+    content: "";
+    @apply absolute top-0 left-0 w-full h-full bg-black opacity-80;
+  }
 
   & ul {
     @apply pl-0 my-0;
@@ -10,7 +26,7 @@
   }
 
   &-top {
-    @apply py-[60px] lg:py-[100px]
+    @apply pt-[60px] pb-10 lg:pt-[100px] lg:pb-20 relative z-[1];
   }
 
   &-wrapper {
@@ -18,7 +34,7 @@
   }
 
   &-heading {
-    @apply text-white my-0 text-lg leading-snug lg:leading-[18px] my-4;;
+    @apply text-white my-0 text-2xl font-anton lg:leading-[18px] my-4;;
   }
 
   &-col {
@@ -34,7 +50,7 @@
   }
 
   &-col-3 {
-    @apply w-full lg:max-w-[235px] pt-[50px] lg:pt-0;
+    @apply w-full lg:max-w-[265px] pt-[50px] lg:pt-0;
   }
 
   &-col-wrapper {
@@ -42,19 +58,14 @@
   }
 
   &-description, &-license {
-    @apply text-white pt-12;
+    @apply text-white pt-12 my-0;
   }
 
   &-info {
-    @apply pt-4 flex;
+    @apply pt-4 flex flex-col gap-5;
 
     &__text {
-      @apply relative pr-6 leading-none;
-
-      &::before {
-        content: "";
-        @apply absolute top-0 right-3 w-[1px] h-full bg-white opacity-30;
-      }
+      @apply relative leading-none;
 
       &:last-child {
         @apply pr-0;
@@ -67,7 +78,7 @@
   }
 
   &-menu {
-    @apply pt-[30px] lg:pt-16;
+    @apply pt-[30px] lg:pt-11;
 
     &-item {
       @apply pt-4 lg:pt-6 text-white;
@@ -125,22 +136,18 @@
   }
 
   &-bottom {
-    background: url("../images/background.jpg") no-repeat center;
-    background-size: cover;
-    @apply relative py-[30px];
-
-    &::before {
-      content: "";
-      @apply absolute top-0 left-0 w-full h-full;
-    }
-
+    @apply relative z-[1];
 
     &-wrapper {
-       @apply flex justify-between items-center z-[2] flex-col lg:flex-row;
+       @apply flex justify-center items-center z-[2] flex-col lg:flex-row py-[30px] border-t border-white/20;
     }
 
     &-copy {
-      @apply text-white text-center lg:text-left my-0;
+      @apply text-white text-center lg:text-left my-0 text-sm;
+
+      & span {
+        @apply text-blue
+      }
     }
 
     &-links {
@@ -176,5 +183,9 @@
     @screen lg {
       display: inline-block !important;
     }
+  }
+
+  &__btn {
+    @apply lg:hidden mt-5;
   }
 }

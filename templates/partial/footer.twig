@@ -28,7 +28,21 @@
       <!-- Column 1 End -->
       <!-- Column 2 -->
       <div class="rd-footer-col rd-footer-col-2">
-        <span class="rd-footer-heading">Practice Areas</span>
+        <span class="rd-footer-heading">Service Areas:</span>
+        {% if global.footer_service_area_links %}
+        <ul class="rd-footer-menu">
+          {% for item in global.footer_service_area_links %}
+            <li class="rd-footer-menu-item">
+              <a href="{{ item.footer_service_area_link.url }}" class="rd-footer-menu__link">- {{ item.footer_service_area_link.title }} </a>
+            </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+      <!-- Column 2 End -->
+      <!-- Column 3 -->
+      <div class="rd-footer-col rd-footer-col-3">
+        <span class="rd-footer-heading">Our Services:</span>
         {% if global.footer_service_links %}
         <ul class="rd-footer-menu">
           {% for item in global.footer_service_links %}
@@ -39,53 +53,6 @@
         </ul>
         {% endif %}
       </div>
-      <!-- Column 2 End -->
-      <!-- Column 3 -->
-      <div class="rd-footer-col rd-footer-col-3">
-        <span class="rd-footer-heading">Get In Touch</span>
-        <div class="rd-footer-col-wrapper">
-          {% if global.global_address %}
-            <div class="rd-footer-address">
-              <a href="{{ global.global_address.global_location.url }}" class="rd-footer-address-item">
-                <div class="rd-footer-address-item-icon">
-                  <img src="{{ site.theme.link }}/images/icons/map.svg" class="injectable rd-icon rd-icon--maroon" alt="Map">
-                </div>
-                <span class="rd-footer-address-item-text">{{ global.global_address.global_location.title }}</span>
-              </a>
-
-              <a href="{{ global.global_address.global_email_address.url }}" class="rd-footer-address-item">
-                <div class="rd-footer-address-item-icon">
-                  <img src="{{ site.theme.link }}/images/icons/email.svg" class="injectable rd-icon rd-icon--maroon" alt="Map">
-                </div>
-                <span class="rd-footer-address-item-text">{{ global.global_address.global_email_address.title }}</span>
-              </a>
-
-              <a href="{{ global.global_address.global_phone_number.url }}" class="rd-footer-address-item">
-                <div class="rd-footer-address-item-icon">
-                  <img src="{{ site.theme.link }}/images/icons/phone.svg" class="injectable rd-icon" alt="Map">
-                </div>
-                <span class="rd-footer-address-item-text">{{ global.global_address.global_phone_number.title }}</span>
-              </a>
-            </div>
-          {% endif %}
-          {% if global.global_social %}
-            <div class="rd-footer-social">
-              <span class="rd-footer-heading">Follow Us:</span>
-              <ul class="rd-footer-social-list">
-                {% for item in global.global_social %}
-                  {% if item.social_link.url %}
-                    <li class="rd-footer-social-item">
-                      <a class="rd-footer-social-item__link" href="{{ item.social_link.url }}" target="_blank">
-                        <img src="{{ item.social_image.url }}" alt="{{ item.social_image.alt }}" class="injectable">
-                      </a>
-                    </li>
-                  {% endif %}
-                {% endfor %}
-              </ul>
-            </div>
-          {% endif %}
-        </div>
-      </div>
       <!-- Column 3 End -->
     </div>
   </div>
@@ -94,21 +61,14 @@
   <div class="rd-footer-bottom">
     <div class="rd-footer-bottom-wrapper rd-container">
       <p class="rd-footer-bottom-copy">
-        Copyright © {{ "now"|date("Y") }} <span>{{ global.footer_copyright }}</span>. All Rights Reserved
+        Copyright © {{ "now"|date("Y") }} <span>{{ global.footer_copyright }}</span> | All Rights Reserved
       </p>
 
-      {% if global.footer_links %}
-      <ul class="rd-footer-bottom-links">
-        {% for item in global.footer_links %}
-          <li class="rd-footer-bottom-links-item">
-            <a href="{{ item.footer_link.url }}" class="rd-footer-bottom-links__link">{{ item.footer_link.title }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-      {% endif %}
+      <a href="https://calendly.com/william-3pdelivery615/30min" target="_blank" class="btn btn-full btn-primary rd-footer__btn">Let us help with your next move</a>
     </div>
   </div>
   <!-- Footer Bottom End -->
 </footer>
+
 {{fn('do_shortcode', '[brb_collection id="361"]')}}
-<a href="/consultation/" class="rd-footer__float btn btn-primary">SCHEDULE A CONSULTATION</a>
+<a href="https://calendly.com/william-3pdelivery615/30min" target="_blank" class="rd-footer__float btn btn-primary">Book My Free Walkthrough</a>

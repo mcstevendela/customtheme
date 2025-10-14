@@ -12,4 +12,8 @@
   &-tertiary {
     @apply bg-white text-black border-white lg:hover:bg-transparent lg:hover:text-white;
   }
+
+  &-full {
+    @apply w-full;
+  }
 }

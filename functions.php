@@ -319,3 +319,14 @@ function set_admin_menu_separator() {
 		4   =>  'wp-menu-separator'
 	);
 }
+
+// Removing Reviews Bundle plugin's upgrade notification
+add_action('admin_head', 'remove_annoying_notification');
+function remove_annoying_notification()
+{
+	echo '<style>
+    .notice.notice-error.is-dismissible {
+      display: none!important;
+    }
+  </style>';
+}
