@@ -26,12 +26,15 @@ module.exports = {
         'blue': '#1470AF',
         'light-blue': '#EFF6FA',
         'black': '#000',
-        'gray': '#E3E3E3',
-        'white30': 'rgba(255, 255, 255, 0.3)',
-        'white12': 'rgba(255, 255, 255, 0.12)',
-        'white6': 'rgba(255, 255, 255, 0.06)',
+        'gray': '#414141',
+        'gray-light': '#1C1C1C1F',
       },
-    }
+      fontFamily: {
+        anton: ['Anton', 'sans-serif'],
+        archivo: ['Archivo', 'sans-serif'],
+        verdana: ['Verdana', 'sans-serif'],
+      },
+    },
   },
   variants: {
     extend: {},

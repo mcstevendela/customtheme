@@ -7,7 +7,7 @@
             <a class="rd-header-menu-top__link dropdown" href="{{ item.link }}" target="{{ item.target }}">
               <span class="rd-header-menu-top__link-text">
                 {{ item.title }}
-                <img src="{{ site.theme.link }}/images/icons/arrow-down.svg" class="injectable rd-icon rd-icon--black" alt="Arrow Down">
+                <img src="{{ site.theme.link }}/images/icons/arrow-down.svg" class="injectable rd-icon rd-icon--white" alt="Arrow Down">
               </span>
             </a>
             <ul class="rd-header-menu-drop">
@@ -16,9 +16,7 @@
                   <a class="rd-header-menu-drop__link" target="{{ child.target }}" href="{{ child.link }}">
                     <span class="rd-header-menu-top__link-text">
                       {{ child.title }}
-                      {% if child.children %}
-                        <img src="{{ site.theme.link }}/images/icons/arrow-down.svg" class="injectable rd-icon rd-icon--white rd-icon--handler rd-header--icon-right" alt="Arrow Right">
-                      {% endif %}
+                      <img src="{{ site.theme.link }}/images/icons/arrow-down.svg" class="injectable rd-icon rd-icon--black rd-icon--handler rd-header--icon-right" alt="Arrow Right">
                     </span>
                   </a>
                   {% if child.children %}
@@ -31,6 +29,10 @@
                 </li>
               {% endfor %}
             </ul>
+            <svg class="rd-header-menu-top__icon" width="22" height="14" viewBox="0 0 22 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.85896 1.18141C10.0349 -0.0167022 11.9651 -0.0167056 13.141 1.1814L20.7154 8.89858C22.5781 10.7964 21.2336 14 18.5744 14H3.42562C0.766391 14 -0.578131 10.7964 1.28459 8.89858L8.85896 1.18141Z" fill="white"/>
+            </svg>
+
           {% else %}
             <a class="rd-header-menu-top__link" href="{{ item.link }}" target="{{ item.target }}">
               <span class="rd-header-menu-top__link-text">

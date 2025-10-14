@@ -1,13 +1,12 @@
 .btn {
-  font-family: 'Jost', sans-serif;
-  @apply inline-block px-10 py-5 text-center text-sm leading-normal font-semibold border transition-all uppercase;
+  @apply font-anton inline-block px-10 py-5 text-center text-base leading-normal font-normal transition-all uppercase;
 
   &-primary {
-    @apply  text-white lg:hover:text-white;
+    @apply border border-blue bg-blue text-white rounded-full lg:hover:bg-white lg:hover:text-blue;
   }
 
   &-secondary {
-    @apply bg-white border-gray  lg:hover:text-white ;
+    @apply bg-white border-gray lg:hover:text-white;
   }
 
   &-tertiary {

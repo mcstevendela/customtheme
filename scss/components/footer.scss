@@ -88,7 +88,7 @@
     @apply pt-[30px] lg:pt-11;
 
     &-item {
-      @apply flex gap-[14px] py-4 lg:py-6 border-b border-b-white12;
+      @apply flex gap-[14px] py-4 lg:py-6 border-b;
 
       &:first-child {
         @apply pt-0;
@@ -120,7 +120,7 @@
     }
 
     &-item__link {
-      @apply flex justify-center items-center w-[46px] h-[46px] border border-white12 rounded-full;
+      @apply flex justify-center items-center w-[46px] h-[46px] border rounded-full;
     }
   }
 
@@ -131,7 +131,7 @@
 
     &::before {
       content: "";
-      @apply absolute top-0 left-0 w-full h-full bg-white6;
+      @apply absolute top-0 left-0 w-full h-full;
     }
 
 

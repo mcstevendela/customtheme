@@ -27,8 +27,8 @@ const logSymbols = require('log-symbols'); //For Symbolic Console logs :)
 //Load Previews on Browser on dev
 function livePreview(done){
   browserSync.init({
-    proxy: "localhost:10073/",
-    port: 10073,
+    proxy: "localhost:10028/",
+    port: 10028,
     notify: false,
     ui: false,
   });
@@ -58,7 +58,7 @@ function cleanAOSBundle(){
 // Clean JS Bundle
 function cleanJSBundle(){
   console.log("\n\t" + logSymbols.info,"Cleaning JS bundle for fresh start.\n");
-  return del([`${options.paths.dist.js}/bundle.js`, `${options.paths.dist.js}/bundle.min.js`]);
+  return del([`${options.paths.dist.js}/bundle.min.js`]);
 }
 
 // Main Style Processing (bundle.scss - excludes AOS)
@@ -97,7 +97,7 @@ function devScripts(){
     `${options.paths.src.js}/aos.min.js`,
     `${options.paths.src.js}/swiper.min.js`, 
     `${options.paths.src.js}/bundle.js`
-  ]).pipe(concat({ path: 'bundle.js'})).pipe(dest(options.paths.dist.js));
+  ]).pipe(concat({ path: 'bundle.min.js'})).pipe(dest(options.paths.dist.js));
 }
 
 // Copying Images
@@ -118,7 +118,7 @@ function watchFiles(){
   watch([`${options.paths.src.templates}/**/*.twig`], series(devStyles, devAOSStyles, previewReload));
   watch([options.config.tailwindjs, `${options.paths.src.css}/bundle.scss`, `${options.paths.src.css}/components/**/*.scss`, `${options.paths.src.css}/blocks/**/*.scss`, `${options.paths.src.css}/core/**/*.scss`, `${options.paths.src.css}/plugins/swiper.scss`], series(devStyles, previewReload));
   watch([`${options.paths.src.css}/aos-frontend.scss`, `${options.paths.src.css}/plugins/aos.scss`], series(devAOSStyles, previewReload));
-  watch([`${options.paths.src.js}/**/*.js`], series(devScripts, previewReload));
+  watch([`${options.paths.src.js}/**/*.js`, `!${options.paths.dist.js}/bundle.min.js`], series(devScripts, previewReload));
   watch([`*.php`, `${options.paths.src.templates}/**/*.twig`], series(previewReload));
   watch([`${options.paths.src.img}/**/*`], series(devImages, previewReload));
   watch([`${options.paths.src.includes}/**/*`], series(devIncludes, previewReload));
