@@ -8,18 +8,16 @@
   &-bg {
     @apply absolute w-full h-full top-0 left-0;
 
-    /*&::before {
-      content: "";
-      @apply absolute top-0 left-0 w-full h-full bg-black opacity-20 z-[2];
-    }*/
-
     &__image {
-      @apply object-bottom h-[95%];
+      @apply object-top h-full;
       clip-path: none;
 
-      @media (min-width: 420px) {
-        clip-path: circle(1150px at top);
-        @apply object-top;
+      @media (min-width: 396px) {
+        clip-path: circle(1180px at top);
+      }
+
+      @screen md {
+        clip-path: circle(980px at top);
       }
 
       @screen lg {
