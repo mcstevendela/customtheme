@@ -5,9 +5,13 @@
 }
 
 .rd-spacing {
-  @apply py-[60px] lg:py-[140px];
-}
+  @apply py-[60px] lg:py-[120px];
 
-.rd-block.bg-white + .rd-block.bg-white {
-  @apply pt-0 mt-0;
+  & + & {
+    @apply lg:pt-0;
+  }
+
+  &--half {
+    @apply py-[60px];
+  }
 }

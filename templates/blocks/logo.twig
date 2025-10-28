@@ -13,8 +13,16 @@
 #}
 
 {% if fields.logos %}
-<section class="rd-block rd-logo ">
+<section class="rd-block rd-spacing rd-spacing--white rd-spacing--half rd-logo">
 	<div class="rd-container">
+    <!-- Heading -->
+    <div class="rd-heading">
+      {% if fields.title %}
+        <h2 class="rd-heading__title">{{ fields.title }}</h2>
+      {% endif %}
+    </div>
+    <!-- Heading End -->
+    <!-- Content -->
 		<div class="swiper logos rd-logo-list">
 			<div class="swiper-wrapper">
 			{% for logo in fields.logos %}
@@ -24,6 +32,7 @@
 			{% endfor %}
 			</div>
 		</div>
+    <!-- Content End -->
 	</div>
 </section>
 {% endif %}

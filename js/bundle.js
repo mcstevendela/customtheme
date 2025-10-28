@@ -124,8 +124,8 @@ function smoothScroll(offset = 160) {
           spaceBetween: 40,
         },
         840: {
-          slidesPerView: 4,
-          spaceBetween: 150,
+          slidesPerView: 5,
+          spaceBetween: 100,
         },
       },
     });

@@ -16,8 +16,16 @@
         clip-path: circle(1180px at top);
       }
 
+      @media (min-width: 475px) {
+        clip-path: circle(165vh at top);
+      }
+
+      @media (min-width: 755px) {
+        clip-path: circle(160vh at top);
+      }
+
       @screen md {
-        clip-path: circle(980px at top);
+        clip-path: circle(940px at top);
       }
 
       @screen lg {

@@ -216,6 +216,9 @@ add_filter('jpeg_quality', function($arg){return 100;});
 // CUSTOM SCRIPTS
 function theme_custom_scripts() {
 	wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/js/bundle.js', array('jquery'), '1.1.2', true);
+	//Add Swiper JS
+	wp_enqueue_script( 'swiper-js', get_template_directory_uri() . '/js/swiper.min.js', array(), '1.0.0', true );
+	
 	
 	// Load AOS CSS only on frontend (not admin)
 	if (!is_admin()) {
