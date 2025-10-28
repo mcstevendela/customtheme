@@ -36,6 +36,6 @@
   }
 
   &-btn {
-    @apply mt-8;
+    @apply flex gap-5 justify-center lg:justify-start mt-8;
   }
 }
