@@ -2,41 +2,43 @@
   @apply relative;
 
   &-home {
-    @apply py-[70px] lg:py-0 lg:pt-[183px] lg:pb-[60px];
+    @apply py-[146px] lg:pt-[391px] lg:pb-[228px];
   }
 
   &-bg {
     @apply absolute w-full h-full top-0 left-0;
 
-    &::before {
+    /*&::before {
       content: "";
-      @apply absolute top-0 left-0 w-full h-full bg-black opacity-70 z-[2];
-    }
+      @apply absolute top-0 left-0 w-full h-full bg-black opacity-20 z-[2];
+    }*/
 
     &__image {
-      @apply object-top;
+      @apply object-bottom h-[95%];
+      clip-path: none;
+
+      @media (min-width: 420px) {
+        clip-path: circle(1150px at top);
+        @apply object-top;
+      }
+
+      @screen lg {
+        clip-path: none;
+        @apply object-bottom;
+      }
     }
   }
 
   &-wrapper {
-    @apply relative z-[3];
+    @apply relative z-[3] flex flex-col lg:flex-row items-center gap-10 lg:gap-[100px];
   }
 
   &-content {
-    @apply flex flex-col justify-center items-center lg:items-start w-full lg:max-w-[658px];
-  }
-
-  &__tag {
-    @apply relative flex items-center justify-center lg:justify-start lg:gap-[15px]  lg:font-semibold text-center;
-
-    &::before {
-      content: "";
-      @apply w-[60px] h-[1px] hidden lg:block;
-    }
+    @apply flex flex-col justify-center items-center lg:items-start w-full lg:max-w-[593px];
   }
 
   &__title {
-    @apply mt-5 mb-[30px] lg:my-[30px] text-white text-center lg:text-left;
+    @apply text-[40px] lg:text-[50px] mb-[30px] mt-0 text-white text-center lg:text-left font-anton;
   }
 
   &__text {
@@ -44,7 +46,7 @@
   }
 
   &__button {
-    @apply mt-[30px] lg:mt-[50px];
+    @apply mt-[30px];
   }
 
   &-tag {
@@ -86,5 +88,100 @@
 
   &-inner &__text {
     @apply text-center;
+  }
+
+  &-form {
+    @apply max-w-[555px] w-full bg-[#5656564D] border border-[#FFFFFF1A] rounded-xl flex flex-col items-center;
+    box-shadow: 0px 8px 58px 0px #0000001F;
+
+    &__title {
+      @apply font-anton text-white text-center mt-0 mb-5 text-[32px];
+    }
+
+    .fluentform {
+      @apply w-full;
+    }
+
+    .fluentform-step {
+      @apply p-0;
+    }
+
+    .ff-step-container {
+      @apply relative;
+    }
+
+    .ff-step-header {
+      @apply absolute bottom-[100px] lg:bottom-[22px] left-0 w-full mb-0 lg:max-w-[323px];
+    }
+
+    .ff-column-container {
+      @apply gap-[10px];
+    }
+
+    .ff-el-group {
+      @apply mb-[10px]
+    }
+
+    .ff-el-progress-status {
+      @apply text-white text-sm;
+    }
+
+    .ff-el-progress {
+      background-color: rgba(255, 255, 255, 0.12);
+      @apply rounded-[3px];
+    }
+
+    .ff-el-progress-bar {
+      @apply bg-white;
+
+      & span {
+        @apply font-verdana font-bold text-black;
+      }
+    }
+
+    .error {
+      @apply text-white;
+    }
+
+    .step-nav {
+      @apply mt-20 lg:mt-5;
+    }
+
+    .ff-inner_submit_container {
+      @apply lg:p-3 lg:bg-white lg:rounded-lg;
+
+      .step-nav {
+        @apply lg:m-0;
+      }
+
+      .ff-btn-submit {
+        @apply mt-20 lg:mt-0;
+      }
+    }
+  }
+
+  .rplg {
+    @apply w-full
+  }
+
+  &-review {
+    @apply block w-full;
+    margin-bottom: 20px !important;
+
+    &-top {
+      @apply flex items-center justify-center text-white;
+    }
+
+    &__text {
+      font-size: 15px !important;
+
+      &--bold {
+        @apply font-bold;
+      }
+    }
+
+    &-bottom {
+      @apply flex items-center justify-center mt-2 text-white;
+    }
   }
 }

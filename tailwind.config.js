@@ -27,7 +27,8 @@ module.exports = {
         'light-blue': '#EFF6FA',
         'black': '#000',
         'gray': '#414141',
-        'gray-light': '#1C1C1C1F',
+        'gray-dark': '#1C1C1C1F',
+        'gray-light': '#585858'
       },
       fontFamily: {
         anton: ['Anton', 'sans-serif'],

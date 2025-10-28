@@ -15,7 +15,8 @@
 <section class="rd-block rd-spacing rd-banner rd-banner-home">
   <div class="rd-banner-bg">
     {% if fields.background %}
-      <img src="{{ fields.background.url }}" alt="{{ fields.background.alt }}" class="rd-banner-bg__image rd-responsive rd-grayscale">
+      <img src="{{ fields.background.url }}" alt="{{ fields.background.alt }}" class="rd-banner-bg__image rd-responsive hidden lg:block">
+      <img src="{{ fields.background_mobile.url }}" alt="{{ fields.background_mobile.alt }}" class="rd-banner-bg__image rd-responsive lg:hidden">
     {% endif %}
   </div>
   <div class="rd-container rd-banner-wrapper">
@@ -33,20 +34,12 @@
         <a href="{{ fields.button.url }}" target="{{ fields.button.target }}" class="rd-banner__button btn btn-primary">{{ fields.button.title }}</a>
       {% endif %}
     </div>
-
-    {% if fields.tags %}
-      <div class="rd-banner-tag">
-        {% for item in fields.tags %}
-        <div class="rd-banner-tag-item">
-          {% if item.icon %}
-            <img src="{{ item.icon.url }}" alt="{{ item.icon.alt }}" class="injectable rd-banner-tag__icon">
-          {% endif %}
-          {% if item.title %}
-            <span class="rd-banner-tag__text">{{ item.title }}</span>
-          {% endif %}
-        </div>
-        {% endfor %}
-      </div>
+    {% if fields.form %}
+    <div class="rd-form rd-banner-form">
+      <span class="rd-banner-form__title">{{ fields.form_title }}</span>
+      {{ fields.rating|raw }}
+      {{ fields.form|raw }}
+    </div>
     {% endif %}
   </div>
 </section>

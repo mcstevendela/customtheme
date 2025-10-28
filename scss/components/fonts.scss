@@ -18,3 +18,11 @@
   font-display: swap;
   src: url('../fonts/Verdana/Verdana.ttf') format('truetype');
 }
+
+// Verdana Bold Font
+@font-face {
+  font-family: 'Verdana';
+  font-weight: bold;
+  font-display: swap;
+  src: url('../fonts/Verdana/Verdana-Bold.ttf') format('truetype');
+}
