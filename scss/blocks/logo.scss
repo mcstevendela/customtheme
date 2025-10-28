@@ -1,5 +1,19 @@
 .rd-logo {
   &__image {
-    @apply h-[120px] object-contain mx-auto;
+    @apply h-[90px] lg:h-[120px] object-contain mx-auto;
+  }
+
+  .swiper {
+    &-nav {
+      @apply flex justify-center gap-[30px] lg:hidden mt-[30px];
+    }
+
+    &-btn {
+      @apply w-[50px] h-[50px] bg-white rounded-full flex items-center justify-center cursor-pointer border border-[#E4E4E4] hover:bg-light-blue hover:border-light-blue transition;
+    }
+
+    &-next {
+      @apply transform rotate-180;
+    }
   }
 }

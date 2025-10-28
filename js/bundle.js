@@ -114,13 +114,17 @@ function smoothScroll(offset = 160) {
       grabCursor: true,
       loop: true,
       autoplay: true,
+      navigation: {
+        nextEl: '.swiper-next',
+        prevEl: '.swiper-prev',
+      },
       breakpoints: {
         320: {
           slidesPerView: 2,
           spaceBetween: 40,
         },
         768: {
-          slidesPerView: 2,
+          slidesPerView: 3,
           spaceBetween: 40,
         },
         840: {
