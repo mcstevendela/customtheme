@@ -7,7 +7,7 @@
 .rd-spacing {
   @apply py-[60px] lg:py-[120px];
 
-  & + & {
+  &--white + &--white {
     @apply lg:pt-0;
   }
 

@@ -131,6 +131,16 @@ $about = array(
   'keywords'        => array( 'about' ),
 );
 
+$video = array(
+  'name'            => 'video',
+  'title'           => __( 'Video', 'rd' ),
+  'description'     => __( 'Showcase videos with customizable settings for titles, descriptions, and more.', 'rotatedigital.com' ),
+  'render_callback' => 'my_acf_block_render_callback',
+  'category'        => 'rd-blocks',
+  'icon'            => 'video-alt',
+  'keywords'        => array( 'video' ),
+);
+
 $blocks = [
   $banner,
   $innerbanner,
@@ -144,6 +154,7 @@ $blocks = [
   $form,
   $flexible,
   $inmedia,
-  $about
+  $about,
+  $video,
 ];
 return $blocks;

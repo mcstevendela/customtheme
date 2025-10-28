@@ -1,0 +1,77 @@
+{#
+  Title: Video
+  Description: Video block
+  Category: RD-blocks
+  Icon: list-view
+  Keywords: video
+  Mode: edit
+  Align: left
+  PostTypes: page post
+  SupportsAlign: left right
+  SupportsMode: true
+  SupportsMultiple: true
+#}
+
+<section class="rd-block rd-spacing rd-video">
+	<div class="rd-container">
+    <!-- Headng -->
+    {% if fields.title or fields.description %}
+    <div class="rd-heading rd-video-heading">
+      {% if fields.title %}
+			<h2 class="rd-heading__title">{{ fields.title }}</h2>
+      {% endif %}
+      {% if fields.description %}
+        <span class="rd-heading__text">{{ fields.description }}</span>
+      {% endif %}
+    </div>
+    {% endif %}
+    <!-- Headng End -->
+    <!-- Content -->
+    {% if fields.video %}
+    <div class="rd-video-wrap">
+      <div class="swiper videos rd-video-list">
+        <div class="swiper-wrapper">
+          {% for video in fields.video %}
+            <div class="swiper-slide">
+              <div class="rd-video__item">
+                <!-- Fancybox Link -->
+                <a href="{{ video.link }}" data-fancybox="video-{{ loop.index }}" class="rd-video__link">
+                  {% if video.image %}
+                    <div class="rd-video__thumbnail" style="background-image: url('{{ video.image.url }}');">
+                      <div class="rd-video__play-button">
+                        <svg width="12" height="14" viewBox="0 0 12 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M12 6.92822L-6.52533e-07 13.8564L-4.68497e-08 1.90258e-05L12 6.92822Z" fill="white"/>
+                        </svg>
+                      </div>
+                    </div>
+                  {% endif %}
+
+                  {% if video.title or video.desc %}
+                    <div class="rd-video__title-overlay">
+                      <h3 class="rd-video__title">{{ video.title }}</h3>
+                      <p class="rd-video__description">{{ video.desc }}</p>
+                    </div>
+                  {% endif %}
+                </a>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+      <div class="swiper-nav">
+        <div class="swiper-btn swiper-prev">
+          <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.75032 11.5C5.75499 10.9958 5.95813 10.5138 6.31574 10.1584L10.427 6.03753C10.6065 5.85904 10.8494 5.75885 11.1026 5.75885C11.3558 5.75885 11.5987 5.85904 11.7782 6.03753C11.8681 6.12662 11.9394 6.23261 11.988 6.34939C12.0367 6.46617 12.0617 6.59143 12.0617 6.71794C12.0617 6.84445 12.0367 6.96971 11.988 7.0865C11.9394 7.20328 11.8681 7.30927 11.7782 7.39836L8.62532 10.5417H18.2087C18.4628 10.5417 18.7066 10.6427 18.8863 10.8224C19.066 11.0021 19.167 11.2459 19.167 11.5C19.167 11.7542 19.066 11.9979 18.8863 12.1777C18.7066 12.3574 18.4628 12.4584 18.2087 12.4584H8.62532L11.7782 15.6113C11.9587 15.7905 12.0606 16.034 12.0615 16.2883C12.0624 16.5426 11.9622 16.7869 11.783 16.9673C11.6038 17.1478 11.3603 17.2497 11.106 17.2506C10.8517 17.2515 10.6074 17.1513 10.427 16.9721L6.31574 12.8513C5.9558 12.4935 5.75246 12.0075 5.75032 11.5Z" fill="white"/>
+          </svg>
+        </div>
+        <div class="swiper-btn swiper-next">
+          <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M5.75032 11.5C5.75499 10.9958 5.95813 10.5138 6.31574 10.1584L10.427 6.03753C10.6065 5.85904 10.8494 5.75885 11.1026 5.75885C11.3558 5.75885 11.5987 5.85904 11.7782 6.03753C11.8681 6.12662 11.9394 6.23261 11.988 6.34939C12.0367 6.46617 12.0617 6.59143 12.0617 6.71794C12.0617 6.84445 12.0367 6.96971 11.988 7.0865C11.9394 7.20328 11.8681 7.30927 11.7782 7.39836L8.62532 10.5417H18.2087C18.4628 10.5417 18.7066 10.6427 18.8863 10.8224C19.066 11.0021 19.167 11.2459 19.167 11.5C19.167 11.7542 19.066 11.9979 18.8863 12.1777C18.7066 12.3574 18.4628 12.4584 18.2087 12.4584H8.62532L11.7782 15.6113C11.9587 15.7905 12.0606 16.034 12.0615 16.2883C12.0624 16.5426 11.9622 16.7869 11.783 16.9673C11.6038 17.1478 11.3603 17.2497 11.106 17.2506C10.8517 17.2515 10.6074 17.1513 10.427 16.9721L6.31574 12.8513C5.9558 12.4935 5.75246 12.0075 5.75032 11.5Z" fill="white"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    <!-- Content End -->
+  </div>
+</section>

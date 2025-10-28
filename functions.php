@@ -215,10 +215,11 @@ add_filter('jpeg_quality', function($arg){return 100;});
 
 // CUSTOM SCRIPTS
 function theme_custom_scripts() {
-	wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/js/bundle.js', array('jquery'), '1.1.2', true);
+	wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/js/bundle.min.js', array('jquery'), '1.1.2', true);
 	//Add Swiper JS
 	wp_enqueue_script( 'swiper-js', get_template_directory_uri() . '/js/swiper.min.js', array(), '1.0.0', true );
-	
+	//Add Fancybox JS
+	wp_enqueue_script( 'fancybox-js', get_template_directory_uri() . '/js/fancybox.min.js', array('jquery'), '1.0.0', true );
 	
 	// Load AOS CSS only on frontend (not admin)
 	if (!is_admin()) {
@@ -245,7 +246,11 @@ function codecanal_loginlogo_url($url)
  * Registers support for editor styles & Enqueue it.
  */
 function enqueuing_editor_styling(){
+		// Enqueue editor styles.
     wp_enqueue_style('gutenberg-styles', get_template_directory_uri().'/css/bundle.css'); 
+		// Enqueue Fancybox CSS
+		wp_enqueue_style('fancybox-css', get_template_directory_uri() . '/css/fancybox.min.css', array(), '1.0.0');
+
 }
 add_action( 'enqueue_block_assets', 'enqueuing_editor_styling' );
 

@@ -16,7 +16,7 @@ h2, .h2 {
 }
 
 h3, .h3 {
-  @apply text-xl lg:text-2xl lg:leading-[46px] my-4;
+  @apply text-xl lg:text-2xl lg:leading-[28px] my-4;
 }
 
 h4, .h4 {
@@ -60,9 +60,9 @@ p {
 }
 
 .rd-heading {
-  @apply text-center;
+  @apply text-center mb-[30px] lg:mb-[50px];
 
   &__title {
-    @apply mt-0 mb-[50px]
+    @apply mt-0 mb-[30px];
   }
 }
