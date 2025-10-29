@@ -141,6 +141,16 @@ $video = array(
   'keywords'        => array( 'video' ),
 );
 
+$icon = array(
+  'name'            => 'icon',
+  'title'           => __( 'Icon', 'rd' ),
+  'description'     => __( 'Showcase icons with customizable settings for titles, descriptions, and more.', 'rotatedigital.com' ),
+  'render_callback' => 'my_acf_block_render_callback',
+  'category'        => 'rd-blocks',
+  'icon'            => 'nametag',
+  'keywords'        => array( 'icon' ),
+);
+
 $blocks = [
   $banner,
   $innerbanner,
@@ -156,5 +166,6 @@ $blocks = [
   $inmedia,
   $about,
   $video,
+  $icon,
 ];
 return $blocks;

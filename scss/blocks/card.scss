@@ -1,8 +1,16 @@
 .rd-card {
   @apply bg-light-blue;
 
+  &--icon {
+    @apply bg-white;
+  }
+
   &-heading {
     @apply text-center max-w-[668px] mx-auto;
+
+    &--icon {
+      @apply max-w-full w-full;
+    }
   }
 
   &__title {
@@ -10,11 +18,15 @@
   }
 
   &__text {
-    @apply mt-[30px];
+    @apply block mt-[30px];
   }
 
   &-main {
     @apply pt-10 lg:pt-[60px] grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-[36px] hidden lg:grid;
+
+    &--icon {
+      @apply grid gap-5 lg:gap-[25px];
+    }
   }
 
   &-slider {
@@ -26,6 +38,10 @@
 
     &-wrapper {
       @apply p-9 flex flex-col items-center gap-6 lg:gap-[30px] text-center transition-all;
+
+      &--icon {
+        @apply p-[30px] gap-5;
+      }
     }
     
     &__image {
@@ -43,6 +59,23 @@
     &__button {
       @apply w-full;
     }
+
+    &__tag {
+      @apply font-bold text-blue bg-blue20 px-5 py-[10px] rounded-[50px];
+
+    }
+
+    &-icon {
+      @apply w-[90px] h-[90px] flex justify-center items-center bg-white rounded-full mb-[10px];
+    }
+
+    &--icon {
+      @apply bg-light-blue border-b-[5px] border-b-light-blue cursor-default;
+    }
+
+    &--cursor {
+      @apply cursor-pointer;
+    }
   }
 
   &-item {
@@ -58,6 +91,19 @@
 
       &:hover &__button {
         @apply text-black bg-white;
+      }
+    }
+  }
+
+  &-item--icon {
+    @screen lg {
+      &:hover {
+        @apply bg-light-blue border-b-[5px] border-b-blue;
+      }
+
+      &:hover .rd-card-item__title,
+      &:hover .rd-card-item__text {
+        @apply text-black;
       }
     }
   }
@@ -87,6 +133,6 @@
   }
 
   &-btn {
-    @apply pt-10 flex justify-center;
+    @apply pt-10 lg:pt-[60px] flex justify-center;
   }
 }

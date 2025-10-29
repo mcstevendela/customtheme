@@ -1,0 +1,61 @@
+{#
+  Title: Icon
+  Description: Icon Block
+  Category: RD-blocks
+  Icon: money
+  Keywords: icon
+  Mode: edit
+  Align: left
+  PostTypes: page post
+  SupportsAlign: left right
+  SupportsMode: true
+  SupportsMultiple: true
+#}
+
+<section class="rd-block rd-spacing rd-spacing--white rd-card rd-card--icon">
+  <div class="rd-container">
+    <!-- Heading -->
+    <div class="rd-card-heading rd-card-heading--icon">
+      {% if fields.title %}
+        <h2 class="rd-card__title">{{ fields.title }}</h2>
+      {% endif %}
+      {% if fields.description %}
+        <span class="rd-card__text">{{ fields.description }}</span>
+      {% endif %}
+    </div>
+    <!-- Heading End -->
+    {% if fields.icons %}
+    <!-- Cards Desktop -->
+      <div class="rd-card-main rd-card-main--icon">
+        {% for item in fields.icons %}
+          <a {% if item.button.url %} href="{{ item.button.url }}" {% endif %} class="rd-card-item rd-card-item--icon {% if item.button.url %}rd-card-item--cursor{% endif %}" target="{{ items.button.target }}">
+            <div class="rd-card-item-wrapper rd-card-item-wrapper--icon">
+              {% if item.icon %}
+                <div class="rd-card-item-icon">
+                  <img src="{{ item.icon.url }}" alt="{{ item.icon.alt }}" class="rd-card-item__icon">
+                </div>
+              {% endif %}
+              {% if item.title %}
+                <h3 class="rd-card-item__title">{{ item.title }}</h3>
+              {% endif %}
+              {% if item.tag %}
+                <span class="rd-card-item__tag">{{ item.tag }}</span>
+              {% endif %}
+              {% if item.description %}
+                <p class="rd-card-item__text">{{ item.description }}</p>
+              {% endif %}
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    <!-- Cards Desktop End -->
+    {% endif %}
+    <!-- Button -->
+    {% if fields.button %}
+      <div class="rd-card-btn">
+        <a class="btn btn-primary" href="{{ fields.button.url }}" target="{{ fields.button.target }}">{{ fields.button.title }}</a>
+      </div>
+    {% endif %}
+    <!-- Button End -->
+  </div>
+</section>
