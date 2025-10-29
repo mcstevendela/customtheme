@@ -24,12 +24,13 @@ module.exports = {
     extend: {
       colors: {
         'blue': '#1470AF',
-        'blue20': 'rgba(20, 112, 175, 0.2)',
+        'blue20': '#1470AF33',
         'light-blue': '#EFF6FA',
         'black': '#000',
         'gray': '#414141',
         'gray-dark': '#1C1C1C1F',
-        'gray-light': '#585858'
+        'gray-light': '#585858',
+        'gray-border': '#E5DADB',
       },
       fontFamily: {
         anton: ['Anton', 'sans-serif'],

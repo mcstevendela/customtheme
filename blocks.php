@@ -151,6 +151,16 @@ $icon = array(
   'keywords'        => array( 'icon' ),
 );
 
+$pill = array(
+  'name'            => 'pill',
+  'title'           => __( 'Pill', 'rd' ),
+  'description'     => __( 'Showcase pills with customizable settings for titles, descriptions, and more.', 'rotatedigital.com' ),
+  'render_callback' => 'my_acf_block_render_callback',
+  'category'        => 'rd-blocks',
+  'icon'            => 'editor-ul',
+  'keywords'        => array( 'pill' ),
+);
+
 $blocks = [
   $banner,
   $innerbanner,
@@ -167,5 +177,6 @@ $blocks = [
   $about,
   $video,
   $icon,
+  $pill,
 ];
 return $blocks;

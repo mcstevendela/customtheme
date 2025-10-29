@@ -4,7 +4,7 @@
   }
 
   &-image {
-    @apply relative max-w-[510px] w-full rounded-[10px] overflow-hidden;
+    @apply relative lg:max-w-[510px] w-full rounded-[10px] overflow-hidden;
   }
 
   &-content {
@@ -42,5 +42,71 @@
 
   &-item__title {
     @apply mt-0 mb-3;
+  }
+
+  &-btn--in {
+    @apply hidden lg:inline-block;
+  }
+
+  &-btn--out {
+    @apply inline-block lg:hidden;
+  }
+
+  //Pill Block
+  &--pill {
+    @apply relative;
+
+    &::before {
+      @apply absolute top-0 left-0 w-full h-full bg-light-blue opacity-[.94] content-[''];
+      z-index: 1;
+    }
+  }
+
+  &--pill &-wrapper {
+    @apply relative z-[2] flex-col-reverse lg:flex-row-reverse gap-10 lg:gap-[100px] justify-center text-center;
+  }
+
+  &--pill &-image {
+    @apply flex-shrink-0 w-full max-w-full lg:max-w-[470px];
+  }
+
+  &--pill &__image {
+    @apply w-full h-[398px] lg:h-[675px] object-cover object-center;
+  }
+
+  &--pill &-content {
+    @apply flex flex-col gap-10 lg:gap-[60px] w-full max-w-full;
+  }
+
+  &--pill &__title {
+    @apply text-center mb-0;
+  }
+
+  &-pills {
+    @apply flex flex-wrap gap-4 justify-center;
+
+    &-item {
+      @apply flex w-full lg:w-auto gap-[10px] bg-white border border-gray-border rounded-tl-[30px] rounded-bl-[30px] rounded-tr-[100px] rounded-br-[100px] pl-4 pr-8 py-4 font-anton text-2xl text-black transition-all;
+
+      &--link {
+        @apply lg:hover:border-blue lg:hover:text-blue;
+      }
+    }
+
+    &__icon {
+      @apply w-[30px] h-[30px] inline-block object-contain flex-shrink-0;
+    }
+
+    &--start {
+      @apply justify-start;
+    }
+  }
+
+  &--pill &-wrapper--start {
+    @apply justify-start text-left;
+  }
+
+  &--pill &-wrapper--start &__title {
+    @apply text-center lg:text-left;
   }
 }
