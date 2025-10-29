@@ -6,7 +6,7 @@
   }
 
   &-secondary {
-    @apply bg-white border-gray lg:hover:text-white;
+    @apply bg-light-blue rounded-[100px] text-blue lg:hover:bg-blue lg:hover:text-white;
   }
 
   &-tertiary {

@@ -9,7 +9,7 @@
     }
 
     &-btn {
-      @apply w-[50px] h-[50px] bg-white rounded-full flex items-center justify-center cursor-pointer border border-[#E4E4E4] hover:bg-light-blue hover:border-light-blue transition;
+      @apply w-[50px] h-[50px] bg-white rounded-full flex items-center justify-center cursor-pointer border border-[#E4E4E4] lg:hover:bg-light-blue lg:hover:border-light-blue transition;
     }
 
     &-next {

@@ -27,11 +27,15 @@
   }
 
   &__link:hover &__play-button {
-    @apply bg-opacity-100;
+    @screen lg {
+      @apply bg-opacity-100;
+    }
   }
 
   &__link:hover &__title-overlay {
-    background: linear-gradient(180deg, rgba(30, 27, 19, 0.7) 100%, #1E1B13 100%);
+    @screen lg {
+      background: linear-gradient(180deg, rgba(30, 27, 19, 0.7) 100%, #1E1B13 100%);
+    }
   }
 
   &-wrap {
@@ -44,7 +48,17 @@
     }
 
     &-btn {
-      @apply w-[60px] h-[60px] bg-blue flex justify-center items-center rounded-full cursor-pointer transition-all hover:opacity-80;
+      @apply w-[60px] h-[60px] bg-white flex justify-center items-center rounded-full cursor-pointer transition-all lg:hover:bg-blue;
+
+      & svg path {
+        @apply fill-black transition-all;
+      }
+
+      &:hover svg path {
+        @screen lg {
+          @apply fill-white;
+        }
+      }
     }
 
     &-next {
