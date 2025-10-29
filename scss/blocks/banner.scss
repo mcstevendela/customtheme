@@ -8,24 +8,18 @@
   &-bg {
     @apply absolute w-full h-full top-0 left-0;
 
+    /*&::before {
+      content: "";
+      @apply absolute top-0 left-0 w-full h-full bg-black opacity-20 z-[2];
+    }*/
+
     &__image {
-      @apply object-top h-full;
+      @apply object-bottom h-[95%];
       clip-path: none;
 
-      @media (min-width: 396px) {
-        clip-path: circle(1180px at top);
-      }
-
-      @media (min-width: 475px) {
-        clip-path: circle(165vh at top);
-      }
-
-      @media (min-width: 755px) {
-        clip-path: circle(160vh at top);
-      }
-
-      @screen md {
-        clip-path: circle(940px at top);
+      @media (min-width: 420px) {
+        clip-path: circle(1150px at top);
+        @apply object-top;
       }
 
       @screen lg {

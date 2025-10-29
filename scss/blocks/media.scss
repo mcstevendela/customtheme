@@ -109,4 +109,71 @@
   &--pill &-wrapper--start &__title {
     @apply text-center lg:text-left;
   }
+
+  // Gallery Block
+  &--gallery {
+    @apply relative;
+
+    &::before {
+      @apply absolute top-0 left-0 w-full h-full bg-light-blue opacity-[.94] content-[''];
+      z-index: 1;
+    }
+
+    .swiper {
+      &-nav {
+        @apply w-full flex justify-center z-10 mt-10 gap-5;
+      }
+
+      &-btn {
+        @apply w-[60px] h-[60px] bg-white flex justify-center items-center rounded-full cursor-pointer transition-all lg:hover:bg-blue;
+
+        & svg path {
+          @apply fill-black transition-all;
+        }
+
+        &:hover svg path {
+          @screen lg {
+            @apply fill-white;
+          }
+        }
+      }
+
+      &-next {
+        @apply transform rotate-180;
+      }
+    }
+  }
+
+  &--gallery &-wrapper {
+    @apply relative z-[2] flex flex-col gap-10 lg:gap-[60px];
+  }
+
+  &--gallery &__title {
+    @apply text-center mb-0;
+  }
+
+  &--gallery &-content {
+    @apply max-w-full grid-cols-2 md:grid-cols-3 gap-6 hidden lg:grid;
+  }
+
+  &--gallery &-slider {
+    @apply lg:hidden w-full block;
+  }
+
+  &--gallery &-gallery-item {
+    @apply grid gap-6;
+
+    & img {
+      @apply rounded-[10px] h-[400px] object-cover w-full;
+    }
+
+    &:first-child img:nth-child(even),
+    &:last-child img:nth-child(even) {
+      @apply lg:h-[244px];
+    }
+
+    &:nth-child(2) img:nth-child(odd) {
+      @apply lg:h-[244px];
+    }
+  }
 }

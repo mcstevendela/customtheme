@@ -172,6 +172,20 @@ function smoothScroll(offset = 160) {
       }
     });
 
+    const medias = new Swiper('.medias', {
+      speed: 1200,
+      duration: 5000,
+      grabCursor: true,
+      loop: true,
+      autoplay: true,
+      slidesPerView: 1,
+      navigation: {
+        nextEl: '.swiper-next',
+        prevEl: '.swiper-prev',
+      }
+    });
+
+
     Fancybox.bind("[data-fancybox]", {
       Thumbs : {
         type: false

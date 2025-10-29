@@ -161,6 +161,16 @@ $pill = array(
   'keywords'        => array( 'pill' ),
 );
 
+$gallery = array(
+  'name'            => 'gallery',
+  'title'           => __( 'Gallery', 'rd' ),
+  'description'     => __( 'Showcase a gallery with customizable settings for titles, descriptions, and more.', 'rotatedigital.com' ),
+  'render_callback' => 'my_acf_block_render_callback',
+  'category'        => 'rd-blocks',
+  'icon'            => 'images-alt2',
+  'keywords'        => array( 'gallery' ),
+);
+
 $blocks = [
   $banner,
   $innerbanner,
@@ -178,5 +188,6 @@ $blocks = [
   $video,
   $icon,
   $pill,
+  $gallery,
 ];
 return $blocks;
