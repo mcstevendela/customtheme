@@ -1,0 +1,47 @@
+.rd-process {
+  &-content {
+    @apply mt-[60px] grid grid-cols-1 lg:grid-cols-3 gap-[110px] lg:gap-[132px];
+  }
+
+  &-item {
+    @apply relative flex flex-col gap-[30px];
+
+    &:last-child &__arrow {
+      @apply hidden;
+    }
+    
+    @screen lg {
+      &:nth-child(3n) &__arrow {
+        @apply hidden;
+      }
+    }
+
+    &__arrow {
+      @apply absolute top-full lg:top-[50%] left-1/2 -translate-x-1/2 lg:-translate-x-0 lg:left-full lg:-translate-y-[50%] mt-[30px] lg:mt-0;
+    }
+  }
+
+  &-con {
+    @apply relative;
+  }
+
+  &-icon {
+    @apply relative w-[130px] h-[130px] flex justify-center items-center mx-auto bg-light-blue rounded-full;
+  }
+
+  &__icon {
+    @apply max-w-[48px] h-auto object-contain;
+  }
+
+  &__title {
+    @apply font-anton text-2xl my-0 text-center;
+  }
+
+  &__description {
+    @apply my-0 text-center;
+  }
+
+  &-btn {
+    @apply mt-10 lg:mt-[60px] flex justify-center;
+  }
+}

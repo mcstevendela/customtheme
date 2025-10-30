@@ -120,7 +120,6 @@ function watchFiles(){
   watch([`${options.paths.src.css}/aos-frontend.scss`, `${options.paths.src.css}/plugins/aos.scss`], series(devAOSStyles, previewReload));
   watch([`${options.paths.src.js}/**/*.js`, `!${options.paths.dist.js}/bundle.min.js`], series(devScripts, previewReload));
   watch([`*.php`, `${options.paths.src.templates}/**/*.twig`], series(previewReload));
-  watch([`${options.paths.src.img}/**/*`], series(devImages, previewReload));
   watch([`${options.paths.src.includes}/**/*`], series(devIncludes, previewReload));
   console.log("\n\t" + logSymbols.info,"Watching for Changes..\n");
 }

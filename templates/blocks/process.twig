@@ -1,0 +1,59 @@
+{#
+  Title: Process
+  Description: Showcase a process with customizable settings for titles, descriptions, and more.
+  Category: RD-blocks
+  Icon: schedule
+  Keywords: process
+  Mode: edit
+  Align: left
+  PostTypes: page post
+  SupportsAlign: left right
+  SupportsMode: true
+  SupportsMultiple: true
+#}
+
+<section class="rd-block rd-spacing rd-spacing--white rd-process">
+  <div class="rd-container">
+    <!-- Heading -->
+    <div class="rd-heading">
+      {% if fields.title %}
+        <h2 class="rd-heading__title">{{ fields.title }}</h2>
+      {% endif %}
+    </div>
+    <!-- Heading End -->
+    <!-- Content -->
+    {% if fields.process %}
+    <div class="rd-process-content">
+      {% for item in fields.process %}
+        <div class="rd-process-item">
+          {% if item.icon %}
+            <div class="rd-process-con">
+              <div class="rd-process-icon">
+                <img src="{{ item.icon.url }}" alt="{{ item.icon.alt }}" class="rd-process__icon injectable">
+              </div>
+
+              <img src="{{ site.theme.link }}/images/icons/arrow-right.svg" title="Arrow Right" alt="Arrow Right" class="rd-process-item__arrow hidden lg:block injectable">
+            </div>
+          {% endif %}
+          {% if item.title %}
+            <h3 class="rd-process__title">{{ item.title }}</h3>
+          {% endif %}
+          {% if item.description %}
+            <p class="rd-process__description">{{ item.description }}</p>
+          {% endif %}
+
+          <img src="{{ site.theme.link }}/images/icons/arrow-down.svg" title="Arrow Down" alt="Arrow Down" class="rd-process-item__arrow lg:hidden injectable">
+        </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+    <!-- Content End -->
+    <!-- Button -->
+    {% if fields.button %}
+      <div class="rd-process-btn">
+        <a class="btn btn-primary" href="{{ fields.button.url }}" target="{{ fields.button.target }}">{{ fields.button.title }}</a>
+      </div>
+    {% endif %}
+    <!-- Button End -->
+  </div>
+</section>

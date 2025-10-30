@@ -171,6 +171,16 @@ $gallery = array(
   'keywords'        => array( 'gallery' ),
 );
 
+$process = array(
+  'name'            => 'process',
+  'title'           => __( 'Process', 'rd' ),
+  'description'     => __( 'Showcase a process with customizable settings for titles, descriptions, and more.', 'rotatedigital.com' ),
+  'render_callback' => 'my_acf_block_render_callback',
+  'category'        => 'rd-blocks',
+  'icon'            => 'schedule',
+  'keywords'        => array( 'process' ),
+);
+
 $blocks = [
   $banner,
   $innerbanner,
@@ -189,5 +199,6 @@ $blocks = [
   $icon,
   $pill,
   $gallery,
+  $process,
 ];
 return $blocks;
