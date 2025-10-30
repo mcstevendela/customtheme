@@ -8,7 +8,7 @@
   }
 
   &-content {
-    @apply max-w-[590px] w-full;
+    @apply lg:max-w-[590px] w-full;
   }
 
   &__title {
@@ -175,5 +175,63 @@
     &:nth-child(2) img:nth-child(odd) {
       @apply lg:h-[244px];
     }
+  }
+
+  // FAQ Block
+  &--faq &-faq {
+    @apply mt-10 lg:mt-[60px];
+  }
+
+  &--faq &-image {
+    @apply lg:max-w-[460px];
+  }
+
+  &--faq &__image {
+    @apply h-[420px] lg:min-h-[746px];
+  }
+
+  &--faq &-faq-item:not(:last-child) {
+    @apply mb-4;
+  }
+
+  &--faq &-faq-question {
+    @apply py-3 pl-8 pr-3 border-2 border-gray-dark16 rounded-[100px] flex justify-between items-center cursor-pointer transition-all lg:hover:bg-light-blue;
+  }
+
+  &--faq &-faq__text {
+    @apply font-anton text-2xl text-black;
+  }
+
+  &--faq &-faq-icon {
+    @apply w-[60px] h-[60px] border-2 border-gray-dark16 rounded-full transition-all flex justify-center items-center;
+  }
+
+  &--faq &-faq-answer {
+    @apply mt-4 pl-8 lg:pr-3 hidden;
+  }
+
+  &--faq &-btn {
+    @apply mt-10 lg:mt-[60px] justify-center flex lg:justify-start;
+  }
+
+  // FAQ Block Open
+  &--faq &-faq-item.open {
+    @apply mb-8;
+  }
+
+  &--faq &-faq-item.open &-faq-question {
+    @apply border-white lg:hover:bg-white;
+  }
+
+  &--faq &-faq-item.open &-faq-icon {
+    @apply hidden;
+  }
+
+  &--faq &-faq-item.open &-faq__text {
+    @apply text-blue;
+  }
+
+  &--faq &-faq-item.open &-faq-answer {
+    @apply block;
   }
 }

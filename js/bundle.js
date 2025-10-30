@@ -57,15 +57,15 @@ function mobileMenu() {
 }
 
 function accordion() {
-  document.querySelectorAll('.rd-faq').forEach(main => {
-    main.querySelectorAll('.rd-faq-item').forEach(item => {
-      const question = item.querySelector('.rd-faq-question');
+  document.querySelectorAll('.rd-media-faq').forEach(main => {
+    main.querySelectorAll('.rd-media-faq-item').forEach(item => {
+      const question = item.querySelector('.rd-media-faq-question');
 
       question.addEventListener('click', () => {
         const isOpen = item.classList.contains('open');
 
         // Close all
-        document.querySelectorAll('.rd-faq-item.open').forEach(openItem => {
+        document.querySelectorAll('.rd-media-faq-item.open').forEach(openItem => {
           openItem.classList.remove('open');
         });
 
@@ -76,7 +76,7 @@ function accordion() {
       });
     });
     // Open first item by default
-    const firstItem = document.querySelector('.rd-faq-item');
+    const firstItem = document.querySelector('.rd-media-faq-item');
     if (firstItem) {
       firstItem.classList.add('open');
     }
