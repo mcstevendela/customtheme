@@ -1,41 +1,30 @@
 .rd-cta {
+  @apply relative;
+
   &-wrapper {
-    @apply relative overflow-x-hidden;
+    @apply relative p-10 pb-[138px] lg:pb-[70px] lg:p-[70px] rounded-[10px] rounded-[10px] overflow-hidden;
 
     &::before {
       content: "";
-      background: linear-gradient(180deg, #96805F -0.01%, #96805F 47.59%, rgba(150, 128, 95, 100) 54.54%, rgba(150, 128, 95, 0) 99.99%);
-      @apply absolute top-0 left-0 w-full h-full z-[2];
-
-      @screen lg {
-        background: linear-gradient(90deg, #96805F 0%, #96805F 49.5%, rgba(150, 128, 95, 0.94) 56.33%, rgba(150, 128, 95, 0.1) 64.75%, rgba(150, 128, 95, 0) 100%);
-      }
+      background: linear-gradient(90deg, #1470AF 0%, rgba(20, 112, 175, 0.8) 36.25%, rgba(20, 112, 175, 0.7) 63.92%, rgba(20, 112, 175, 0) 100%);
+      @apply absolute w-full h-full top-0 left-0 z-[2];
     }
   }
 
-  &-content {
-    @apply relative w-full max-w-[689px] px-5 lg:px-[88px] pt-[52px] pb-[340px] lg:py-[60px] z-[3] text-center lg:text-left mx-auto lg:ml-0;
-  }
-
-  &-image {
-    width: 110%;
-    @apply absolute bottom-0 lg:bottom-auto lg:top-0 right-0 lg:w-1/2 h-[45%] lg:h-full z-[1];
-  }
-
-  &__image {
-    @apply object-top;
-  }
-
-  &__title,
-  &__text {
-    @apply text-white;
+  &__bg {
+    @apply absolute w-full h-full top-0 left-0 object-cover z-[1];
+    transform: scaleX(-1);
   }
 
   &__title {
-    @apply mt-0;
+    @apply my-0 text-white max-w-[746px] w-full text-center lg:text-left;
+  }
+
+  &-content {
+    @apply relative z-[3] flex flex-col gap-10;
   }
 
   &-btn {
-    @apply flex gap-5 justify-center lg:justify-start mt-8;
+    @apply flex justify-center lg:justify-start;
   }
 }

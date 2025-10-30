@@ -10,7 +10,7 @@
   }
 
   &-tertiary {
-    @apply bg-white text-black border-white lg:hover:bg-transparent lg:hover:text-white;
+   @apply bg-white rounded-[100px] border border-white text-blue lg:hover:bg-blue lg:hover:text-white;
   }
 
   &-full {
