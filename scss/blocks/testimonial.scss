@@ -1,144 +1,99 @@
 .rd-testimonial {
+  @apply relative;
+
+  &::before {
+    content: "";
+    @apply absolute w-full h-full top-0 left-0 bg-black opacity-90 z-[1];
+  }
+  &-container {
+    @apply relative z-[2];
+  }
+
   &-heading {
-    @apply max-w-[550px] mx-auto text-center;
+    @apply flex items-center justify-between;
 
     &__title {
-      @apply mt-0;
-    }
-
-    &__text {
-      @apply my-0;
+      @apply text-white my-0;
     }
   }
 
   &-content {
-    @apply pt-10 lg:pt-20;
+    @apply pt-[60px];
+  }
+
+  &-desktop {
+    @apply relative hidden lg:block;
+  }
+
+  &-item {
+    @apply grid grid-cols-1 h-auto lg:grid-cols-3 lg:gap-[26px];
+
+    &-content {
+      @apply bg-white p-[30px] rounded-[10px];
+    }
+  }
+
+  &-top {
+    @apply flex items-center justify-between
+  }
+
+  &-stars {
+    @apply flex gap-[6px];
+  }
+
+  &__logo {
+    @apply max-w-[62px] h-auto object-contain;
+  }
+
+  &-text {
+    @apply my-[10px] max-h-[300px] overflow-y-auto;
+  }
+
+  &-author {
+    @apply flex items-center gap-4;
+
+    &-info {
+      @apply flex flex-col;
+    }
+  }
+
+  &__name {
+    @apply font-anton text-lg text-black; 
+  }
+
+  &__time {
+    @apply text-[13px]
+  }
+
+  &__photo {
+    @apply w-[44px] h-[44px] rounded-full object-cover object-center bg-light-blue;
   }
 
   &-btn {
-    @apply text-center pt-5 lg:pt-20;
-  }
-  
-  & r-p {
-    overflow: visible;
+    @apply text-center lg:text-left mt-10 lg:mt-0;
   }
 
-  & r-p rp-stars svg {
-    @apply w-4 h-4;
-  }
-
-  & r-p rp-slider[data-rs="2"] rp-review-inner:before {
-    @apply hidden;
-  }
-
-  & rp-review-inner {
-    @apply  p-[30px] rounded-none;
-    box-shadow: none;
-  }
-
-  & rp-logo {
-    top: 30px;
-    right: 30px;
-  }
-
-  & .rp-review-head {
-    @apply pl-0 justify-center;
-  }
-
-  & rp-review-name > a {
-    font-family: 'Gilda', sans-serif;
-    @apply text-black font-extrabold text-[22px];
-  }
-
-  & rp-review-time {
-    @apply text-lg  mt-2;
-  }
-
-  & rp-review-img img {
-    @apply w-[60px] h-[60px] rounded-full;
-  }
-
-  & rp-review-text {
-    @apply text-lg  leading-[1.7] mt-6;
-  }
-
-  & rp-controls {
-    @apply flex justify-center gap-5 lg:justify-between relative mt-[30px];
-    top: 0 !important;
-
-    @screen lg {
-      @apply mt-0;
-      position: absolute;
-      top: 50% !important;
-    }
-  }
-
-  & rp-btn-prev {
-    @apply relative w-[60px] h-[60px] p-[18px] rounded-full bg-white lg:hover:border-black transition-all flex justify-center items-center border border-gray;
-    
-    @screen lg {
-      left: -70px;
+  .swiper {
+    &-nav {
+      @apply w-full flex justify-center z-10 mt-10 lg:mt-[60px] gap-5;
     }
 
-    &::before {
-      content: '';
-      @apply w-[23px] h-[23px];
-      background: url('../images/icons/arrow-left-circle.svg') no-repeat center;
+    &-btn {
+      @apply w-[60px] h-[60px] bg-white flex justify-center items-center rounded-full cursor-pointer transition-all lg:hover:bg-blue;
+
+      & svg path {
+        @apply fill-black transition-all;
+      }
+
+      &:hover svg path {
+        @screen lg {
+          @apply fill-white;
+        }
+      }
     }
 
-    & svg {
-      @apply hidden;
+    &-next {
+      @apply transform rotate-180;
     }
-  }
-
-  & rp-btn-next {
-    @apply relative w-[60px] h-[60px] p-[18px] rounded-full bg-white lg:hover:border-black transition-all flex justify-center items-center border border-gray;
-
-    @screen lg {
-      right: -70px;
-    }
-
-    &::before {
-      content: '';
-      @apply w-[23px] h-[23px] rotate-180;
-      background: url('../images/icons/arrow-left-circle.svg') no-repeat center;
-    }
-
-    & svg {
-      @apply hidden;
-    }
-  }
-
-  & rp-reviews {
-    @apply mx-0;
-  }
-
-  .swiper-button-next,
-  .swiper-button-prev {
-    @apply w-[58px] h-[58px] transition-all hidden;
-
-    &:hover {
-      @apply opacity-50;
-    }
-
-    @screen lg {
-      @apply block;
-    }
-  }
-
-  .swiper-button-prev {
-    background: url('../images/icons/arrow-left-circle.svg') no-repeat center;
-    left: -7%;
-  }
-
-  .swiper-button-next {
-    background: url('../images/icons/arrow-left-circle.svg') no-repeat center;
-    transform: rotate(180deg);
-    right: -7%;
-  }
-
-  .swiper-button-next::after,
-  .swiper-button-prev::after {
-    font-size: 0;
   }
 }

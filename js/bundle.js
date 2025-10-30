@@ -185,6 +185,27 @@ function smoothScroll(offset = 160) {
       }
     });
 
+    // Initialize Desktop Swiper (visible on desktop, hidden on mobile)
+    const sliderReviewsDesktop = new Swiper('.testimonials', {
+      speed: 800,
+      centeredSlides: false,
+      centerInsufficientSlides: true,
+      slidesPerView: 1,
+      grabCursor: true,
+      loop: true,
+      autoplay: true,
+      navigation: {
+        nextEl: '.swiper-next',
+        prevEl: '.swiper-prev',
+      },
+      breakpoints: {
+        768: {
+          loop: false,
+          autoplay: false,
+        },
+      },
+    });
+
 
     Fancybox.bind("[data-fancybox]", {
       Thumbs : {

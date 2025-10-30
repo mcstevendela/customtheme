@@ -12,25 +12,147 @@
   SupportsMultiple: true
 #}
 
-<section class="rd-block rd-spacing rd-testimonial bg-white">
-	<div class="rd-container">
+<section class="rd-block rd-spacing rd-testimonial" style="background: url({{ fields.background.url }}) no-repeat center; background-size: cover;">
+  <div class="rd-container rd-testimonial-container">
     <div class="rd-testimonial-heading">
       {% if fields.title %}
-			<h2 class="rd-testimonial-heading__title">{{ fields.title }}</h2>
+        <h2 class="rd-testimonial-heading__title">{{ fields.title }}</h2>
       {% endif %}
-      {% if fields.description %}
-        <p class="rd-testimonial-heading__text">{{ fields.description }}</p>
+      {% if fields.button %}
+        <div class="rd-testimonial-btn hidden lg:block">
+          <a href="{{ fields.button.url }}" class="btn btn-primary">{{ fields.button.title }}</a>
+        </div>
       {% endif %}
     </div>
-    {% if fields.shortcode %}
+    {% if fields.testimonials %}
       <div class="rd-testimonial-content">
-        {{fn('do_shortcode', fields.shortcode|striptags)}}
+        <!-- Testimonial Slider Desktop -->
+        <div class="swiper testimonials rd-testimonial-desktop rd-testimonial-list hidden lg:block">
+          <div class="swiper-wrapper">
+            {% for slide in fields.testimonials|batch(6) %}
+              <div class="swiper-slide rd-testimonial-item">
+                {% for item in slide %}
+                  <div class="rd-testimonial-item-content">
+                    <div class="rd-testimonial-top">
+                      {% if item.stars %}
+                        <div class="rd-testimonial-stars">
+                          {% for i in 1..item.stars %}
+                            <img src="{{ site.theme.link }}/images/icons/star.svg" title="Star" alt="Star" class="rd-testimonial__star">
+                          {% endfor %}
+                        </div>
+                      {% endif %}
+                      {% if item.logo.url %}
+                        <div class="rd-testimonial-logo">
+                          <img src="{{ item.logo.url }}" title="{{ item.logo.title }}" alt="{{ item.logo.alt }}" class="rd-testimonial__logo">
+                        </div>
+                      {% endif %}
+                    </div>
+                    {% if item.testimonial %}
+                      <div class="rd-testimonial-text">
+                        {{ item.testimonial }}
+                      </div>
+                    {% endif %}
+                    <div class="rd-testimonial-author">
+                      {% if item.photo.url %}
+                        <img src="{{ item.photo.url }}" title="{{ item.photo.title }}" alt="{{ item.photo.alt }}" class="rd-testimonial__photo">
+                      {% endif %}
+                      <div class="rd-testimonial-author-info">
+                        {% if item.name %}
+                          <span class="rd-testimonial__name">{{ item.name }}</span>
+                        {% endif %}
+                        {% if item.time %}
+                          <span class="rd-testimonial__time">{{ item.time }}</span>
+                        {% endif %}
+                      </div>
+                    </div>
+                  </div>
+                {% endfor %}
+              </div>
+            {% endfor %}
+          </div>
+
+          {% if fields.testimonials|length > 6 %}
+            <div class="swiper-nav">
+              <div class="swiper-btn swiper-prev">
+                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.75032 11.5C5.75499 10.9958 5.95813 10.5138 6.31574 10.1584L10.427 6.03753C10.6065 5.85904 10.8494 5.75885 11.1026 5.75885C11.3558 5.75885 11.5987 5.85904 11.7782 6.03753C11.8681 6.12662 11.9394 6.23261 11.988 6.34939C12.0367 6.46617 12.0617 6.59143 12.0617 6.71794C12.0617 6.84445 12.0367 6.96971 11.988 7.0865C11.9394 7.20328 11.8681 7.30927 11.7782 7.39836L8.62532 10.5417H18.2087C18.4628 10.5417 18.7066 10.6427 18.8863 10.8224C19.066 11.0021 19.167 11.2459 19.167 11.5C19.167 11.7542 19.066 11.9979 18.8863 12.1777C18.7066 12.3574 18.4628 12.4584 18.2087 12.4584H8.62532L11.7782 15.6113C11.9587 15.7905 12.0606 16.034 12.0615 16.2883C12.0624 16.5426 11.9622 16.7869 11.783 16.9673C11.6038 17.1478 11.3603 17.2497 11.106 17.2506C10.8517 17.2515 10.6074 17.1513 10.427 16.9721L6.31574 12.8513C5.9558 12.4935 5.75246 12.0075 5.75032 11.5Z" fill="white"/>
+                </svg>
+              </div>
+              <div class="swiper-btn swiper-next">
+                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.75032 11.5C5.75499 10.9958 5.95813 10.5138 6.31574 10.1584L10.427 6.03753C10.6065 5.85904 10.8494 5.75885 11.1026 5.75885C11.3558 5.75885 11.5987 5.85904 11.7782 6.03753C11.8681 6.12662 11.9394 6.23261 11.988 6.34939C12.0367 6.46617 12.0617 6.59143 12.0617 6.71794C12.0617 6.84445 12.0367 6.96971 11.988 7.0865C11.9394 7.20328 11.8681 7.30927 11.7782 7.39836L8.62532 10.5417H18.2087C18.4628 10.5417 18.7066 10.6427 18.8863 10.8224C19.066 11.0021 19.167 11.2459 19.167 11.5C19.167 11.7542 19.066 11.9979 18.8863 12.1777C18.7066 12.3574 18.4628 12.4584 18.2087 12.4584H8.62532L11.7782 15.6113C11.9587 15.7905 12.0606 16.034 12.0615 16.2883C12.0624 16.5426 11.9622 16.7869 11.783 16.9673C11.6038 17.1478 11.3603 17.2497 11.106 17.2506C10.8517 17.2515 10.6074 17.1513 10.427 16.9721L6.31574 12.8513C5.9558 12.4935 5.75246 12.0075 5.75032 11.5Z" fill="white"/>
+                </svg>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+        <!-- Testimonial Slider Desktop End -->
+        <!-- Testimonial Slider Mobile -->
+        <div class="swiper testimonials rd-testimonial-mobile rd-testimonial-list lg:hidden">
+          <div class="swiper-wrapper">
+            {% for item in fields.testimonials %}
+              <div class="swiper-slide rd-testimonial-item">
+                <div class="rd-testimonial-item-content">
+                  <div class="rd-testimonial-top">
+                    {% if item.stars %}
+                      <div class="rd-testimonial-stars">
+                        {% for i in 1..item.stars %}
+                          <img src="{{ site.theme.link }}/images/icons/star.svg" title="Star" alt="Star" class="rd-testimonial__star">
+                        {% endfor %}
+                      </div>
+                    {% endif %}
+                    {% if item.logo.url %}
+                      <div class="rd-testimonial-logo">
+                        <img src="{{ item.logo.url }}" title="{{ item.logo.title }}" alt="{{ item.logo.alt }}" class="rd-testimonial__logo">
+                      </div>
+                    {% endif %}
+                  </div>
+                  {% if item.testimonial %}
+                    <div class="rd-testimonial-text">
+                      {{ item.testimonial }}
+                    </div>
+                  {% endif %}
+                  <div class="rd-testimonial-author">
+                    {% if item.photo.url %}
+                      <img src="{{ item.photo.url }}" title="{{ item.photo.title }}" alt="{{ item.photo.alt }}" class="rd-testimonial__photo">
+                    {% endif %}
+                    <div class="rd-testimonial-author-info">
+                      {% if item.name %}
+                        <span class="rd-testimonial__name">{{ item.name }}</span>
+                      {% endif %}
+                      {% if item.time %}
+                        <span class="rd-testimonial__time">{{ item.time }}</span>
+                      {% endif %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+
+          {% if fields.button %}
+            <div class="rd-testimonial-btn lg:hidden">
+              <a href="{{ fields.button.url }}" class="btn btn-primary">{{ fields.button.title }}</a>
+            </div>
+          {% endif %}
+
+          {% if fields.testimonials %}
+            <div class="swiper-nav">
+              <div class="swiper-btn swiper-prev">
+                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.75032 11.5C5.75499 10.9958 5.95813 10.5138 6.31574 10.1584L10.427 6.03753C10.6065 5.85904 10.8494 5.75885 11.1026 5.75885C11.3558 5.75885 11.5987 5.85904 11.7782 6.03753C11.8681 6.12662 11.9394 6.23261 11.988 6.34939C12.0367 6.46617 12.0617 6.59143 12.0617 6.71794C12.0617 6.84445 12.0367 6.96971 11.988 7.0865C11.9394 7.20328 11.8681 7.30927 11.7782 7.39836L8.62532 10.5417H18.2087C18.4628 10.5417 18.7066 10.6427 18.8863 10.8224C19.066 11.0021 19.167 11.2459 19.167 11.5C19.167 11.7542 19.066 11.9979 18.8863 12.1777C18.7066 12.3574 18.4628 12.4584 18.2087 12.4584H8.62532L11.7782 15.6113C11.9587 15.7905 12.0606 16.034 12.0615 16.2883C12.0624 16.5426 11.9622 16.7869 11.783 16.9673C11.6038 17.1478 11.3603 17.2497 11.106 17.2506C10.8517 17.2515 10.6074 17.1513 10.427 16.9721L6.31574 12.8513C5.9558 12.4935 5.75246 12.0075 5.75032 11.5Z" fill="white"/>
+                </svg>
+              </div>
+              <div class="swiper-btn swiper-next">
+                <svg width="23" height="23" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M5.75032 11.5C5.75499 10.9958 5.95813 10.5138 6.31574 10.1584L10.427 6.03753C10.6065 5.85904 10.8494 5.75885 11.1026 5.75885C11.3558 5.75885 11.5987 5.85904 11.7782 6.03753C11.8681 6.12662 11.9394 6.23261 11.988 6.34939C12.0367 6.46617 12.0617 6.59143 12.0617 6.71794C12.0617 6.84445 12.0367 6.96971 11.988 7.0865C11.9394 7.20328 11.8681 7.30927 11.7782 7.39836L8.62532 10.5417H18.2087C18.4628 10.5417 18.7066 10.6427 18.8863 10.8224C19.066 11.0021 19.167 11.2459 19.167 11.5C19.167 11.7542 19.066 11.9979 18.8863 12.1777C18.7066 12.3574 18.4628 12.4584 18.2087 12.4584H8.62532L11.7782 15.6113C11.9587 15.7905 12.0606 16.034 12.0615 16.2883C12.0624 16.5426 11.9622 16.7869 11.783 16.9673C11.6038 17.1478 11.3603 17.2497 11.106 17.2506C10.8517 17.2515 10.6074 17.1513 10.427 16.9721L6.31574 12.8513C5.9558 12.4935 5.75246 12.0075 5.75032 11.5Z" fill="white"/>
+                </svg>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+        <!-- Testimonial Slider Mobile End -->
       </div>
     {% endif %}
-		{% if fields.button %}
-			<div class="rd-testimonial-btn">
-				<a href="{{ fields.button.url}}" class="btn btn-primary">{{fields.button.title}}</a>
-			</div>
-		{% endif %}
-	</div>
+  </div>
 </section>
