@@ -111,14 +111,14 @@ $flexible = array(
   'keywords'        => array( 'flexible' ),
 );
 
-$inmedia = array(
-  'name'            => 'inmedia',
-  'title'           => __( 'In The Media', 'rd' ),
+$blog = array(
+  'name'            => 'blog',
+  'title'           => __( 'Blogs', 'rd' ),
   'description'     => __( 'Browse our latest posts below and click any title or image to read the full article.', 'rotatedigital.com' ),
   'render_callback' => 'my_acf_block_render_callback',
   'category'        => 'rd-blocks',
   'icon'            => 'admin-post',
-  'keywords'        => array( 'inmedia' ),
+  'keywords'        => array( 'blog' ),
 );
 
 $about = array(
@@ -193,7 +193,7 @@ $blocks = [
   $testimonial,
   $form,
   $flexible,
-  $inmedia,
+  $blog,
   $about,
   $video,
   $icon,

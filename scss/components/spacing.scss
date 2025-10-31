@@ -14,4 +14,8 @@
   &--white + &--white {
     @apply pt-0;
   }
+
+  &--light-blue + &--light-blue {
+    @apply pt-0;
+  }
 }

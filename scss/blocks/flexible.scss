@@ -1,17 +1,25 @@
 .rd-flexible {
-  @apply py-0 my-[60px] lg:my-[140px];
+  @apply bg-light-blue;
 
   &-image {
-    @apply flex gap-10 my-[30px] lg:my-[60px];
+    @apply flex gap-10 my-[30px] lg:my-[80px];
+
+    & img {
+      @apply rounded-[10px];
+    }
   }
 
   &-button {
-    @apply my-[30px] lg:my-[60px];
+    @apply my-[30px] lg:my-10;
   }
 
   &-main {
     & *:last-child {
       @apply mb-0;
+    }
+
+    & *:first-child {
+      @apply mt-0;
     }
   }
 
