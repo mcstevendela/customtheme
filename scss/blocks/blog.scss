@@ -1,0 +1,47 @@
+.rd-blog {
+  &-heading {
+    @apply text-center;
+
+    &__title {
+      @apply my-0;
+    }
+  }
+
+  &-list {
+    @apply mt-[30px] lg:mt-[60px] grid grid-cols-1 gap-6 lg:gap-9 lg:grid-cols-3;
+  }
+
+  &-item {
+    @apply p-4 border border-gray-dark16 rounded-[10px] lg:hover:bg-light-blue;
+
+    &-image {
+      @apply mb-6 lg:mb-10;
+
+      & img {
+        @apply w-full h-auto lg:h-[210px] object-cover rounded-[8px];
+      }
+    }
+
+    &-text {
+      @apply lg:p-5 pt-0;
+    }
+
+    &__date {
+      @apply flex items-center gap-3 mb-4 lg:mb-[25px];
+    }
+
+    &__text {
+      @apply mt-4 lg:mt-[25px];
+    }
+
+    &-btn {
+      @apply mt-6 lg:mt-[30px];
+    }
+  }
+
+  @screen lg {
+    &-item:hover .btn-secondary {
+      @apply bg-blue text-white;
+    }
+  }
+}

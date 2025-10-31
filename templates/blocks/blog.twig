@@ -12,36 +12,44 @@
   SupportsMultiple: true
 #}
 
-<section class="rd-block rd-spacing rd-inmedia ">
+<section class="rd-block rd-spacing rd-blog ">
   <div class="rd-container">
     <!-- Heading -->
-    <div class="rd-inmedia-heading">
+    <div class="rd-blog-heading">
       {% if fields.title %}
-        <h2 class="rd-inmedia-heading__title">{{ fields.title }}</h2>
-      {% endif %}
-      {% if fields.text %}
-        <span class="rd-inmedia-heading__text">{{ fields.text }}</span>
+        <h2 class="rd-blog-heading__title">{{ fields.title }}</h2>
       {% endif %}
     </div>
     <!-- Heading End -->
     <!-- Content -->
-    {% if fields.media %}
-      <div class="rd-inmedia-list">
-        {% for item in fields.media %}
-          <a href="{{ item.link.url }}" class="rd-inmedia-item" target="_blank">
-            {% if item.image %}
-              <div class="rd-inmedia-item-image">
-                <img src="{{ item.image.url }}" alt="{{ item.name }}" class="rd-responsive">
+    {% set posts = {'category': category_id, 'posts_per_page': fields.post_per_view, 'orderby': 'date', 'order': 'DESC'} %}
+    {% if fn('get_posts', posts ) %}
+      <div class="rd-blog-list">
+				{% for post in fn('get_posts', posts ) %}
+					{% set link = fn('get_permalink', post.ID) %}
+					{% set thumbnail_url = fn('get_the_post_thumbnail_url', post.ID ) %}
+          <a href="{{ link }}" class="rd-blog-item" target="_blank">
+            {% if thumbnail_url %}
+              <div class="rd-blog-item-image">
+                <img src="{{ thumbnail_url }}" alt="{{ post.post_title }}" class="rd-responsive">
               </div>
             {% endif %}
-            <div class="rd-inmedia-item-text">
-              {% if item.title %}
-                <h4 class="rd-inmedia-item__name">{{ item.title }}</h4>
+            <div class="rd-blog-item-text">
+              {% if post.post_date %}
+                <div class="rd-blog-item__date">
+                  <img src="{{ site.theme.link }}/images/icons/calendar.svg" alt="Calendar Icon">
+                  <span>{{ post.post_date|date('j F Y') }}</span>
+                </div>
               {% endif %}
-              {% if item.description %}
-                <span class="rd-inmedia-item__text">{{ item.description }}</span>
+              {% if post.post_title %}
+                <h3 class="rd-blog-item__name">{{ post.post_title }}</h3>
               {% endif %}
-              <span class="btn btn-primary">Read More</span>
+              {% if post.post_excerpt %}
+                <span class="rd-blog-item__text">{{ post.post_excerpt }}</span>
+              {% endif %}
+              <div class="rd-blog-item-btn">
+              <span class="btn btn-secondary">Read More</span>
+              </div>
             </div>
           </a>
         {% endfor %}
