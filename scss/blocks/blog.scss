@@ -18,7 +18,7 @@
       @apply mb-6 lg:mb-10;
 
       & img {
-        @apply w-full h-auto lg:h-[210px] object-cover rounded-[8px];
+        @apply w-full h-auto lg:h-[210px] object-cover rounded-lg;
       }
     }
 

@@ -10,27 +10,6 @@ $banner = array(
   'keywords'        => array( 'banner' ),
 );
 
-$innerbanner = array(
-  'name'            => 'innerbanner',
-  'title'           => __( 'Inner Banner', 'rd' ),
-  'description'     => __( 'Use to display a high-impact Inner Banner above the fold for key messages.', 'rotatedigital.com' ),
-  'render_callback' => 'my_acf_block_render_callback',
-  'category'        => 'rd-blocks',
-  'icon'            => 'money',
-  'keywords'        => array( 'innerbanner' ),
-);
-
-
-$mediatext = array(
-  'name'            => 'mediatext',
-  'title'           => __( 'Media + Text', 'rd' ),
-  'description'     => __( 'Combine images or videos with text side-by-side for engaging, versatile content layouts.', 'rotatedigital.com' ),
-  'render_callback' => 'my_acf_block_render_callback',
-  'category'        => 'rd-blocks',
-  'icon'            => 'align-pull-left',
-  'keywords'        => array( 'mediatext' ),
-);
-
 $card = array(
   'name'            => 'card',
   'title'           => __( 'Cards', 'rd' ),
@@ -49,16 +28,6 @@ $cta = array(
   'category'        => 'rd-blocks',
   'icon'            => 'phone',
   'keywords'        => array( 'cta' ),
-);
-
-$team = array(
-  'name'            => 'team',
-  'title'           => __( 'Team', 'rd' ),
-  'description'     => __( 'Introduce your staff with customizable profiles showcasing photos, roles, and bios to build trust and connection.', 'rotatedigital.com' ),
-  'render_callback' => 'my_acf_block_render_callback',
-  'category'        => 'rd-blocks',
-  'icon'            => 'groups',
-  'keywords'        => array( 'team' ),
 );
 
 $faq = array(
@@ -181,13 +150,20 @@ $process = array(
   'keywords'        => array( 'process' ),
 );
 
+$map = array(
+  'name'            => 'map',
+  'title'           => __( 'Map', 'rd' ),
+  'description'     => __( 'Embed interactive maps with customizable locations, zoom levels, and styles to enhance user experience.', 'rotatedigital.com' ),
+  'render_callback' => 'my_acf_block_render_callback',
+  'category'        => 'rd-blocks',
+  'icon'            => 'location-alt',
+  'keywords'        => array( 'map' ),
+);
+
 $blocks = [
   $banner,
-  $innerbanner,
-  $mediatext,
   $card,
   $cta,
-  $team,
   $faq,
   $logo,
   $testimonial,
@@ -200,5 +176,6 @@ $blocks = [
   $pill,
   $gallery,
   $process,
+  $map,
 ];
 return $blocks;

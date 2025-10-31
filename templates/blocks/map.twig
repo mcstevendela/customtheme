@@ -1,0 +1,31 @@
+{#
+  Title: Map  
+  Description: Map block
+  Category: RD-blocks
+  Icon: location-alt
+  Keywords: map
+  Mode: edit
+  Align: left
+  PostTypes: page post
+  SupportsAlign: left right
+  SupportsMode: true
+  SupportsMultiple: true
+#}
+
+<section class="rd-block rd-spacing rd-spacing--white rd-map">
+  <div class="rd-container">
+    <!-- Content -->
+    <div class="rd-map-content">
+      {% if fields.map_code %}
+        <div class="rd-map-code">
+          {{ fields.map_code|raw }}
+        </div>
+      {% endif %}
+      {% if fields.weather_code %}
+        <div class="rd-map-weather">
+          {{ fields.weather_code|raw }}
+        </div>
+      {% endif %}
+    </div>
+    <!-- Content End -->
+  </div>

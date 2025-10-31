@@ -1,0 +1,19 @@
+.rd-map {
+  @apply relative;
+
+  &-content {
+    @apply flex flex-col lg:flex-row items-center gap-[33px];
+  }
+
+  &-code {
+    @apply lg:max-w-[882px] w-full h-full rounded-lg overflow-hidden;
+
+    & iframe {
+      @apply w-full h-full min-h-[322px] lg:min-h-[522px];
+    }
+  }
+
+  &-weather {
+    @apply lg:max-w-[285px] w-full border border-gray-dark16 rounded-lg overflow-hidden;
+  }
+}
