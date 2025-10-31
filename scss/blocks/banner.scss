@@ -2,47 +2,61 @@
   @apply relative;
 
   &-home {
-    @apply py-[146px] lg:pt-[391px] lg:pb-[228px];
+    @apply py-[146px] xl:pt-[391px] xl:pb-[228px];
   }
 
   &-bg {
     @apply absolute w-full h-full top-0 left-0;
 
-    /*&::before {
-      content: "";
-      @apply absolute top-0 left-0 w-full h-full bg-black opacity-20 z-[2];
-    }*/
-
     &__image {
-      @apply object-bottom h-[95%];
-      clip-path: none;
+      @apply object-top h-[260px] md:h-auto xl:h-full;
+    }
 
-      @media (min-width: 420px) {
-        clip-path: circle(1150px at top);
-        @apply object-top;
+    &::before {
+      content: '';
+      @apply absolute w-full h-full -bottom-[1px] left-0 z-[2];
+      background: url('../images/wave-mobile.png') no-repeat center bottom;
+      background-size: contain;
+
+      @screen md {
+        background: url('../images/wave.png') no-repeat center bottom;
+        background-size: contain;
+      }
+    }
+
+    &::after {
+      content: '';
+      @apply absolute w-full h-full top-0 left-0 z-[1];
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 6.7%, #000000 20.79%, #000000 100%);
+
+      @screen md {
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 6.7%, #000000 40%, #000000 100%);
       }
 
       @screen lg {
-        clip-path: none;
-        @apply object-bottom;
+        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 6.7%, #000000 50%, #000000 100%);
+      }
+
+      @screen xl {
+        background: rgba(0, 0, 0, 20%);
       }
     }
   }
 
   &-wrapper {
-    @apply relative z-[3] flex flex-col lg:flex-row items-center gap-10 lg:gap-[100px];
+    @apply relative z-[3] flex flex-col xl:flex-row items-center gap-10 xl:gap-[100px];
   }
 
   &-content {
-    @apply flex flex-col justify-center items-center lg:items-start w-full lg:max-w-[593px];
+    @apply flex flex-col justify-center items-center xl:items-start w-full xl:max-w-[593px];
   }
 
   &__title {
-    @apply text-[40px] lg:text-[50px] mb-[30px] mt-0 text-white text-center lg:text-left font-anton;
+    @apply text-[40px] xl:text-[50px] mb-[30px] mt-0 text-white text-center xl:text-left font-anton;
   }
 
   &__text {
-    @apply text-white text-center lg:text-left my-0;
+    @apply text-white text-center xl:text-left my-0;
   }
 
   &__button {
@@ -50,22 +64,22 @@
   }
 
   &-tag {
-    @apply pt-12 lg:pt-[188px] flex flex-col lg:flex-row max-w-[250px] lg:max-w-full mx-auto;
+    @apply pt-12 xl:pt-[188px] flex flex-col xl:flex-row max-w-[250px] xl:max-w-full mx-auto;
 
     &-item {
-      @apply flex gap-[15px] lg:px-[125px] lg:border-r pb-5 lg:pb-0;
+      @apply flex gap-[15px] xl:px-[125px] xl:border-r pb-5 xl:pb-0;
 
       &:first-child {
-        @apply lg:pl-0;
+        @apply xl:pl-0;
       }
 
       &:last-child {
-        @apply lg:pr-0 lg:border-r-0 pb-0;
+        @apply xl:pr-0 xl:border-r-0 pb-0;
       }
     }
 
     &__icon {
-      @apply w-6 lg:w-[30px] h-6 lg:h-[30px];
+      @apply w-6 xl:w-[30px] h-6 xl:h-[30px];
     }
 
     &__text {
@@ -75,7 +89,7 @@
   }
 
   &-inner {
-    @apply py-[70px] lg:py-0 lg:pt-[145px] lg:pb-[100px];
+    @apply py-[70px] xl:py-0 xl:pt-[145px] xl:pb-[100px];
   }
 
   &-inner &-content {
@@ -91,7 +105,8 @@
   }
 
   &-form {
-    @apply max-w-[555px] w-full bg-[#5656564D] border border-[#FFFFFF1A] rounded-xl flex flex-col items-center;
+    @apply xl:max-w-[555px] w-full border border-[#FFFFFF1A] rounded-xl flex flex-col items-center p-5;
+    background-color: #5656564D !important;
     box-shadow: 0px 8px 58px 0px #0000001F;
 
     &__title {
@@ -111,7 +126,7 @@
     }
 
     .ff-step-header {
-      @apply absolute bottom-[100px] lg:bottom-[22px] left-0 w-full mb-0 lg:max-w-[323px];
+      @apply absolute bottom-[100px] xl:bottom-[22px] left-0 w-full mb-0 xl:max-w-[323px];
     }
 
     .ff-column-container {
@@ -119,7 +134,11 @@
     }
 
     .ff-el-group {
-      @apply mb-[10px]
+      margin-bottom: 10px !important;
+    }
+
+    .ff_submit_btn_wrapper {
+      margin-bottom: 0 !important;
     }
 
     .ff-el-progress-status {
@@ -144,18 +163,18 @@
     }
 
     .step-nav {
-      @apply mt-20 lg:mt-5;
+      @apply mt-20 xl:mt-5;
     }
 
     .ff-inner_submit_container {
-      @apply lg:p-3 lg:bg-white lg:rounded-lg;
+      @apply xl:p-3 xl:bg-white xl:rounded-lg;
 
       .step-nav {
-        @apply lg:m-0;
+        @apply xl:m-0;
       }
 
       .ff-btn-submit {
-        @apply mt-20 lg:mt-0;
+        @apply mt-20 xl:mt-0;
       }
     }
   }

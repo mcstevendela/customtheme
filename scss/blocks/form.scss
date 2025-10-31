@@ -1,16 +1,21 @@
 .rd-form {
-  @apply relative p-5;
+  @apply relative bg-light-blue;
 
   &-content {
     @apply relative z-[3];
   }
 
   &__title {
-    @apply text-center my-0;
+    @apply text-center my-0 max-w-[776px] mx-auto; 
   }
 
   &-main {
-    @apply pt-10 lg:pt-14;
+    @apply pt-10 lg:pt-[60px];
+
+    & .ff_submit_btn_wrapper {
+      @apply mt-6;
+      margin-bottom: 0 !important;
+    }
   }
 
   & .ff-el-input--label.ff-el-is-required.asterisk-right label:after {
@@ -30,7 +35,7 @@
   }
 
   & .ff-default .ff-el-phone {
-    @apply py-4 pl-16 rounded-[125px] text-gray-light text-[15px] font-verdana;
+    @apply py-4 pl-16 rounded-[125px] text-gray-light text-[15px] font-verdana min-h-[60px];
 
     &::placeholder {
       @apply text-gray-light text-[15px] font-verdana;
@@ -38,7 +43,7 @@
   }
 
   & .iti__selected-flag {
-    border-radius: 0 !important;
+    border-radius: 28px 0 0 28px !important;
   }
 
   & select.ff-el-form-control:not([size]):not([multiple]) {
@@ -53,5 +58,13 @@
   & .ff-btn.ff-btn-prev,
   & .ff-btn.ff-btn-next {
      @apply font-anton inline-block px-10 py-5 text-center text-base leading-normal font-normal transition-all uppercase border border-blue bg-blue text-white rounded-full lg:hover:bg-white lg:hover:text-blue;
+  }
+
+  & .ff-el-group {
+    @apply mb-4;
+  }
+
+  & textarea {
+    border-radius: 30px !important;
   }
 }

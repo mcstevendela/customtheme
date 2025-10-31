@@ -15,8 +15,7 @@
 <section class="rd-block rd-spacing rd-spacing--white rd-banner rd-banner-home">
   <div class="rd-banner-bg">
     {% if fields.background %}
-      <img src="{{ fields.background.url }}" alt="{{ fields.background.alt }}" class="rd-banner-bg__image rd-responsive hidden lg:block">
-      <img src="{{ fields.background_mobile.url }}" alt="{{ fields.background_mobile.alt }}" class="rd-banner-bg__image rd-responsive lg:hidden">
+      <img src="{{ fields.background.url }}" alt="{{ fields.background.alt }}" class="rd-banner-bg__image rd-responsive">
     {% endif %}
   </div>
   <div class="rd-container rd-banner-wrapper">
@@ -35,7 +34,7 @@
       {% endif %}
     </div>
     {% if fields.form %}
-    <div class="rd-form rd-banner-form">
+    <div class="rd-banner-form rd-form">
       <span class="rd-banner-form__title">{{ fields.form_title }}</span>
       {{ fields.rating|raw }}
       {{ fields.form|raw }}

@@ -7,11 +7,11 @@
 .rd-spacing {
   @apply py-[60px] lg:py-[120px];
 
-  &--white + &--white {
-    @apply lg:pt-0;
-  }
-
   &--half {
     @apply py-[60px];
+  }
+
+  &--white + &--white {
+    @apply pt-0;
   }
 }
