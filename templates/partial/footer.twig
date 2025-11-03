@@ -24,6 +24,22 @@
           </div>
         </div>
         {% endif %}
+        {% if global.global_social %}
+        <div class="rd-footer-social">
+          <span class="rd-footer-heading">Follow Us:</span>
+          <div class="rd-footer-social-list">
+            {% for item in global.global_social %}
+              {% if item.social_link %}
+                <a class="rd-footer-social-item__link" href="{{ item.social_link.url }}" target="_blank" aria-label="{{ item.social_link.title }}">
+                  {% if item.social_image %}
+                    <img src="{{ item.social_image.url }}" alt="{{ item.social_image.title }}" title="{{ item.social_image.title }}">
+                  {% endif %}
+                </a>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
       </div>
       <!-- Column 1 End -->
       <!-- Column 2 -->

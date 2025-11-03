@@ -72,24 +72,22 @@
     &--icon {
       @apply bg-light-blue border-b-[5px] border-b-light-blue cursor-default;
     }
-
-    &--cursor {
-      @apply cursor-pointer;
-    }
   }
 
-  &-item {
+  &-item--cursor {
+    @apply cursor-pointer;
+
     @screen lg {
       &:hover {
         @apply bg-blue;
       }
 
-      &:hover &__title,
-      &:hover &__text {
+      &:hover .rd-card-item__title,
+      &:hover .rd-card-item__text {
         @apply text-white;
       }
 
-      &:hover &__button {
+      &:hover .rd-card-item__button {
         @apply text-black bg-white;
       }
     }

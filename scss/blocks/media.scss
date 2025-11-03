@@ -1,6 +1,6 @@
 .rd-media {
   &-wrapper {
-    @apply flex flex-col lg:flex-row justify-between items-center gap-10 lg:gap-[100px];
+    @apply flex flex-col lg:flex-row justify-between items-start gap-10 lg:gap-[100px];
   }
 
   &-image {
@@ -149,7 +149,7 @@
   }
 
   &--gallery &-wrapper {
-    @apply relative z-[2] flex flex-col gap-10 lg:gap-[60px];
+    @apply relative z-[2] flex flex-col items-center gap-10 lg:gap-[60px];
   }
 
   &--gallery &__title {
@@ -179,6 +179,10 @@
     &:nth-child(2) img:nth-child(odd) {
       @apply lg:h-[244px];
     }
+  }
+
+  &--gallery &-btn {
+    @apply w-full mt-[30px] lg:mt-[60px];
   }
 
   // FAQ Block

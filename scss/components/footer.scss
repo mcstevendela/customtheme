@@ -124,14 +124,18 @@
   }
 
   &-social {
-    @apply pt-[30px] lg:pt-[154px];
+    @apply pt-[30px] lg:pt-[50px];
 
     &-list {
-      @apply flex gap-5 pt-6;
+      @apply flex gap-5 pt-4;
     }
 
     &-item__link {
-      @apply flex justify-center items-center w-[46px] h-[46px] border rounded-full;
+      @apply flex justify-center items-center w-[46px] h-[46px] border border-white12 rounded-full lg:hover:bg-blue lg:hover:border-blue;
+
+      & img {
+        @apply max-w-5 h-auto w-full;
+      }
     }
   }
 

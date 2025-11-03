@@ -1,9 +1,5 @@
 .rd-banner {
-  @apply relative;
-
-  &-home {
-    @apply py-[146px] xl:pt-[391px] xl:pb-[228px];
-  }
+  @apply relative py-[146px] xl:py-[200px];
 
   &-bg {
     @apply absolute w-full h-full top-0 left-0;
@@ -27,7 +23,7 @@
     &::after {
       content: '';
       @apply absolute w-full h-full top-0 left-0 z-[1];
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 6.7%, #000000 20.79%, #000000 100%);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 6.7%, #000000 15.79%, #000000 100%);
 
       @screen md {
         background: linear-gradient(180deg, rgba(0, 0, 0, 0) 6.7%, #000000 40%, #000000 100%);
@@ -38,7 +34,7 @@
       }
 
       @screen xl {
-        background: rgba(0, 0, 0, 20%);
+        background: rgba(0, 0, 0, 50%);
       }
     }
   }

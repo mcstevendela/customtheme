@@ -12,7 +12,7 @@
   SupportsMultiple: true
 #}
 
-<section class="rd-block rd-spacing rd-spacing--white rd-banner rd-banner-home">
+<section class="rd-block rd-spacing rd-spacing--white rd-banner {% if fn('is_front_page') %}rd-banner-home{% endif %}">
   <div class="rd-banner-bg">
     {% if fields.background %}
       <img src="{{ fields.background.url }}" alt="{{ fields.background.alt }}" class="rd-banner-bg__image rd-responsive">

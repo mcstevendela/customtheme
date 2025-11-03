@@ -36,6 +36,14 @@ a {
   @apply lg:transition-all;
 }
 
+.rd-content a {
+  @apply text-blue underline;
+
+  &:hover {
+    @apply text-black;
+  }
+}
+
 // Paragraph
 p {
   @apply my-4;
@@ -46,7 +54,7 @@ p {
   @apply pl-7 my-[30px];
 
   & li {
-    @apply relative leading-[30px];
+    @apply relative leading-[30px] list-disc;
 
     &::before {
       content: "";

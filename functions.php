@@ -257,10 +257,60 @@ add_action( 'enqueue_block_assets', 'enqueuing_editor_styling' );
 /**
  * Add custom admin sidebar width for ACF blocks
  */
-function custom_admin_sidebar_width() {
-    echo '<style>.block-editor__container .edit-post-layout__metaboxes { width: 550px; }</style>';
+// Custom Admin CSS to make sidebar wider
+function custom_admin_styles() {
+  echo '<style>
+    /* Make WordPress admin sidebar wider - 550px instead of 280px */
+    .interface-navigable-region.interface-interface-skeleton__sidebar .interface-complementary-area__fill,
+    .interface-complementary-area,
+    .edit-post-sidebar,
+    .edit-site-sidebar,
+    .block-editor-block-inspector {
+      width: 550px !important;
+      min-width: 550px !important;
+      max-width: 550px !important;
+    }
+    
+    /* Adjust main content area to accommodate wider sidebar ONLY when sidebar is open */
+    body.is-sidebar-opened .interface-interface-skeleton__content,
+    .interface-interface-skeleton.has-sidebar .interface-interface-skeleton__content {
+      margin-right: 550px !important;
+    }
+    
+    /* Adjust for mobile/tablet responsive behavior */
+    @media (max-width: 1200px) {
+      .interface-navigable-region.interface-interface-skeleton__sidebar .interface-complementary-area__fill,
+      .interface-complementary-area,
+      .edit-post-sidebar,
+      .edit-site-sidebar,
+      .block-editor-block-inspector {
+        width: 400px !important;
+        min-width: 400px !important;
+        max-width: 400px !important;
+      }
+      
+      body.is-sidebar-opened .interface-interface-skeleton__content,
+      .interface-interface-skeleton.has-sidebar .interface-interface-skeleton__content {
+        margin-right: 400px !important;
+      }
+    }
+    
+    /* Ensure ACF fields in sidebar have enough space */
+    .acf-field {
+      margin-bottom: 15px !important;
+    }
+    
+    .acf-field .acf-label {
+      width: 100% !important;
+      margin-bottom: 5px !important;
+    }
+    
+    .acf-field .acf-input {
+      width: 100% !important;
+    }
+  </style>';
 }
-add_action( 'admin_head', 'custom_admin_sidebar_width' );
+add_action('admin_head', 'custom_admin_styles');
 
 
 /**
