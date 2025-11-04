@@ -5,7 +5,7 @@
     @apply absolute w-full h-full top-0 left-0;
 
     &__image {
-      @apply object-top h-[260px] md:h-auto xl:h-full;
+      @apply object-center h-[260px] md:h-auto xl:h-full;
     }
 
     &::before {
