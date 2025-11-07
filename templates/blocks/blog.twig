@@ -28,7 +28,7 @@
 				{% for post in fn('get_posts', posts ) %}
 					{% set link = fn('get_permalink', post.ID) %}
 					{% set thumbnail_url = fn('get_the_post_thumbnail_url', post.ID ) %}
-          <a href="{{ link }}" class="rd-blog-item" target="_blank">
+          <a href="{{ link }}" class="rd-blog-item" target="_self">
             {% if thumbnail_url %}
               <div class="rd-blog-item-image">
                 <img src="{{ thumbnail_url }}" alt="{{ post.post_title }}" class="rd-responsive">

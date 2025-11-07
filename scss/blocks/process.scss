@@ -1,6 +1,6 @@
 .rd-process {
   &-content {
-    @apply mt-[60px] grid grid-cols-1 lg:grid-cols-3 gap-[110px] lg:gap-[132px];
+    @apply mt-[60px] grid grid-cols-1 lg:grid-cols-4 gap-[110px] lg:gap-[132px];
   }
 
   &-item {
@@ -11,7 +11,7 @@
     }
     
     @screen lg {
-      &:nth-child(3n) &__arrow {
+      &:nth-child(4n) &__arrow {
         @apply hidden;
       }
     }

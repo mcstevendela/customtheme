@@ -184,7 +184,7 @@
     margin-bottom: 20px !important;
 
     &-top {
-      @apply flex items-center justify-center text-white;
+      @apply flex flex-col xl:flex-row items-center justify-center text-white;
     }
 
     &__text {
@@ -196,7 +196,11 @@
     }
 
     &-bottom {
-      @apply flex items-center justify-center mt-2 text-white;
+      @apply flex items-center justify-center mt-2 text-white text-center xl:text-left;
     }
   }
+}
+
+.home .rd-banner {
+  @apply relative py-[146px] xl:pt-[260px] xl:pb-[180px];
 }

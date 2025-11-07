@@ -12,3 +12,7 @@ body {
 :focus {
   outline: none;
 }
+
+code, kbd, pre, samp {
+  @apply font-verdana;
+}

@@ -12,8 +12,7 @@ NC='\033[0m' # No Color
 
 # Configuration
 SERVERS=(
-  "user@host:/path/to/theme"
-  "user2@host2:/path/to/theme"
+  "uyv5afd@173.208.5.118:/home/uyv5afd/public_html/wp-content/themes/3pdelivery615"
   # Add more servers as needed
 )
 
