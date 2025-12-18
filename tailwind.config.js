@@ -23,10 +23,13 @@ module.exports = {
     },
     extend: {
       colors: {
-        'blue': '#1470AF',
-        'blue20': '#1470AF33',
+        'yellow': '#F39C12',
+        'blue': '#006FFF',
+        'blue20': '#006FFF33',
         'light-blue': '#EFF6FA',
         'black': '#000',
+        'black24' : '#1E1F2129',
+        'black80': '#1E1F21',
         'gray': '#414141',
         'gray-dark': '#1C1C1C1F',
         'gray-dark16': '#1C1C1C29',
@@ -35,9 +38,8 @@ module.exports = {
         'white12': '#FFFFFF1F',
       },
       fontFamily: {
-        anton: ['Anton', 'sans-serif'],
-        archivo: ['Archivo', 'sans-serif'],
-        verdana: ['Verdana', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
+        passion: ['Passion One', 'sans-serif'],
       },
     },
   },

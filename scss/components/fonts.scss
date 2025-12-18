@@ -1,28 +1,49 @@
-// Anton Font
+// Inter
 @font-face {
-  font-family: 'Anton';
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
   font-display: swap;
-  src: url('../fonts/Anton/Anton.ttf') format('truetype');
+  src: url('../fonts/Inter/Inter-Regular.ttf') format('truetype');
 }
 
-// Archivo Font
 @font-face {
-  font-family: 'Archivo';
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 500;
   font-display: swap;
-  src: url('../fonts/Archivo/Archivo.ttf') format('truetype');
+  src: url('../fonts/Inter/Inter-Medium.ttf') format('truetype');
 }
 
-// Verdana Font
 @font-face {
-  font-family: 'Verdana';
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
   font-display: swap;
-  src: url('../fonts/Verdana/Verdana.ttf') format('truetype');
+  src: url('../fonts/Inter/Inter-SemiBold.ttf') format('truetype');
 }
 
-// Verdana Bold Font
 @font-face {
-  font-family: 'Verdana';
-  font-weight: bold;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
   font-display: swap;
-  src: url('../fonts/Verdana/Verdana-Bold.ttf') format('truetype');
+  src: url('../fonts/Inter/Inter-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url('../fonts/Inter/Inter-ExtraBold.ttf') format('truetype');
+}
+
+// Passion One
+@font-face {
+  font-family: 'Passion One';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../fonts/PassionOne/PassionOne-Regular.ttf') format('truetype');
 }

@@ -11,6 +11,14 @@
 
   &-button {
     @apply my-[30px] lg:my-10;
+
+    &--center {
+      @apply flex justify-center;
+    }
+
+    &--right {
+      @apply flex justify-end;
+    }
   }
 
   &-main {
@@ -23,6 +31,14 @@
     }
   }
 
+  &-two-column {
+    @apply flex flex-col lg:flex-row gap-10;
+  }
+
+  &-column {
+    @apply w-full lg:w-1/2;
+  }
+
   &-content {
     & a, & a span {
       @apply underline text-blue;
@@ -32,5 +48,26 @@
         @apply text-black;
       }
     }
+  }
+
+  &--black {
+    @apply bg-black80;
+
+    & .rd-flexible-content {
+      @apply text-white;
+
+      & a, & a span {
+        @apply underline text-white;
+        font-weight: 700 !important;
+
+        &:hover {
+          @apply text-light-blue;
+        }
+      }
+    }
+  }
+
+  &--white {
+    @apply bg-white;
   }
 }

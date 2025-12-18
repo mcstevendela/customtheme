@@ -1,8 +1,8 @@
 .rd-header {
-  @apply shadow-sm fixed top-0 left-0 w-full bg-black z-[999];
+  @apply fixed top-0 left-0 w-full z-[999];
 
   & ul {
-    @apply my-0;
+    @apply my-0 border-t border-gray-dark lg:border-none;
 
     & li::before {
       @apply hidden;
@@ -17,19 +17,60 @@
     @apply flex justify-between gap-2 lg:gap-0;
   }
 
+  &-top {
+    @apply bg-white lg:py-4;
+
+    &-wrapper {
+      @apply flex-col lg:flex-row gap-3;
+    }
+  }
+
   &-logo {
-    @apply max-w-[240px] lg:max-w-[300px]
+    @apply max-w-[115px] lg:max-w-[166px]
+  }
+
+  &-loc {
+    @apply hidden lg:flex items-center gap-20;
+
+    &__link {
+      @apply flex items-center justify-center lg:justify-start gap-3 lg:hover:text-yellow;
+    }
+
+    &__text > * {
+      @apply block leading-normal;
+    }
+
+    &-mobile {
+      @apply relative w-full flex items-center gap-5 lg:hidden;
+    }
+  }
+
+  &-social {
+    @apply flex items-center gap-[10px];
+
+    &__link {
+      @apply block w-8 h-8 lg:w-[37px] lg:h-[37px] rounded-full border border-black24 bg-white flex items-center justify-center lg:hover:bg-yellow lg:hover:border-yellow p-1 lg:p-2;
+    }
+  }
+
+  &-bottom {
+    @apply lg:py-6;
+  }
+
+  &-scrolled &-bottom {
+    @apply bg-blue;
   }
 
   &-nav {
     @apply flex items-center gap-10;
 
     &__button {
-      @apply py-4 px-6 text-base lg:hover:bg-white;
+      @apply py-4 px-6 text-2xl lg:hover:bg-white;
       display: none !important;
 
       @screen xl {
-        display: inline-block !important;
+        display: flex !important;
+        @apply items-center gap-[10px];
       }
     }
   }
@@ -52,7 +93,7 @@
     }
 
     &-top__link {
-      @apply text-lg font-bold uppercase font-archivo text-white inline-block py-1 lg:py-9;
+      @apply text-base font-bold uppercase font-inter text-white inline-block py-1 lg:py-4;
 
       & svg {
         @apply w-3 h-3;
@@ -87,11 +128,11 @@
     }
 
     &-drop-item:first-child &-drop__link {
-      @apply lg:border-t lg:border-gray-light hover:border-b-blue;
+      @apply lg:border-t lg:border-gray-dark hover:border-b-yellow;
     }
 
     &-drop__link {
-      @apply block text-black text-lg font-archivo font-bold uppercase py-2 lg:py-4 border-b border-gray-light lg:hover:border-blue transition-all;
+      @apply block text-black text-base font-inter font-bold uppercase py-2 lg:py-4 border-b border-gray-dark lg:hover:border-yellow transition-all;
     }
 
     &-drop-sub {
@@ -109,10 +150,11 @@
   }
 
   &-mobile {
-    @apply w-[50px] h-[50px] px-[14px] py-4 bg-white rounded-full flex items-center justify-center flex-col gap-[6px] cursor-pointer;
+    @apply w-[50px] h-[50px] px-[14px] py-4 rounded-[5px] flex items-center justify-center flex-col gap-[6px] cursor-pointer;
+    background: linear-gradient(#FDBC55, #F39C12);
 
     & span {
-      @apply block w-full h-[2px] bg-black transition-all;
+      @apply block w-full h-[2px] bg-white transition-all;
     }
   }
 
@@ -140,7 +182,7 @@
     }
 
     & .rd-header-menu-top__link {
-      @apply flex items-center justify-between text-black py-0 border-b border-gray-light min-h-[42px];
+      @apply flex items-center justify-between text-black py-0 border-b border-gray-dark min-h-[42px];
     }
 
     & .rd-header-menu-top__link-text {

@@ -90,7 +90,7 @@
     @apply flex flex-wrap gap-4 justify-center;
 
     &-item {
-      @apply flex w-full lg:w-auto gap-[10px] bg-white border border-gray-border rounded-tl-[30px] rounded-bl-[30px] rounded-tr-[100px] rounded-br-[100px] pl-4 pr-8 py-4 font-anton text-2xl text-black transition-all;
+      @apply flex w-full lg:w-auto gap-[10px] bg-white border border-gray-border rounded-tl-[30px] rounded-bl-[30px] rounded-tr-[100px] rounded-br-[100px] pl-4 pr-8 py-4 font-passion text-2xl text-black transition-all;
 
       &--link {
         @apply lg:hover:border-blue lg:hover:text-blue;
@@ -207,7 +207,7 @@
   }
 
   &--faq &-faq__text {
-    @apply font-anton text-2xl text-black;
+    @apply font-passion text-2xl text-black;
   }
 
   &--faq &-faq-icon {

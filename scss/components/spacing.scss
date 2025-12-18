@@ -11,11 +11,15 @@
     @apply py-[60px];
   }
 
-  &--white + &--white {
+  &--white + &--white:not(.rd-process) {
     @apply pt-0;
   }
 
   &--light-blue + &--light-blue {
+    @apply pt-0;
+  }
+
+  &--black + &--black {
     @apply pt-0;
   }
 }

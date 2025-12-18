@@ -37,11 +37,15 @@
     @apply relative block transition-all bg-white rounded-[10px];
 
     &-wrapper {
-      @apply p-9 flex flex-col items-center gap-6 lg:gap-[30px] text-center transition-all;
+      @apply p-9 flex flex-col items-center gap-6 lg:gap-[30px] text-center h-full justify-between transition-all;
 
       &--icon {
         @apply p-[30px] gap-5;
       }
+    }
+
+    &-content {
+      @apply flex flex-col items-center gap-6 lg:gap-[30px] text-center transition-all;
     }
     
     &__image {
@@ -49,7 +53,7 @@
     }
 
     &__title {
-      @apply font-anton text-2xl my-0;
+      @apply font-passion text-2xl my-0;
     }
 
     &__text {

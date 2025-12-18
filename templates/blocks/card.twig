@@ -30,17 +30,19 @@
         {% for item in fields.cards %}
           <a {% if item.button.url %} href="{{ item.button.url }}" {% endif %} class="rd-card-item {% if item.button.url %}rd-card-item--cursor{% endif %}" target="{{ items.button.target }}">
             <div class="rd-card-item-wrapper">
-              {% if item.image %}
-                <div class="rd-card-item-image">
-                  <img src="{{ item.image.url }}" alt="{{ item.image.alt }}" class="rd-card-item__image">
-                </div>
-              {% endif %}
-              {% if item.title %}
-                <h3 class="rd-card-item__title">{{ item.title }}</h3>
-              {% endif %}
-              {% if item.description %}
-                <div class="rd-card-item__text">{{ item.description }}</div>
-              {% endif %}
+              <div class="rd-card-item-content">
+                {% if item.image %}
+                  <div class="rd-card-item-image">
+                    <img src="{{ item.image.url }}" alt="{{ item.image.alt }}" class="rd-card-item__image">
+                  </div>
+                {% endif %}
+                {% if item.title %}
+                  <h3 class="rd-card-item__title">{{ item.title }}</h3>
+                {% endif %}
+                {% if item.description %}
+                  <div class="rd-card-item__text">{{ item.description }}</div>
+                {% endif %}
+              </div>
               {% if item.button %}
                 <span class="btn btn-secondary rd-card-item__button">{{ item.button.title }}</span>
               {% endif %}

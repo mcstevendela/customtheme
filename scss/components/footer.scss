@@ -34,7 +34,7 @@
   }
 
   &-heading {
-    @apply text-white my-0 text-2xl font-anton lg:leading-[18px] my-4;;
+    @apply text-white my-0 text-2xl font-passion lg:leading-[18px] my-4;;
   }
 
   &-col {
@@ -182,7 +182,7 @@
 
   &__float {
     display: none !important;
-    @apply fixed bottom-8 right-6 z-[3];
+    @apply fixed bottom-3 right-20 z-[3];
 
     @screen lg {
       display: inline-block !important;

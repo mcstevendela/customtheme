@@ -1,8 +1,13 @@
 .btn {
-  @apply font-anton inline-block px-10 py-5 text-center text-base leading-normal font-normal transition-all uppercase;
+  @apply font-passion inline-block px-10 py-5 text-center text-base leading-normal font-normal transition-all uppercase text-[21px];
 
   &-primary {
-    @apply border border-blue bg-blue text-white rounded-full lg:hover:bg-white lg:hover:text-blue;
+    @apply text-white rounded-full;
+    background: linear-gradient(#FDBC55, #F39C12);
+
+    &:hover {
+      @apply bg-yellow;
+    }
   }
 
   &-secondary {

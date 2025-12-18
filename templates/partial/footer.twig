@@ -9,9 +9,9 @@
             <img src="{{ global.footer_logo.url }}" alt="{{ site.title }} - logo" title={{ global.footer_logo.title }}>
           </a>
         </div>
-        <p class="rd-footer-description">
+        <div class="rd-footer-description">
           {{ global.footer_description }}
-        </p>
+        </div>
         {% if global.footer_license_info %}
         <div class="rd-footer-license">
           <span class="rd-footer-heading">License Info:</span>
@@ -87,4 +87,10 @@
 </footer>
 
 {{fn('do_shortcode', '[brb_collection id="361"]')}}
+<style>
+  .rplg .rplg-badge_left-fixed {
+    left: 15px !important;
+    bottom: 13px !important;
+  }
+</style>
 <a href="https://calendly.com/william-3pdelivery615/30min" target="_blank" class="rd-footer__float btn btn-primary">Book My Free Walkthrough</a>
