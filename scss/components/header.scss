@@ -73,6 +73,10 @@
         @apply items-center gap-[10px];
       }
     }
+
+    &-mobile__button {
+      @apply mt-[30px] w-full text-center;
+    }
   }
 
   &-menu {
@@ -175,7 +179,7 @@
   }
 
   &-mobile-menu {
-    @apply absolute w-full top-full left-0 max-h-[600px] overflow-y-scroll hidden;
+    @apply absolute w-full top-full left-0 max-h-[380px] overflow-y-scroll hidden;
 
     & nav {
       @apply bg-white p-6 rounded-xl;

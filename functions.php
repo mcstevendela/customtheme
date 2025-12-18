@@ -261,7 +261,7 @@ add_action( 'enqueue_block_assets', 'enqueuing_editor_styling' );
 function custom_admin_styles() {
   echo '<style>
     /* Make WordPress admin sidebar wider - 550px instead of 280px */
-    .interface-navigable-region.interface-interface-skeleton__sidebar .interface-complementary-area__fill,
+    .admin-ui-navigable-region.interface-interface-skeleton__sidebar .interface-complementary-area__fill,
     .interface-complementary-area,
     .edit-post-sidebar,
     .edit-site-sidebar,

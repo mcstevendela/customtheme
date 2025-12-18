@@ -1,21 +1,5 @@
 .rd-footer {
   @apply relative;
-  background: url("../images/background.png") no-repeat center;
-  background-size: cover;
-
-  &::before {
-    content: "";
-    @apply absolute top-0 left-0 w-full h-full opacity-90;
-    background-color: #808080;
-    background-blend-mode: luminosity;
-    -webkit-filter: grayscale(100%);
-    filter: grayscale(100%);
-  }
-
-  &::after {
-    content: "";
-    @apply absolute top-0 left-0 w-full h-full bg-black opacity-80;
-  }
 
   & ul {
     @apply pl-0 my-0;
@@ -25,16 +9,24 @@
     }
   }
 
+  &-logo {
+    @apply max-w-[115px] lg:max-w-[166px];
+  }
+
   &-top {
-    @apply pt-[60px] pb-10 lg:pt-[100px] lg:pb-20 relative z-[1];
+    @apply relative z-[1] px-5 lg:px-0;
   }
 
   &-wrapper {
-    @apply flex justify-between flex-col lg:flex-row;
+    @apply flex justify-between flex-col px-0 lg:px-5 lg:flex-row pb-[60px] pt-10 lg:pt-[96px] lg:pb-20 border-t border-gray-border border-b;
   }
 
   &-heading {
-    @apply text-white my-0 text-2xl font-passion lg:leading-[18px] my-4;;
+    @apply my-0 text-3xl font-passion my-4 uppercase;
+
+    &--small {
+      @apply text-lg;
+    }
   }
 
   &-col {
@@ -42,15 +34,19 @@
   }
 
   &-col-1 {
-    @apply w-full lg:max-w-[500px];
+    @apply w-full lg:max-w-[360px];
   }
 
   &-col-2 {
-    @apply w-full lg:max-w-[222px] pt-[50px] lg:pt-0;
+    @apply w-full lg:max-w-[190px] pt-[30px] lg:pt-0;
   }
 
   &-col-3 {
-    @apply w-full lg:max-w-[265px] pt-[50px] lg:pt-0;
+    @apply w-full lg:max-w-[192px] pt-[30px] lg:pt-0;
+  }
+
+  &-col-4 {
+    @apply w-full lg:max-w-[244px] pt-[30px] lg:pt-0;
   }
 
   &-col-wrapper {
@@ -58,11 +54,11 @@
   }
 
   &-description, &-license {
-    @apply text-white pt-12 my-0;
+    @apply mt-[30px] lg:mt-12 my-0;
   }
 
   &-info {
-    @apply pt-4 flex flex-col gap-5;
+    @apply pt-[30px] lg:pt-11 flex flex-col gap-5;
 
     &__text {
       @apply relative leading-none;
@@ -75,13 +71,37 @@
         }
       }
     }
+
+    &-loc {
+      &__text {
+        & > * {
+          @apply block leading-normal;
+        }
+        
+        & span {
+          @apply mt-2;
+        }
+      }
+    }
+
+    &__link {
+      @apply flex gap-3 lg:hover:text-yellow;
+
+      &:not(:first-child) {
+        @apply mt-7;
+      } 
+    }
+
+    &__icon {
+      @apply flex-none mt-[5px];
+    }
   }
 
   &-menu {
     @apply pt-[30px] lg:pt-11;
 
     &-item {
-      @apply pt-4 lg:pt-6 text-white;
+      @apply pt-4 lg:pt-6;
 
       &:first-child {
         @apply pt-0;
@@ -90,7 +110,7 @@
 
     &__link {
       &:hover {
-        @apply lg:underline;
+        @apply lg:text-yellow;
       }
     }
   }
@@ -114,10 +134,6 @@
       @apply pt-1;
     }
 
-    &-item-text {
-      @apply text-white;
-    }
-
     &:hover &-item-text {
       @apply lg:hover:underline;
     }
@@ -127,11 +143,11 @@
     @apply pt-[30px] lg:pt-[50px];
 
     &-list {
-      @apply flex gap-5 pt-4;
+      @apply flex flex-wrap gap-5 pt-4;
     }
 
     &-item__link {
-      @apply flex justify-center items-center w-[46px] h-[46px] border border-white12 rounded-full lg:hover:bg-blue lg:hover:border-blue;
+      @apply flex justify-center items-center w-[46px] h-[46px] border border-black24 rounded-full lg:hover:bg-yellow lg:hover:border-yellow;
 
       & img {
         @apply max-w-5 h-auto w-full;
@@ -143,14 +159,14 @@
     @apply relative z-[1];
 
     &-wrapper {
-       @apply flex justify-center items-center z-[2] flex-col lg:flex-row py-[30px] border-t border-white/20;
+       @apply flex justify-center items-center z-[2] flex-col lg:flex-row py-6;
     }
 
     &-copy {
-      @apply text-white text-center lg:text-left my-0 text-sm;
+      @apply text-center lg:text-left my-0 text-sm;
 
       & span {
-        @apply text-blue
+        @apply text-yellow
       }
     }
 
@@ -162,7 +178,7 @@
 
         &::after {
           content: "/";
-          @apply absolute top-0 right-3 text-white; 
+          @apply absolute top-0 right-3; 
         }
 
         &:last-child {
@@ -175,14 +191,14 @@
       }
 
       &__link {
-        @apply inline-block text-white lg:hover:underline;
+        @apply inline-block lg:hover:underline;
       }
     }
   }
 
   &__float {
     display: none !important;
-    @apply fixed bottom-3 right-20 z-[3];
+    @apply fixed bottom-3 right-3 z-[3];
 
     @screen lg {
       display: inline-block !important;

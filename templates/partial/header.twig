@@ -3,7 +3,7 @@
     <div class="rd-header-wrapper flex justify-between items-center rd-header-top-wrapper">
     <!-- Desktop Locations -->
     <div class="rd-header-loc">
-      {% for item in global.locations %}
+      {% for item in global.global_locations %}
         <a href="{{ item.address.url }}" target="{{ item.address.target }}" class="rd-header-loc__link">
           <img src="{{ site.theme.link }}/images/icons/location-blue.svg" alt="Location {{ item.name }}" title="{{ item.name }}" class="rd-header-loc__icon injectable">
           <div class="rd-header-loc__text">
@@ -23,7 +23,7 @@
       </div>
       <div class="swiper locations">
         <div class="swiper-wrapper">
-          {% for item in global.locations %}
+          {% for item in global.global_locations %}
             <div class="swiper-slide">
               <a href="{{ item.address.url }}" target="{{ item.address.target }}" class="rd-header-loc__link">
                 <img src="{{ site.theme.link }}/images/icons/location-black.svg" alt="Location {{ item.name }}" title="{{ item.name }}" class="rd-header-loc__icon injectable">
@@ -82,9 +82,9 @@
       </div>
       <!-- Nav End -->
       <!-- Button -->
-        <a href="{{ global.header_button.url }}" target="{{ global.header_button.target }}" class="btn btn-primary rd-header-nav__button">
+        <a href="{{ global.global_button.url }}" target="{{ global.global_button.target }}" class="btn btn-primary rd-header-nav__button">
           <img src="{{ site.theme.link }}/images/icons/phone-white.svg" alt="Phone Number" title="Phone Number" class="rd-header-nav__button-icon injectable">
-          <span>{{ global.header_button.title }}</span>
+          <span>{{ global.global_button.title }}</span>
         </a>
       <!-- Button End -->
     </div>

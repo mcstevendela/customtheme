@@ -10,7 +10,7 @@ function rd_custom_post_types_register() {
       'menu_position' => 5,
       'show_in_menu' => true,
       'menu_icon' => 'dashicons-networking',
-      'rewrite' => [ 'slug' => 'tn', 'with_front' => false ],
+      'rewrite' => [ 'slug' => 'movers', 'with_front' => false ],
       'labels' => [
         'name' => 'Service Areas',
         'singular_name' => 'Service Areas',

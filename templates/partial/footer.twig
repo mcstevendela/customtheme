@@ -24,9 +24,74 @@
           </div>
         </div>
         {% endif %}
+      </div>
+      <!-- Column 1 End -->
+      <!-- Column 2 -->
+      <div class="rd-footer-col rd-footer-col-2">
+        <span class="rd-footer-heading">Our Services:</span>
+        {% if global.footer_service_links %}
+        <ul class="rd-footer-menu">
+          {% for item in global.footer_service_links %}
+            <li class="rd-footer-menu-item">
+              <a href="{{ item.footer_service_link.url }}" class="rd-footer-menu__link">- {{ item.footer_service_link.title }} </a>
+            </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+      <!-- Column 2 End -->
+      <!-- Column 3 -->
+      <div class="rd-footer-col rd-footer-col-3">
+        <span class="rd-footer-heading">Service Areas:</span>
+        {% if global.footer_service_area_links %}
+        <ul class="rd-footer-menu">
+          {% for item in global.footer_service_area_links %}
+            <li class="rd-footer-menu-item">
+              <a href="{{ item.footer_service_area_link.url }}" class="rd-footer-menu__link">- {{ item.footer_service_area_link.title }} </a>
+            </li>
+          {% endfor %}
+        </ul>
+        {% endif %}
+      </div>
+      <!-- Column 3 End -->
+      <!-- Column 4 -->
+      <div class="rd-footer-col rd-footer-col-4">
+        <span class="rd-footer-heading">Get In Touch:</span>
+        <div class="rd-footer-info">
+          {% if global.global_locations %}
+            <div class="rd-footer-info-loc">
+              {% for item in global.global_locations %}
+                <a href="{{ item.address.url }}" target="{{ item.address.target }}" class="rd-footer-info__link">
+                  <img src="{{ site.theme.link }}/images/icons/map-yellow.svg" alt="Location {{ item.name }}" title="{{ item.name }}" class="rd-footer-info__icon injectable">
+                  <div class="rd-footer-info-loc__text">
+                    <b>{{ item.name }}</b>
+                    <span>{{ item.address.title }}</span>
+                  </div>
+                </a>
+              {% endfor %}
+            </div>
+          {% endif %}
+          {% if global.global_email %}
+            <div class="rd-footer-info-email">
+              <a href="{{ global.global_email.url }}" class="rd-footer-info__link">
+                <img src="{{ site.theme.link }}/images/icons/email-yellow.svg" alt="Email Us" title="Email Us" class="rd-footer-info__icon injectable">
+                <span>{{ global.global_email.title }}</span>
+              </a>
+            </div>
+          {% endif %}
+          {% if global.global_button %}
+            <div class="rd-footer-info-email">
+              <a href="{{ global.global_button.url }}" class="rd-footer-info__link">
+                <img src="{{ site.theme.link }}/images/icons/phone-yellow.svg" alt="Phone Us" title="Phone Us" class="rd-footer-info__icon injectable">
+                <span>{{ global.global_button.title }}</span>
+              </a>
+            </div>
+          {% endif %}
+        </div>
+
         {% if global.global_social %}
         <div class="rd-footer-social">
-          <span class="rd-footer-heading">Follow Us:</span>
+          <span class="rd-footer-heading rd-footer-heading--small">Follow Us:</span>
           <div class="rd-footer-social-list">
             {% for item in global.global_social %}
               {% if item.social_link %}
@@ -41,35 +106,7 @@
         </div>
         {% endif %}
       </div>
-      <!-- Column 1 End -->
-      <!-- Column 2 -->
-      <div class="rd-footer-col rd-footer-col-2">
-        <span class="rd-footer-heading">Service Areas:</span>
-        {% if global.footer_service_area_links %}
-        <ul class="rd-footer-menu">
-          {% for item in global.footer_service_area_links %}
-            <li class="rd-footer-menu-item">
-              <a href="{{ item.footer_service_area_link.url }}" class="rd-footer-menu__link">- {{ item.footer_service_area_link.title }} </a>
-            </li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-      </div>
-      <!-- Column 2 End -->
-      <!-- Column 3 -->
-      <div class="rd-footer-col rd-footer-col-3">
-        <span class="rd-footer-heading">Our Services:</span>
-        {% if global.footer_service_links %}
-        <ul class="rd-footer-menu">
-          {% for item in global.footer_service_links %}
-            <li class="rd-footer-menu-item">
-              <a href="{{ item.footer_service_link.url }}" class="rd-footer-menu__link">- {{ item.footer_service_link.title }} </a>
-            </li>
-          {% endfor %}
-        </ul>
-        {% endif %}
-      </div>
-      <!-- Column 3 End -->
+      <!-- Column 4 End -->
     </div>
   </div>
   <!-- Footer Top End -->
@@ -79,8 +116,6 @@
       <p class="rd-footer-bottom-copy">
         Copyright © {{ "now"|date("Y") }} <span>{{ global.footer_copyright }}</span> | All Rights Reserved
       </p>
-
-      <a href="https://calendly.com/william-3pdelivery615/30min" target="_blank" class="btn btn-full btn-primary rd-footer__btn">Let us help with your next move</a>
     </div>
   </div>
   <!-- Footer Bottom End -->
@@ -93,4 +128,4 @@
     bottom: 13px !important;
   }
 </style>
-<a href="https://calendly.com/william-3pdelivery615/30min" target="_blank" class="rd-footer__float btn btn-primary">Book My Free Walkthrough</a>
+<a href="{{ global.global_menu_button.url }}" target="{{ global.global_menu_button.target }}" class="rd-footer__float btn btn-primary">{{ global.global_menu_button.title }}</a>
