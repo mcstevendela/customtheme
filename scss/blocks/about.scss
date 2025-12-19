@@ -54,4 +54,17 @@
       }
     }
   }
+
+  &--yellow {
+    @apply relative pt-0 px-5 lg:px-0;
+
+    .rd-media-wrapper {
+      @apply p-[10px] pb-[30px] lg:p-6 lg:pb-6 border border-light-yellow-border rounded-2xl relative z-10 lg:bg-white;
+    }
+
+    &::before {
+      content: "";
+      @apply absolute top-0 left-0 w-full h-[100px] lg:h-[150px] bg-light-yellow;
+    }
+  }
 }

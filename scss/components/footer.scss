@@ -198,7 +198,7 @@
 
   &__float {
     display: none !important;
-    @apply fixed bottom-3 right-3 z-[3];
+    @apply fixed bottom-3 right-3 z-10;
 
     @screen lg {
       display: inline-block !important;

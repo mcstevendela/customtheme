@@ -12,10 +12,13 @@
   SupportsMultiple: true
 #}
 
-<section class="rd-block rd-spacing rd-spacing--white rd-card rd-card--icon">
+<section class="rd-block rd-spacing rd-spacing--light-yellow rd-card rd-card--icon">
   <div class="rd-container">
     <!-- Heading -->
     <div class="rd-card-heading rd-card-heading--icon">
+      {% if fields.subtitle %}
+        <span class="rd-tag rd-card__tag">{{ fields.subtitle }}</span>
+      {% endif %}
       {% if fields.title %}
         <h2 class="rd-card__title">{{ fields.title }}</h2>
       {% endif %}
@@ -28,7 +31,7 @@
     <!-- Cards Desktop -->
       <div class="rd-card-main rd-card-main--icon">
         {% for item in fields.icons %}
-          <a {% if item.button.url %} href="{{ item.button.url }}" {% endif %} class="rd-card-item rd-card-item--icon {% if item.button.url %}rd-card-item--cursor{% endif %}" target="{{ items.button.target }}">
+          <div class="rd-card-item rd-card-item--icon">
             <div class="rd-card-item-wrapper rd-card-item-wrapper--icon">
               {% if item.icon %}
                 <div class="rd-card-item-icon">
@@ -38,14 +41,11 @@
               {% if item.title %}
                 <h3 class="rd-card-item__title">{{ item.title }}</h3>
               {% endif %}
-              {% if item.tag %}
-                <span class="rd-card-item__tag">{{ item.tag }}</span>
-              {% endif %}
               {% if item.description %}
                 <p class="rd-card-item__text">{{ item.description }}</p>
               {% endif %}
             </div>
-          </a>
+          </div>
         {% endfor %}
       </div>
     <!-- Cards Desktop End -->
@@ -53,7 +53,7 @@
     <!-- Button -->
     {% if fields.button %}
       <div class="rd-card-btn">
-        <a class="btn btn-primary" href="{{ fields.button.url }}" target="{{ fields.button.target }}">{{ fields.button.title }}</a>
+        <a class="btn btn-tertiary" href="{{ fields.button.url }}" target="{{ fields.button.target }}">{{ fields.button.title }}</a>
       </div>
     {% endif %}
     <!-- Button End -->

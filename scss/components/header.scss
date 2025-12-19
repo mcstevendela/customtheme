@@ -80,6 +80,10 @@
         display: flex !important;
         @apply items-center gap-[10px];
       }
+
+      &:hover svg path {
+        @apply fill-yellow;
+      }
     }
 
     &-mobile__button {

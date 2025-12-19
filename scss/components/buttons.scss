@@ -6,16 +6,24 @@
     background: linear-gradient(#FDBC55, #F39C12);
 
     &:hover {
-      @apply bg-yellow;
+      @apply text-yellow;
+      background: #F8F0E5;
     }
   }
 
   &-secondary {
-    @apply bg-light-blue rounded-[100px] text-blue lg:hover:bg-blue lg:hover:text-white;
+    @apply text-yellow rounded-full;;
+    background: #F8F0E5;
   }
 
   &-tertiary {
-   @apply bg-white rounded-[100px] border border-white text-blue lg:hover:bg-blue lg:hover:text-white;
+    @apply text-white rounded-full;
+    background: linear-gradient(#FDBC55, #F39C12);
+
+    &:hover {
+      @apply text-yellow;
+      background: #fff;
+    }
   }
 
   &-full {

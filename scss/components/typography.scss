@@ -8,27 +8,27 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 }
 
 h1, .h1 {
-  @apply text-4xl lg:text-[64px] lg:leading-[66px] my-10;
+  @apply text-4xl lg:text-[64px] my-10;
 }
 
 h2, .h2 {
-  @apply text-[30px] leading-[40px] lg:text-[50px] lg:leading-[60px] mt-12 mb-6;
+  @apply text-[30px] lg:text-[50px] mt-12 mb-6;
 }
 
 h3, .h3 {
-  @apply text-2xl leading-[28px] lg:text-2xl my-4;
+  @apply text-2xl lg:text-2xl my-4;
 }
 
 h4, .h4 {
-  @apply text-lg lg:leading-[22px] my-4;
+  @apply text-lg my-4;
 }
 
 h5, .h5 {
-  @apply text-lg lg:leading-[18px] my-4;
+  @apply text-lg my-4;
 }
 
 h6, .h6 {
-  @apply text-lg lg:text-xl leading-[16px];
+  @apply text-lg lg:text-xl;
 }
 
 // Links
@@ -37,7 +37,7 @@ a {
 }
 
 .rd-content a {
-  @apply text-blue underline;
+  @apply text-yellow underline;
 
   &:hover {
     @apply text-black;

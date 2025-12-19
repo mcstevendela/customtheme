@@ -25,6 +25,7 @@ module.exports = {
       colors: {
         'yellow': '#F39C12',
         'light-yellow': '#F8F0E5',
+        'light-yellow-border': '#E5DADB',
         'blue': '#006FFF',
         'blue20': '#006FFF33',
         'light-blue': '#EFF6FA',

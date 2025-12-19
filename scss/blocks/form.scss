@@ -59,6 +59,11 @@
   & .ff-btn.ff-btn-next {
      @apply font-passion inline-block px-10 py-4 text-center text-base leading-normal font-normal transition-all uppercase text-white text-xl rounded-full;
      background: linear-gradient(#FDBC55, #F39C12);
+
+     &:hover {
+        @apply text-yellow;
+        background: #F8F0E5;
+     }
   }
 
   & .ff-el-group {

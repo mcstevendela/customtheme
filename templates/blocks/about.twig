@@ -12,7 +12,7 @@
   SupportsMultiple: true
 #}
 
-<section class="rd-block rd-spacing rd-spacing--white rd-media bg-white">
+<section class="rd-block rd-spacing rd-spacing--white rd-media {{ fields.options }}">
   <div class="rd-container rd-media-wrapper">
     <!-- Media -->
     <div class="rd-media-image">
@@ -22,29 +22,15 @@
     </div>
     <!-- Media End -->
     <!-- Content -->
-    <div class="rd-media-content">
+    <div class="rd-media-content rd-media__align--center">
+      {% if fields.subtitle %}
+        <span class="rd-tag rd-media__tag">{{ fields.subtitle }}</span>
+      {% endif %}
       {% if fields.title %}
-        <h2 class="rd-media__title rd-media__align--center">{{ fields.title }}</h2>
+        <h2 class="rd-media__title">{{ fields.title }}</h2>
       {% endif %}
       {% if fields.description %}
-        <span class="rd-media__text rd-media__align--center">{{ fields.description }}</span>
-      {% endif %}
-      {% if fields.list %}
-        <ul class="rd-media-list">
-          {% for item in fields.list %}
-            <li class="rd-media-item">
-              <div class="rd-media-icon">
-                <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M10.1532 19.4971C10.0948 19.4971 10.0371 19.4851 9.98365 19.4617C9.93019 19.4383 9.88214 19.4041 9.84254 19.3612L1.46616 10.3004C1.41032 10.24 1.3733 10.1646 1.35964 10.0835C1.34597 10.0024 1.35625 9.91902 1.38922 9.84366C1.42218 9.76829 1.4764 9.70417 1.54525 9.65914C1.61409 9.61411 1.69457 9.59013 1.77683 9.59012H5.80875C5.86929 9.59013 5.92912 9.60312 5.98421 9.62822C6.03929 9.65332 6.08836 9.68995 6.12809 9.73562L8.92751 12.9563C9.23005 12.3095 9.81571 11.2327 10.8435 9.92059C12.3628 7.98078 15.1889 5.12793 20.024 2.55258C20.1174 2.50281 20.2261 2.4899 20.3287 2.51638C20.4312 2.54286 20.52 2.60682 20.5777 2.69563C20.6353 2.78443 20.6576 2.89162 20.6401 2.99604C20.6225 3.10046 20.5665 3.19451 20.483 3.25962C20.4646 3.27405 18.6003 4.74213 16.4548 7.43116C14.4802 9.90574 11.8554 13.952 10.5638 19.1758C10.5411 19.2675 10.4883 19.3491 10.4139 19.4074C10.3394 19.4656 10.2476 19.4973 10.1531 19.4973L10.1532 19.4971Z" fill="#1470AF"/>
-                </svg>
-              </div>
-              <div class="rd-media-content">
-                <h3 class="rd-media-item__title">{{ item.title }}</h3>
-                <div class="rd-media-item__content">{{ item.description }}</div>
-              </div>
-            </li>
-          {% endfor %}
-        </ul>
+        <div class="rd-media__text rd-content">{{ fields.description }}</div>
       {% endif %}
       {% if fields.link %}
         <div class="rd-media-btn">
