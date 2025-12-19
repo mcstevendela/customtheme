@@ -1,0 +1,22 @@
+.rd-tag {
+    @apply relative inline-block rounded-[5px] py-2 px-3 font-bold uppercase text-xs tracking-wider;
+    background-color: transparent;
+    background-clip: padding-box;
+    
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
+      margin: -1px;
+      border-radius: inherit;
+      background: linear-gradient(to left, rgba(243, 157, 18, 0.10), #F39C12, #006EFF);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      padding: 1px;
+    }
+  }

@@ -133,16 +133,16 @@ function headerScroll() {
       },
       breakpoints: {
         320: {
-          slidesPerView: 2,
-          spaceBetween: 40,
+          slidesPerView: 3,
+          spaceBetween: 20,
         },
         768: {
           slidesPerView: 3,
           spaceBetween: 40,
         },
         840: {
-          slidesPerView: 5,
-          spaceBetween: 100,
+          slidesPerView: 8,
+          spaceBetween: 60,
         },
       },
     });
@@ -192,8 +192,8 @@ function headerScroll() {
       loop: true,
       slidesPerView: 1,
       navigation: {
-        nextEl: '.swiper-next',
-        prevEl: '.swiper-prev',
+        nextEl: '.rd-header-loc-swiper-next',
+        prevEl: '.rd-header-loc-swiper-prev',
       }
     });
 

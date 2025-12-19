@@ -32,12 +32,20 @@
   &-loc {
     @apply hidden lg:flex items-center gap-20;
 
+    &__icon {
+      @apply flex-none;
+    }
+
     &__link {
       @apply flex items-center justify-center lg:justify-start gap-3 lg:hover:text-yellow;
     }
 
     &__text > * {
       @apply block leading-normal;
+    }
+
+    &__text > span {
+      @apply text-sm;
     }
 
     &-mobile {

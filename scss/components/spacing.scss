@@ -5,21 +5,13 @@
 }
 
 .rd-spacing {
-  @apply py-[60px] lg:py-[120px];
-
-  &--half {
-    @apply py-[60px];
-  }
+  @apply py-[50px] lg:py-[100px];
 
   &--white + &--white:not(.rd-process) {
     @apply pt-0;
   }
 
-  &--light-blue + &--light-blue {
-    @apply pt-0;
-  }
-
-  &--black + &--black {
+  &--light-yellow + &--light-yellow {
     @apply pt-0;
   }
 }

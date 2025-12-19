@@ -1,4 +1,6 @@
 .rd-logo {
+  @apply bg-light-yellow;
+
   &__image {
     @apply h-[90px] lg:h-[120px] object-contain mx-auto;
   }
@@ -9,7 +11,7 @@
     }
 
     &-btn {
-      @apply w-[50px] h-[50px] bg-white rounded-full flex items-center justify-center cursor-pointer border border-[#E4E4E4] lg:hover:bg-light-blue lg:hover:border-light-blue transition;
+      @apply w-[50px] h-[50px] bg-white rounded-full flex items-center justify-center cursor-pointer border border-[#E4E4E4] lg:hover:bg-light-blue lg:hover:border-light-blue transition text-black;
     }
 
     &-next {

@@ -4,59 +4,57 @@
   &-bg {
     @apply absolute w-full h-full top-0 left-0;
 
-    &__image {
-      @apply object-center h-[260px] md:h-auto xl:h-full;
-    }
-
-    &::before {
-      content: '';
-      @apply absolute w-full h-full -bottom-[1px] left-0 z-[2];
-      background: url('../images/wave-mobile.png') no-repeat center bottom;
-      background-size: contain;
-
-      @screen md {
-        background: url('../images/wave.png') no-repeat center bottom;
-        background-size: contain;
-      }
-    }
-
     &::after {
+      @apply absolute w-full h-full top-0 left-0 bg-black opacity-70;
       content: '';
-      @apply absolute w-full h-full top-0 left-0 z-[1];
-      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 6.7%, #000000 15.79%, #000000 100%);
-
-      @screen md {
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 6.7%, #000000 40%, #000000 100%);
-      }
-
-      @screen lg {
-        background: linear-gradient(180deg, rgba(0, 0, 0, 0) 6.7%, #000000 50%, #000000 100%);
-      }
-
-      @screen xl {
-        background: rgba(0, 0, 0, 50%);
-      }
+      z-index: 1;
     }
   }
 
   &-wrapper {
-    @apply relative z-[3] flex flex-col xl:flex-row items-center gap-10 xl:gap-[100px];
+    @apply relative z-[3] flex flex-col xl:flex-row items-center justify-between gap-5 xl:gap-[100px];
   }
 
   &-content {
-    @apply flex flex-col justify-center items-center xl:items-start w-full xl:max-w-[593px];
+    @apply flex flex-col justify-center items-center xl:items-start w-full xl:max-w-[628px];
+  }
+
+  &__tag {
+    @apply text-white mb-5 lg:mb-[30px];
   }
 
   &__title {
-    @apply text-[40px] xl:text-[50px] mb-[30px] mt-0 text-white text-center xl:text-left font-passion;
+    @apply text-[50px] xl:text-[64px] mb-5 lg:mb-[30px] mt-0 text-white text-center xl:text-left font-passion leading-none normal-case;
   }
 
   &__text {
     @apply text-white text-center xl:text-left my-0;
   }
 
+  &-list {
+    &__item {
+      @apply flex items-start gap-3 text-white font-passion text-xl;
+
+      &:not(:last-child) {
+        @apply mb-2;
+      }
+    }
+
+    &__icon {
+      @apply mt-1;
+    }
+  }
+
   &__button {
-    @apply mt-[30px];
+    @apply lg:mt-10;
+
+    &--desktop {
+      @apply hidden lg:block;
+    }
+
+    &--mobile {
+      @apply lg:hidden;
+    }
   }
 
   &-tag {
@@ -101,12 +99,12 @@
   }
 
   &-form {
-    @apply xl:max-w-[555px] w-full border border-[#FFFFFF1A] rounded-xl flex flex-col items-center p-5;
-    background-color: #5656564D !important;
+    @apply xl:max-w-[435px] w-full rounded-[10px] flex flex-col items-center p-8 pb-4;
+    background-color: rgba(145, 145, 145, 0.30) !important;
     box-shadow: 0px 8px 58px 0px #0000001F;
 
     &__title {
-      @apply font-passion text-white text-center mt-0 mb-5 text-[32px];
+      @apply font-passion text-white text-center mt-0 mb-5 text-[40px] font-bold;
     }
 
     .fluentform {
@@ -122,7 +120,7 @@
     }
 
     .ff-step-header {
-      @apply absolute bottom-[100px] xl:bottom-[22px] left-0 w-full mb-0 xl:max-w-[323px];
+      @apply absolute bottom-[100px] xl:bottom-[22px] left-0 w-full mb-0 xl:max-w-[230px];
     }
 
     .ff-column-container {
@@ -130,7 +128,7 @@
     }
 
     .ff-el-group {
-      margin-bottom: 10px !important;
+      margin-bottom: 16px !important;
     }
 
     .ff_submit_btn_wrapper {
@@ -165,6 +163,10 @@
     .ff-inner_submit_container {
       @apply xl:p-3 xl:bg-white xl:rounded-lg;
 
+      .ff-t-cell, .ff_step_nav_last, .ff-btn-prev, .ff_submit_btn_wrapper, .ff-btn-submit {
+        @apply w-full;
+      }
+
       .step-nav {
         @apply xl:m-0;
       }
@@ -176,7 +178,11 @@
   }
 
   .rplg {
-    @apply w-full
+    @apply w-full;
+
+    &-stars {
+      @apply ml-2;
+    }
   }
 
   &-review {
@@ -202,5 +208,5 @@
 }
 
 .home .rd-banner {
-  @apply relative py-[146px] xl:pt-[260px] xl:pb-[180px];
+  @apply relative pt-[150px] pb-[30px] xl:pt-[266px] xl:pb-[140px];
 }

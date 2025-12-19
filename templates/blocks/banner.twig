@@ -21,7 +21,7 @@
   <div class="rd-container rd-banner-wrapper">
     <div class="rd-banner-content">
       {% if fields.subtitle %}
-        <span class="rd-banner__tag">{{ fields.subtitle }}</span>
+        <span class="rd-tag rd-banner__tag">{{ fields.subtitle }}</span>
       {% endif %}
       {% if fields.title %}
         <h1 class="rd-banner__title">{{ fields.title }}</h1>
@@ -29,8 +29,18 @@
       {% if fields.description %}
         <p class="rd-banner__text">{{ fields.description }}</p>
       {% endif %}
+      {% if fields.list %}
+        <ul class="rd-banner-list">
+          {% for item in fields.list %}
+            <li class="rd-banner-list__item">
+              <img src="{{ site.theme.link }}/images/icons/check-white.svg" alt="Checkmark" class="rd-banner-list__icon" />
+              <span class="rd-banner-list__text">{{ item.text }}</span>
+            </li>  
+          {% endfor %}
+        </ul>
+      {% endif %}
       {% if fields.button %}
-        <a href="{{ fields.button.url }}" target="{{ fields.button.target }}" class="rd-banner__button btn btn-primary">{{ fields.button.title }}</a>
+        <a href="{{ fields.button.url }}" target="{{ fields.button.target }}" class="rd-banner__button rd-banner__button--desktop btn btn-primary">{{ fields.button.title }}</a>
       {% endif %}
     </div>
     {% if fields.form %}
@@ -39,6 +49,10 @@
       {{ fields.rating|raw }}
       {{ fields.form|raw }}
     </div>
+    {% endif %}
+
+    {% if fields.button %}
+      <a href="{{ fields.button.url }}" target="{{ fields.button.target }}" class="rd-banner__button rd-banner__button--mobile btn btn-primary">{{ fields.button.title }}</a>
     {% endif %}
   </div>
 </section>
