@@ -27,8 +27,8 @@ const logSymbols = require('log-symbols'); //For Symbolic Console logs :)
 //Load Previews on Browser on dev
 function livePreview(done){
   browserSync.init({
-    proxy: "localhost:10028/",
-    port: 10028,
+    proxy: "localhost:10018/",
+    port: 10018,
     notify: false,
     ui: false,
   });
