@@ -66,12 +66,7 @@
 
   //Pill Block
   &--pill {
-    @apply relative;
-
-    &::before {
-      @apply absolute top-0 left-0 w-full h-full bg-light-blue opacity-[.94] content-[''];
-      z-index: 1;
-    }
+    @apply relative bg-white;
   }
 
   &--pill &-wrapper {
@@ -94,14 +89,18 @@
     @apply text-center mb-0;
   }
 
+  &--pill &__subtitle {
+    @apply mb-5 lg:mb-[30px];
+  }
+
   &-pills {
-    @apply flex flex-wrap gap-4 justify-center;
+    @apply flex flex-wrap gap-5 justify-center;
 
     &-item {
-      @apply flex w-full lg:w-auto gap-[10px] bg-white border border-gray-border rounded-tl-[30px] rounded-bl-[30px] rounded-tr-[100px] rounded-br-[100px] pl-4 pr-8 py-4 font-passion text-2xl text-black transition-all;
+      @apply flex items-center w-auto gap-[10px] bg-white border border-light-yellow-border rounded-[10px] py-3 px-4 font-passion text-3xl text-black transition-all;
 
       &--link {
-        @apply lg:hover:border-blue lg:hover:text-blue;
+        @apply lg:hover:border-light-yellow lg:hover:bg-light-yellow lg:hover:text-yellow;
       }
     }
 

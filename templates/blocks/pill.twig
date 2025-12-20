@@ -12,33 +12,25 @@
   SupportsMultiple: true
 #}
 
-<section class="rd-block rd-spacing rd-media rd-media--pill" style="background: url({{ fields.background.url }}) no-repeat center; background-size: cover;">
-  <div class="rd-container rd-media-wrapper {% if fields.image %}rd-media-wrapper--start{% endif %}">
-    <!-- Button -->
-      {% if fields.button %}
-        <div class="rd-media-btn rd-media-btn--out">
-          <a class="btn btn-primary" href="{{ fields.button.url }}" target="{{ fields.button.target }}">{{ fields.button.title }}</a>
-        </div>
-      {% endif %}
-    <!-- Button End -->
-    <!-- Media -->
-    {% if fields.image %}
-    <div class="rd-media-image">
-      <img src="{{ fields.image.url }}" alt="{{ fields.image.alt }}" class="rd-media__image">
-    </div>
-    {% endif %}
-    <!-- Media End -->
+<section class="rd-block rd-spacing rd-spacing--white rd-media rd-media--pill">
+  <div class="rd-container rd-media-wrapper">
     <!-- Content -->
     <div class="rd-media-content">
-      {% if fields.title %}
-        <h2 class="rd-media__title">{{ fields.title }}</h2>
-      {% endif %}
+      <div class="rd-media-heading">
+        {% if fields.subtitle %}
+          <span class="rd-tag rd-media__subtitle rd-media__subtitle">{{ fields.subtitle }}</span>
+        {% endif %}
+        {% if fields.title %}
+          <h2 class="rd-media__title">{{ fields.title }}</h2>
+        {% endif %}
+      </div>
+
       {% if fields.pills %}
         <div class="rd-media-pills {% if fields.image %}rd-media-pills--start{% endif %}">
           {% for pill in fields.pills %}
             <a {% if pill.link.url %} href="{{ pill.link.url }}" {% endif %} class="rd-media-pills-item {% if pill.link.url %}rd-media-pills-item--link{% endif %}">
-              <img src="{{ fields.icon.url }}" alt="{{ fields.icon.alt }}" class="rd-media-pills__icon injectable">
-              {{ pill.link.title }}
+              <img src="{{ site.theme.link }}/images/icons/location-yellow.svg" alt="Location {{ pill.link.title }}" class="rd-media-pills__icon injectable">
+              <span>{{ pill.link.title }}</span>
             </a>
           {% endfor %}
         </div>
