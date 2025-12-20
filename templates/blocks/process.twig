@@ -12,10 +12,13 @@
   SupportsMultiple: true
 #}
 
-<section class="rd-block rd-spacing rd-spacing--white rd-process">
+<section class="rd-block rd-spacing rd-spacing--light-yellow rd-process">
   <div class="rd-container">
     <!-- Heading -->
     <div class="rd-heading">
+      {% if fields.subtitle %}
+        <span class="rd-tag rd-process__subtitle rd-heading__subtitle">{{ fields.subtitle }}</span>
+      {% endif %}
       {% if fields.title %}
         <h2 class="rd-heading__title">{{ fields.title }}</h2>
       {% endif %}
@@ -32,7 +35,9 @@
                 <img src="{{ item.icon.url }}" alt="{{ item.icon.alt }}" class="rd-process__icon injectable">
               </div>
 
-              <img src="{{ site.theme.link }}/images/icons/arrow-right.svg" title="Arrow Right" alt="Arrow Right" class="rd-process-item__arrow hidden lg:block injectable">
+              <!-- Add Numbering -->
+              <span class="rd-process__number">{{ '%02d'|format(loop.index) }}</span>
+              <!-- Add Numbering End -->
             </div>
           {% endif %}
           {% if item.title %}
@@ -41,8 +46,6 @@
           {% if item.description %}
             <p class="rd-process__description">{{ item.description }}</p>
           {% endif %}
-
-          <img src="{{ site.theme.link }}/images/icons/arrow-down.svg" title="Arrow Down" alt="Arrow Down" class="rd-process-item__arrow lg:hidden injectable">
         </div>
       {% endfor %}
     </div>
@@ -51,7 +54,7 @@
     <!-- Button -->
     {% if fields.button %}
       <div class="rd-process-btn">
-        <a class="btn btn-primary" href="{{ fields.button.url }}" target="{{ fields.button.target }}">{{ fields.button.title }}</a>
+        <a class="btn btn-tertiary" href="{{ fields.button.url }}" target="{{ fields.button.target }}">{{ fields.button.title }}</a>
       </div>
     {% endif %}
     <!-- Button End -->
