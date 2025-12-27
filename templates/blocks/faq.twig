@@ -12,20 +12,30 @@
   SupportsMultiple: true
 #}
 
-<section class="rd-block rd-spacing rd-spacing--white rd-media rd-media--faq bg-white">
-  <div class="rd-container rd-media-wrapper">
+<section class="rd-block rd-spacing rd-spacing--light-yellow rd-media rd-media--faq">
+  <div class="rd-container rd-media-wrapper rd-media-wrapper--faq">
     <!-- Media -->
-    <div class="rd-media-image">
-      {% if fields.image %}
-        <img src="{{ fields.image.url }}" alt="{{ fields.image.alt }}" class="rd-media__image rd-responsive">
+    <div class="rd-media-heading">
+      {% if fields.subtitle %}
+        <span class="rd-tag rd-media__tag rd-media__subtitle">{{ fields.subtitle }}</span>
       {% endif %}
+      {% if fields.title %}
+        <h2 class="rd-media__title">{{ fields.title }}</h2>
+      {% endif %}
+      {% if fields.description %}
+        <div class="rd-media__description rd-content">{{ fields.description }}</div>
+      {% endif %}
+      <!-- Button -->
+      {% if fields.button %}
+        <div class="rd-media-btn rd-media-btn--top">
+          <a href="{{ fields.button.url }}" target="{{ fields.button.target }}" class="btn btn-tertiary">{{ fields.button.title }}</a>
+        </div>
+      {% endif %}
+      <!-- Button End -->
     </div>
     <!-- Media End -->
     <!-- Content -->
     <div class="rd-media-content">
-      {% if fields.title %}
-        <h2 class="rd-media__title">{{ fields.title }}</h2>
-      {% endif %}
       {% if fields.questions %}
       <div class="rd-media-faq">
         {% for item in fields.questions %}
@@ -33,7 +43,7 @@
             <div class="rd-media-faq-question">
               <span class="rd-media-faq__text">{{ item.question }}</span>
               <div class="rd-media-faq-icon">
-                <img src="{{ site.theme.link }}/images/icons/arrow-down-faq.svg" title="Arrow Down" alt="Arrow Down" class="rd-media-faq-icon__arrow injectable">
+                <img src="{{ site.theme.link }}/images/icons/arrow-down-black.svg" title="Arrow Down" alt="Arrow Down" class="rd-media-faq-icon__arrow injectable">
               </div>
             </div>
             <div class="rd-media-faq-answer rd-content">
@@ -43,15 +53,15 @@
         {% endfor %}
       </div>
       {% endif %}
-      <!-- Button -->
-      {% if fields.button %}
-        <div class="rd-media-btn">
-          <a href="{{ fields.button.url }}" target="{{ fields.button.target }}" class="btn btn-primary">{{ fields.button.title }}</a>
-        </div>
-      {% endif %}
-      <!-- Button End -->
     </div>
     <!-- Content End -->
+    <!-- Button -->
+    {% if fields.button %}
+      <div class="rd-media-btn rd-media-btn--bottom">
+        <a href="{{ fields.button.url }}" target="{{ fields.button.target }}" class="btn btn-tertiary">{{ fields.button.title }}</a>
+      </div>
+    {% endif %}
+    <!-- Button End -->
 
   </div>
 </section>

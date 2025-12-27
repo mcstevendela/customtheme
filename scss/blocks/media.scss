@@ -193,16 +193,28 @@
   }
 
   // FAQ Block
-  &--faq &-faq {
-    @apply mt-10 lg:mt-[60px];
+  &--faq {
+    @apply bg-light-yellow;
   }
 
-  &--faq &-image {
-    @apply lg:max-w-[460px];
+  &--faq &-wrapper--faq {
+    @apply items-center lg:items-start gap-0 lg:gap-[140px];
   }
 
-  &--faq &__image {
-    @apply h-[420px] lg:min-h-[746px];
+  &--faq &-heading {
+    @apply text-center lg:text-left;
+  }
+
+  &--faq &__tag::before {
+    z-index: 1;
+  }
+
+  &--faq &__title {
+    @apply mb-[30px];
+  }
+
+  &--faq &__description {
+    @apply text-base leading-[28px];
   }
 
   &--faq &-faq-item:not(:last-child) {
@@ -210,11 +222,19 @@
   }
 
   &--faq &-faq-question {
-    @apply py-3 pl-8 pr-3 border-2 border-gray-dark16 rounded-[100px] flex justify-between items-center cursor-pointer transition-all lg:hover:bg-light-blue;
+    @apply py-3 pl-8 pr-3 border-2 border-gray-dark16 rounded-[100px] flex justify-between items-center cursor-pointer transition-all;
   }
 
   &--faq &-faq__text {
-    @apply font-passion text-2xl text-black;
+    @apply font-passion text-3xl text-black transition-all;
+  }
+
+  &--faq &-faq-question:hover {
+    @apply lg:bg-white;
+  }
+
+  &--faq &-faq-question:hover &-faq__text {
+    @apply lg:text-yellow;
   }
 
   &--faq &-faq-icon {
@@ -229,21 +249,33 @@
     @apply mt-10 lg:mt-[60px] justify-center flex lg:justify-start;
   }
 
+  &--faq &-btn--top {
+    @apply hidden lg:flex;
+  }
+
+  &--faq &-btn--bottom {
+    @apply flex lg:hidden;
+  }
+
   // FAQ Block Open
   &--faq &-faq-item.open {
     @apply mb-8;
   }
 
   &--faq &-faq-item.open &-faq-question {
-    @apply border-white lg:hover:bg-white;
+    @apply border-light-yellow lg:hover:bg-light-yellow pb-0; 
   }
 
   &--faq &-faq-item.open &-faq-icon {
-    @apply hidden;
+    @apply transform rotate-180 border-yellow bg-yellow;
+
+    & svg path {
+      @apply fill-white;
+    }
   }
 
   &--faq &-faq-item.open &-faq__text {
-    @apply text-blue;
+    @apply text-yellow;
   }
 
   &--faq &-faq-item.open &-faq-answer {

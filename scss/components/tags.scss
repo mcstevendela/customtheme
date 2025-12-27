@@ -1,5 +1,5 @@
 .rd-tag {
-    @apply relative inline-block rounded-[5px] py-2 px-3 font-bold uppercase text-xs tracking-wider;
+    @apply relative inline-block rounded-[5px] py-2 px-3 uppercase text-xs tracking-wider;
     background-color: transparent;
     background-clip: padding-box;
     
@@ -18,5 +18,9 @@
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       padding: 1px;
+    }
+
+    &--bold {
+      @apply font-bold;
     }
   }
