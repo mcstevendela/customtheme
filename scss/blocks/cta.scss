@@ -1,27 +1,20 @@
 .rd-cta {
-  @apply relative;
+  @apply relative lg:pt-[180px];
 
   &-wrapper {
-    @apply relative p-10 pb-[138px] lg:pb-[70px] lg:p-[70px] rounded-[10px] rounded-[10px] overflow-hidden;
-
-    &::before {
-      content: "";
-      background: linear-gradient(90deg, #1470AF 0%, rgba(20, 112, 175, 0.8) 36.25%, rgba(20, 112, 175, 0.7) 63.92%, rgba(20, 112, 175, 0) 100%);
-      @apply absolute w-full h-full top-0 left-0 z-[2];
-    }
+    @apply relative pt-5 pb-[220px] px-5 lg:px-[70px] lg:py-[56px] rounded-[10px] bg-blue;
   }
 
   &__bg {
-    @apply absolute w-full h-full top-0 left-0 object-cover z-[1];
-    transform: scaleX(-1);
+    @apply absolute w-[278px] lg:w-[645px] bottom-0 transform translate-x-[50%] right-[50%] lg:right-0 lg:translate-x-0 object-cover z-[1];
   }
 
   &__title {
-    @apply my-0 text-white max-w-[746px] w-full text-center lg:text-left;
+    @apply my-0 text-white lg:max-w-[548px] w-full text-center lg:text-left;
   }
 
   &-content {
-    @apply relative z-[3] flex flex-col gap-10;
+    @apply relative z-[3] flex flex-col gap-[30px] lg:pr-[500px];
   }
 
   &-btn {

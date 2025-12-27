@@ -7,8 +7,12 @@
 .rd-spacing {
   @apply py-[50px] lg:py-[100px];
 
-  &--white + &--white:not(.rd-process) {
-    @apply pt-0;
+  &--white + &--white {
+    &:before {
+      content: "";
+      @apply absolute top-0 left-1/2 transform translate-x-[-50%] max-w-[1200px] h-[1px] bg-black/20;
+      width: calc(100% - 40px);
+    }
   }
 
   &--light-yellow + &--light-yellow {
