@@ -12,10 +12,10 @@
   }
 
   &-item {
-    @apply p-4 border border-gray-dark16 rounded-[10px] lg:hover:bg-light-blue;
+    @apply p-4 border border-yellow-border rounded-[10px] lg:hover:bg-light-yellow;
 
     &-image {
-      @apply mb-6 lg:mb-10;
+      @apply mb-5;
 
       & img {
         @apply w-full h-auto lg:h-[210px] object-cover rounded-lg;
@@ -27,7 +27,11 @@
     }
 
     &__date {
-      @apply flex items-center gap-3 mb-4 lg:mb-[25px];
+      @apply flex items-center gap-2 mb-4 lg:mb-[25px] text-xs;
+    }
+
+    &__name {
+      @apply text-3xl;
     }
 
     &__text {
@@ -36,12 +40,16 @@
 
     &-btn {
       @apply mt-6 lg:mt-[30px];
+
+      & .btn {
+        @apply px-6 py-4;
+      }
     }
   }
 
   @screen lg {
     &-item:hover .btn-secondary {
-      @apply bg-blue text-white;
+      @apply bg-white text-yellow;
     }
   }
 }

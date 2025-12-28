@@ -18,4 +18,22 @@
   &--light-yellow + &--light-yellow {
     @apply pt-0;
   }
+
+  &--remove-line + &--remove-line {
+    @apply pt-0;
+
+    &:before {
+      @apply hidden;
+    }
+  }
+}
+
+.rd-block.rd-spacing--white:has(+ .rd-cta) {
+  @apply pb-0;
+}
+
+.rd-block.rd-spacing--white + .rd-cta {
+  &:before {
+    @apply hidden;
+  }
 }
