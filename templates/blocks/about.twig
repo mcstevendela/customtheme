@@ -12,7 +12,7 @@
   SupportsMultiple: true
 #}
 
-<section class="rd-block rd-spacing rd-media {{ fields.options }}">
+<section class="rd-block rd-spacing rd-media {{ fields.options }}{% if fields.options == 'rd-about--white' %} rd-spacing--white{% endif %}">
   <div class="rd-container rd-media-wrapper">
     <!-- Media -->
     <div class="rd-media-image">

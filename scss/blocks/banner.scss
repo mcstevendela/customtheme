@@ -1,5 +1,5 @@
 .rd-banner {
-  @apply relative py-[146px] xl:py-[200px];
+  @apply relative py-[146px] xl:pt-[200px] xl:pb-[100px];
 
   &-bg {
     @apply absolute w-full h-full top-0 left-0;

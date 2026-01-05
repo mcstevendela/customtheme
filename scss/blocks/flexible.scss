@@ -1,5 +1,5 @@
 .rd-flexible {
-  @apply bg-light-blue;
+  @apply relative bg-light-yellow;
 
   &-image {
     @apply flex gap-10 my-[30px] lg:my-[80px];
@@ -41,7 +41,7 @@
 
   &-content {
     & a, & a span {
-      @apply underline text-blue;
+      @apply underline text-yellow;
       font-weight: 700 !important;
 
       &:hover {

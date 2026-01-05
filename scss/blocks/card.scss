@@ -1,4 +1,6 @@
 .rd-card {
+  @apply relative;
+  
   &--icon {
     @apply bg-light-yellow;
   }
@@ -35,7 +37,7 @@
     @apply pt-10 lg:pt-[60px] grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-[36px] grid;
 
     &--icon {
-      @apply grid gap-[30px] lg:gap-x-[120px] lg:gap-y-10;
+      @apply grid lg:grid-cols-4 gap-[30px] lg:gap-x-[60px] lg:gap-y-10;
     }
   }
 
@@ -46,7 +48,7 @@
       @apply p-4 flex flex-col items-center gap-3 text-center h-full justify-between transition-all;
 
       &--icon {
-        @apply p-0 gap-5;
+        @apply p-0 gap-5 justify-start;
       }
     }
 
@@ -55,15 +57,19 @@
     }
 
     &-image {
-      @apply mb-4;
+      @apply mb-4 w-full;
     }
     
     &__image {
-      @apply w-full rounded-lg object-cover object-center lg:h-[224px];
+      @apply w-full rounded-lg object-cover object-center h-[224px];
     }
 
     &__title {
       @apply font-passion text-3xl my-0 px-5;
+
+      &--icon {
+        @apply lg:min-h-[72px];
+      }
     }
 
     &__text {
