@@ -39,6 +39,7 @@ module.exports = {
         'gray-light': '#585858',
         'gray-border': '#DEDEDE',
         'white12': '#FFFFFF1F',
+        'red': '#FF0000',
       },
       fontFamily: {
         inter: ['Inter', 'sans-serif'],

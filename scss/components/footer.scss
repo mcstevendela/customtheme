@@ -208,4 +208,8 @@
   &__btn {
     @apply lg:hidden mt-5;
   }
+
+  &__side {
+    @apply fixed left-5 top-2/3 -translate-y-1/2 bg-red text-white px-5 py-2 rotate-[-90deg] origin-left z-10 font-passion text-[21px] rounded-bl-[5px] rounded-br-[5px] uppercase lg:hover:bg-blue;
+  }
 }

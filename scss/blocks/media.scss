@@ -226,7 +226,8 @@
   }
 
   &--faq &-faq__text {
-    @apply font-passion text-3xl text-black transition-all;
+    @apply font-passion pr-2 text-2xl lg:text-3xl text-black transition-all;
+    width: calc(100% - 60px - 32px);
   }
 
   &--faq &-faq-question:hover {
