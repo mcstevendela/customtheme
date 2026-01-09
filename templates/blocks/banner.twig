@@ -43,6 +43,7 @@
         <a href="{{ fields.button.url }}" target="{{ fields.button.target }}" class="rd-banner__button rd-banner__button--desktop btn btn-primary">{{ fields.button.title }}</a>
       {% endif %}
     </div>
+    {#
     {% if fields.form %}
     <div class="rd-banner-form rd-form">
       <span class="rd-banner-form__title">{{ fields.form_title }}</span>
@@ -50,6 +51,7 @@
       {{ fields.form|raw }}
     </div>
     {% endif %}
+    #}
 
     {% if fields.button %}
       <a href="{{ fields.button.url }}" target="{{ fields.button.target }}" class="rd-banner__button rd-banner__button--mobile btn btn-primary">{{ fields.button.title }}</a>
