@@ -228,15 +228,15 @@ function theme_custom_scripts() {
 	
 	// Enqueue Quote Form Scripts only on /free-quote/ page
 	if (is_page('free-quote')) {
-		// Enqueue jQuery UI for datepicker (WordPress includes jQuery UI core by default)
+		// Enqueue jQuery UI for datepicker
 		wp_enqueue_script('jquery-ui-datepicker');
 		wp_enqueue_style('jquery-ui-css', 'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css', array(), '1.12.1');
 		
 		// Enqueue EmailJS for form notifications
-		wp_enqueue_script( 'emailjs', 'https://cdn.emailjs.com/dist/email.min.js', array(), null, true );
+		wp_enqueue_script( 'emailjs', 'https://cdn.emailjs.com/dist/email.min.js', array(), null, false );
 		
-		// Enqueue Quote Form Scripts (must load after EmailJS)
-		wp_enqueue_script( 'quote-form-js', get_template_directory_uri() . '/js/form/quote-form.js', array('jquery', 'jquery-ui-datepicker', 'emailjs'), '1.0.1', true );
+		// Enqueue Quote Form Scripts (must load after EmailJS and jQuery UI)
+		wp_enqueue_script( 'quote-form-js', get_template_directory_uri() . '/js/form/quote-form.js', array('jquery', 'jquery-ui-datepicker', 'emailjs'), '1.0.2', true );
 	}
 	}
 	add_action('wp_enqueue_scripts', 'theme_custom_scripts'); 

@@ -31,9 +31,53 @@ function isValidEmail(email) {
 
 function isValidDate(date, threshold) {
     try {
-        testdate = jQuery.datepicker.parseDate('mm/dd/yy', date.val());
-        return threshold === undefined ? date.val().trim().length > 0 : (new Date(date.val())).getTime() >= (new Date((new Date()).getFullYear(), (new Date()).getMonth(), (new Date()).getDate())).getTime();
+        var dateValue = date.val().trim();
+        console.log("Validating date: " + dateValue);
+        
+        if (dateValue.length === 0) {
+            return false;
+        }
+        
+        // Parse date manually from MM/DD/YY or MM/DD/YYYY format
+        var parts = dateValue.split('/');
+        if (parts.length !== 3) {
+            console.log("Invalid date format - expected MM/DD/YY or MM/DD/YYYY");
+            return false;
+        }
+        
+        var month = parseInt(parts[0], 10) - 1; // Months are 0-indexed
+        var day = parseInt(parts[1], 10);
+        var year = parseInt(parts[2], 10);
+        
+        // Handle 2-digit year (YY format)
+        if (year < 100) {
+          year += 2000;
+        }
+        
+        var testdate = new Date(year, month, day);
+        console.log("Parsed date:", testdate);
+        
+        // Validate the date is real (not 13/32/2025 etc)
+        if (testdate.getMonth() !== month || testdate.getDate() !== day || testdate.getFullYear() !== year) {
+            console.log("Invalid date values");
+            return false;
+        }
+        
+        if (threshold === undefined) {
+            return true;
+        }
+        
+        // Compare the parsed date against today at midnight
+        var today = new Date();
+        today.setHours(0, 0, 0, 0);
+        testdate.setHours(0, 0, 0, 0);
+        
+        var isValid = testdate.getTime() >= today.getTime();
+        console.log("Date comparison result:", isValid);
+        return isValid;
     } catch (e) {
+        console.log("Date validation error:", e);
+        console.log("Error message:", e.message);
         return false;
     }
 }
@@ -58,7 +102,7 @@ function isValid() {
     returnVal = showError(isValidPhone(jQuery('#phoneNumber')), jQuery('#phoneNumber'), "Please specify a valid phone number.") && returnVal;
     returnVal = showError(isValidEmail(jQuery('#email')), jQuery('#email'), "Please specify a valid email address.") && returnVal;
     returnVal = showError(jQuery('#moveType').val() != '--', jQuery('#moveType'), "Please select a move type.") && returnVal;
-    returnVal = showError(isValidDate(jQuery('#moveDate'), Date.now), jQuery('#moveDate'), "Please select today's date or future date for booking request.") && returnVal;
+    returnVal = showError(isValidDate(jQuery('#moveDate'), Date.now()), jQuery('#moveDate'), "Please select today's date or future date for booking request.") && returnVal;
     returnVal = showError(isValidUSZip(jQuery('#fromZip').val().trim()), jQuery('#fromZip'), "Please provide a valid from zip code.") && returnVal;
     returnVal = showError(isValidUSZip(jQuery('#toZip').val().trim()), jQuery('#toZip'), "Please provide a valid to zip code.") && returnVal;
     returnVal = showError(jQuery('#moveTime').val() != '--', jQuery('#moveTime'), "Please select a preferred move time.") && returnVal;
@@ -157,7 +201,16 @@ function submitForm() {
         oFr["fieldAcc14"].value = oFr["zip"].value;
         oFr["fieldAcc15"].value = oFr["zipPic"].value;
 
-        var moveDate = new Date(oFr["fieldAcc3"].value);
+        // Parse date manually from MM/DD/YY or MM/DD/YYYY format
+        var dateParts = oFr["fieldAcc3"].value.split('/');
+        var month = parseInt(dateParts[0], 10) - 1;
+        var day = parseInt(dateParts[1], 10);
+        var year = parseInt(dateParts[2], 10);
+        if (year < 100) {
+            year += 2000;
+        }
+        var moveDate = new Date(year, month, day);
+        
         oFr["fieldAcc3-YEAR"].value = moveDate.getFullYear(); /* add YYYY portioin of the value from moving date collected */
         oFr["fieldAcc3-MONTH"].value = moveDate.getMonth() + 1; /* add MM portioin of the value from moving date collected */
         oFr["fieldAcc3-DAY"].value = moveDate.getDate(); /* add DD portioin of the value from moving date collected */
@@ -176,5 +229,7 @@ jQuery(function($) {
     $.getJSON('//jsonip.com/?callback=?', function(data) {
         IPAddress = data.ip;
     });
-    $('.datepicker').datepicker();
+    $('.datepicker').datepicker({
+        dateFormat: 'mm/dd/yy'
+    });
 });
