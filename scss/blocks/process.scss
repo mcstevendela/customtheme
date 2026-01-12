@@ -7,11 +7,11 @@
   }
 
   &-content {
-    @apply mt-10 lg:mt-[60px] grid grid-cols-1 lg:grid-cols-4 gap-[30px] lg:gap-10;
+    @apply mt-10 lg:mt-[60px] flex flex-col lg:flex-row flex-wrap justify-center gap-[30px] lg:gap-10;
   }
 
   &-item {
-    @apply relative flex flex-col gap-6;
+    @apply relative flex flex-col gap-6 w-full lg:w-[31%];
   }
 
   &-con {
@@ -32,7 +32,7 @@
   }
 
   &__title {
-    @apply font-passion text-3xl my-0 text-center;
+    @apply font-passion text-[25px] my-0 text-center;
   }
 
   &__description {

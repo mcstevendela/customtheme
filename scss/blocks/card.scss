@@ -34,15 +34,15 @@
   }
 
   &-main {
-    @apply pt-10 lg:pt-[60px] grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-[36px] grid;
+    @apply pt-10 lg:pt-[60px] gap-6 lg:gap-[36px] flex flex-col lg:flex-row flex-wrap justify-center;
 
     &--icon {
-      @apply grid lg:grid-cols-3 gap-[30px] lg:gap-x-[120px] lg:gap-y-10;
+      @apply gap-[30px] lg:gap-x-[120px] lg:gap-y-10;
     }
   }
 
   &-item {
-    @apply relative block transition-all bg-white rounded-[10px] border border-light-yellow-border;
+    @apply relative block transition-all bg-white rounded-[10px] border border-light-yellow-border w-full lg:w-[31.33%];
 
     &-wrapper {
       @apply p-4 flex flex-col items-center gap-3 text-center h-full justify-between transition-all;
@@ -65,11 +65,7 @@
     }
 
     &__title {
-      @apply font-passion text-3xl my-0 px-5;
-
-      &--icon {
-        @apply lg:min-h-[72px];
-      }
+      @apply font-passion text-[25px] my-0 px-5;
     }
 
     &__text {
@@ -94,7 +90,7 @@
     }
 
     &--icon {
-      @apply border-0 bg-transparent;
+      @apply border-0 bg-transparent w-full lg:w-[26.6%];
 
       .rd-card-item__title, .rd-card-item__text {
         @apply px-0;
