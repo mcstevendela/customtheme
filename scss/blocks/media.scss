@@ -64,6 +64,11 @@
     @apply inline-block lg:hidden mt-0;
   }
 
+  //About Block
+  &--about &-content {
+    @apply lg:max-w-[910px];
+  }
+
   //Pill Block
   &--pill {
     @apply relative bg-white;

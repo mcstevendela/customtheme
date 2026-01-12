@@ -20,6 +20,11 @@
   </div>
   <div class="rd-container rd-banner-wrapper">
     <div class="rd-banner-content">
+      {% if fields.rating %}
+        <div class="rd-banner-rating">
+          {{ fields.rating|raw }}
+        </div>
+      {% endif %}
       {% if fields.subtitle %}
         <span class="rd-tag rd-tag--bold rd-banner__tag">{{ fields.subtitle }}</span>
       {% endif %}

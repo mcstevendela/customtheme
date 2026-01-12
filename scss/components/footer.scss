@@ -171,14 +171,18 @@
     }
 
     &-links {
-      @apply flex items-center pt-[30px] lg:pt-0;
+      @apply flex flex-col lg:flex-row items-center lg:ml-6 pt-5 lg:pt-0;
 
       &-item {
-        @apply relative pr-8;
+        @apply relative lg:pr-6;
+
+        & a {
+          @apply text-sm lg:hover:text-yellow;
+        }
 
         &::after {
-          content: "/";
-          @apply absolute top-0 right-3; 
+          content: "|";
+          @apply absolute top-0 right-2 hidden lg:inline-block; 
         }
 
         &:last-child {

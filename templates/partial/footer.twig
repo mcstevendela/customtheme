@@ -116,6 +116,16 @@
       <p class="rd-footer-bottom-copy">
         Copyright © {{ "now"|date("Y") }} <span>{{ global.footer_copyright }}</span> | All Rights Reserved
       </p>
+
+      <ul class="rd-footer-bottom-links">
+        {% if global.footer_bottom_links %}
+          {% for item in global.footer_bottom_links %}
+            <li class="rd-footer-bottom-links-item">
+              <a href="{{ item.footer_bottom_link.url }}" class="rd-footer-bottom-links__link">{{ item.footer_bottom_link.title }}</a>
+            </li>
+          {% endfor %}
+        {% endif %}
+      </ul>
     </div>
   </div>
   <!-- Footer Bottom End -->

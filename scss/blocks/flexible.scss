@@ -48,6 +48,14 @@
         @apply text-black;
       }
     }
+
+    &--contact {
+      @apply flex flex-col lg:flex-row gap-4;
+
+      &-map {
+        @apply mt-5 lg:mt-0;
+      }
+    }
   }
 
   &--black {

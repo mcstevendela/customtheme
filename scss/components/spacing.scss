@@ -1,6 +1,10 @@
 .rd {
   &-container {
     @apply max-w-[1240px] mx-auto px-5;
+
+    &--big {
+      @apply max-w-[1740px];
+    }
   }
 }
 

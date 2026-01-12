@@ -190,7 +190,7 @@
     margin-bottom: 20px !important;
 
     &-top {
-      @apply flex flex-col xl:flex-row items-center justify-center text-white;
+      @apply flex flex-row xl:flex-row items-center justify-center text-white xl:justify-start xl:items-start;
     }
 
     &__text {
@@ -202,7 +202,7 @@
     }
 
     &-bottom {
-      @apply flex items-center justify-center mt-2 text-white text-center xl:text-left;
+      @apply flex items-center justify-center mt-2 text-white text-center xl:text-left xl:justify-start xl:items-start;
     }
   }
 }
