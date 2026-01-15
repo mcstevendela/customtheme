@@ -78,4 +78,36 @@
   &--white {
     @apply bg-white;
   }
+
+  &-with-sidebar {
+    @apply flex flex-col lg:flex-row gap-10 lg:gap-20;
+  }
+
+  &-with-sidebar &-main {
+    @apply w-full lg:w-3/4;
+  }
+
+  &-with-sidebar &-sidebar {
+    @apply w-full lg:w-1/4;
+  }
+
+  &-sidebar {
+    &__heading {
+      @extend .h3;
+      @apply mb-4 block mt-0;
+    }
+
+    &-link {
+      @apply mb-1;
+
+      & a {
+        @apply underline text-yellow;
+        font-weight: 700 !important;
+
+        &:hover {
+          @apply text-black;
+        }
+      }
+    }
+  }
 }

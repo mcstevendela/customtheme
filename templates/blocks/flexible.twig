@@ -14,7 +14,7 @@
 
 {% if fields.content %}
 <section class="rd-block rd-spacing rd-flexible {% if fields.background == 'white' %}rd-flexible--white rd-spacing--white{% else %}rd-spacing--light-yellow{% endif %}">
-  <div class="rd-container">
+  <div class="rd-container {% if fields.sidebar %}rd-flexible-with-sidebar{% else %}rd-flexible-no-sidebar{% endif %}">
     <div class="rd-flexible-main">
       {% for item in fields.content %}
         {% if item.content %}
@@ -44,6 +44,20 @@
         {% endif %}
       {% endfor %}
     </div>
+    {% if fields.sidebar %}
+      <div class="rd-flexible-sidebar rd-content">
+        {% if fields.sidebar_heading %}
+          <span class="rd-flexible-sidebar__heading">{{ fields.sidebar_heading }}</span>
+        {% endif %}
+        {% for item in fields.sidebar_links %}
+          {% if item %}
+            <div class="rd-flexible-sidebar-link">
+              <a href="{{ function('get_permalink', item.ID) }}" target="_self">{{ item.post_title }}</a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 </section>
 {% endif %}
