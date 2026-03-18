@@ -1,10 +1,6 @@
 <?php
-
-require_once 'includes/index.php';
-
 use Timber\Timber;
 use Timber\Site;
-use Timber\Menu;
 
 /**
  * Timber starter-theme
@@ -12,7 +8,7 @@ use Timber\Menu;
  *
  * @package  WordPress
  * @subpackage  Timber
- * @since   Timber 0.1
+ * @since   Timber 2.0
  */
 
 /**
@@ -49,24 +45,20 @@ if ( ! class_exists( 'Timber\Site' ) ) {
 }
 
 /**
- * Sets the directories (inside your theme) to find .twig files
- * In Timber 2.x, this is configured in the StarterSite constructor
+ * Class RotateDigital extends the Timber Site class and sets up theme support, context, and other functionality for the Rotate Digital WordPress theme.
  */
-
-
-/**
- * We're going to configure our theme inside of a subclass of Timber\Site
- * You can move this to its own file and include here via php's include("MySite.php")
- */
-class StarterSite extends Site {
-	/** Add timber support. */
+class RotateDigital extends Site {
 	public function __construct() {
-		// Configure Timber template directories
+		/** Add Timber locations for Twig files
+		 * This allows you to organize your Twig files in a "templates" subdirectory
+		 * within your theme, which is a common convention.
+		 */
 		add_filter( 'timber/locations', function( $paths ) {
 			$paths[] = get_stylesheet_directory() . '/templates';
 			return $paths;
 		});
 		
+		/** Add theme support for various WordPress features */
 		add_theme_support( 'post-formats', array( 'aside', 'chat', 'gallery', 'image', 'link', 'quote', 'status', 'video', 'audio','post-thumbnails' ) );
 		add_theme_support( 'title-tag' );
 		add_theme_support('menus');
@@ -76,72 +68,52 @@ class StarterSite extends Site {
 		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
 		add_filter('timber_context', array($this, 'add_to_context'));
 		add_filter('timber_context',  array($this, 'global_info'));
-		add_filter('timber_context',  array($this, 'areas'));
 		add_action('init', array($this, 'register_post_types'));
 		add_action('init', array($this, 'register_taxonomies'));
 		add_filter('screen_options_show_screen', '__return_true');
 		parent::__construct();
 	}
 
-	function areas( $context ) {
-		$context['areas'] = get_posts('areas');
-		return $context;
-	}
+	/** This is where you can register custom post types. */
 	function global_info( $context ) {
 		$context['global'] = get_fields('option');
 		$context['header'] = get_fields('option');
 		$context['footer'] = get_fields('option');
+		//Add additional global fields as needed
 		return $context;
 	}
 
-	/** This is where you add some context
-	 *
-	 * @param string $context context['this'] Being the Twig's {{ this }}.
-	 */
+	/** This is where you add some context*/
 	public function add_to_context( $context ) {
-		$context['primary'] = get_field('global.color_scheme.colors[0].color.color_value');
-		//adding global option page
 		$context['global'] = get_field('global', 'options'); //adding global option page
 		$context['topbar'] = get_field('topbar', 'options'); //adding topbar option page
 		$context['header'] = get_field('header', 'options'); //adding header option page
 		$context['company_info'] = get_field('company_info', 'options'); //adding company info option page
 		$context['footer'] = get_field('footer', 'options'); //adding footer option page
-		$context['stuff'] = 'I am a value set in your functions.php file';
-		$context['notes'] = 'These values are available everytime you call Timber::context();';
 		$context['menu']  = Timber::get_menu('Main menu');
 		$context['site']  = $this;
+		//Add additional global context as needed
 		return $context;
-	}
-
-	/** This is where you can add your own functions to twig.
-	 *
-	 * @param string $twig get extension.
-	 */
-	public function add_to_twig( $twig ) {
-		$twig->addExtension( new Twig\Extension\StringLoaderExtension() );
-		$twig->addFilter( new Twig\TwigFilter( 'myfoo', array( $this, 'myfoo' ) ) );
-		return $twig;
 	}
 }
 
-new StarterSite();
+// Initialize the site
+new RotateDigital();
 
-// WP HEAD CLEANOUT
-//Remove RSD Link
+/**********************************
+ * Clean up the WordPress head
+ **********************************/
 remove_action( 'wp_head', 'rsd_link' );
-//Remove generator
 remove_action( 'wp_head', 'wp_generator' );
-//Remove REST API link tag
 remove_action( 'wp_head', 'rest_output_link_wp_head', 10 );
-//Remove oEmbed links
 remove_action( 'wp_head', 'wp_oembed_add_discovery_links', 10 );
-//Remove REST API in HTTP Headers
 remove_action( 'template_redirect', 'rest_output_link_header', 11, 0 );
-//Remove WLW Manifest
 remove_action( 'wp_head', 'wlwmanifest_link' );
-//Remove shortlink
 remove_action( 'wp_head', 'wp_shortlink_wp_head');
-add_filter('emoji_svg_url', '__return_false');
+
+/**
+ * Disable the emoji's
+ */
 function disable_emojis() {
 	remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
 	remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
@@ -150,7 +122,6 @@ function disable_emojis() {
 	remove_filter( 'the_content_feed', 'wp_staticize_emoji' );
 	remove_filter( 'comment_text_rss', 'wp_staticize_emoji' );	
 	remove_filter( 'wp_mail', 'wp_staticize_emoji_for_email' );	
-	// Remove from TinyMCE
 	add_filter( 'tiny_mce_plugins', 'disable_emojis_tinymce' );
 }
 add_action( 'init', 'disable_emojis' );
@@ -166,29 +137,88 @@ function disable_emojis_tinymce( $plugins ) {
 	}
 }
 
-// Allow SVG
+/**
+ * Remove Comments from Admin Menu
+ */
+function my_remove_admin_menus() {
+	remove_menu_page( 'edit-comments.php' );
+}
+add_action( 'admin_init', 'my_remove_admin_menus' );
+
+/**
+ * Remove annoying notification about ACF Pro updates
+ */
+function remove_annoying_notification() {
+	echo '<style>
+    .notice.notice-error.is-dismissible {
+      display: none!important;
+    }
+  </style>';
+}
+add_action('admin_head', 'remove_annoying_notification');
+
+/**********************************
+ * Addition to the site's functions.php file
+ **********************************/
+
+/**
+ * Enable SVG Uploads
+ */
 function enable_svg_upload( $upload_mimes ) {
     $upload_mimes['svg'] = 'image/svg+xml';
     $upload_mimes['svgz'] = 'image/svg+xml';
     return $upload_mimes;
 }
-add_filter( 'upload_mimes', 'enable_svg_upload', 10, 1 );
-// Adding Screen Option to Admin Dashboard
-add_filter('set-screen-option', 'myFilterScreenOption', 11, 3);
-function myFilterScreenOption($keep, $option, $value) {
-    if ($option === 'myitem_per_page') {
-        if ($value < 0) {
-            $value = 0;
-        } elseif ($value > 100) {
-            $value = 100;
-        }
-    }
-    return $value;
-}
+add_filter('upload_mimes', 'enable_svg_upload', 10, 1);
 
-// GLOBAL ACF SETTINGS
-//adding acf funtions for Company info settings
-if (function_exists('acf_add_options_page')) {
+/**
+ * Add separator in admin menu
+ */
+function set_admin_menu_separator() {
+	$position = 25;
+	global $menu;
+	$menu[$position] = array(
+		0   =>  '',
+		1   =>  'read',
+		2   =>  'separator' . $position,
+		3   =>  '',
+		4   =>  'wp-menu-separator'
+	);
+}
+add_action('admin_menu', 'set_admin_menu_separator');
+
+/**
+ * Enqueue theme scripts and styles
+ */
+function theme_custom_scripts() {
+	wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/js/bundle.min.js', array('jquery'), '1.1.2', true);
+	//wp_enqueue_script( 'swiper-js', get_template_directory_uri() . '/js/swiper.min.js', array(), '1.0.0', true ); // Remove if not using Swiper slider
+	//wp_enqueue_script( 'fancybox-js', get_template_directory_uri() . '/js/fancybox.min.js', array('jquery'), '1.0.0', true ); // Remove if not using Fancybox
+	
+	if (!is_admin()) {
+		wp_enqueue_style('aos-css', get_template_directory_uri() . '/css/aos.css', array(), '1.0.0');
+	}
+}
+add_action('wp_enqueue_scripts', 'theme_custom_scripts'); 
+
+/**
+ * Registers support for editor styles & Enqueue it.
+ */
+function enqueuing_editor_styling(){
+	wp_enqueue_style('gutenberg-styles', get_template_directory_uri().'/css/bundle.css'); 
+	//wp_enqueue_style('fancybox-css', get_template_directory_uri() . '/css/fancybox.min.css', array(), '1.0.0'); // Remove if not using Fancybox
+
+}
+add_action('enqueue_block_assets', 'enqueuing_editor_styling');
+
+/**********************************
+ * ACF Related Functions
+ **********************************/
+
+/**
+ * ACF Options Page
+ */
+if(function_exists('acf_add_options_page')) {
 	acf_add_options_page(array(
 		'page_title' => 'Global',
 		'menu_title' => 'Global settings',
@@ -199,78 +229,9 @@ if (function_exists('acf_add_options_page')) {
 	));
 }
 
-
-// RESET ACF WYSYWIG P TAG INSERTING
-function acf_wysiwyg_remove_wpautop() {
-	// remove p tags //
-	remove_filter ('the_content', 'wpautop');
-remove_filter('the_content', 'wptexturize');
-	// add line breaks before all newlines //
-  }
-  add_action('acf/init', 'acf_wysiwyg_remove_wpautop');
-  
-// Disable WP Compression
-add_filter('jpeg_quality', function($arg){return 100;});
-
-
-// CUSTOM SCRIPTS
-function theme_custom_scripts() {
-	wp_enqueue_script( 'main-scripts', get_template_directory_uri() . '/js/bundle.min.js', array('jquery'), '1.1.2', true);
-	//Add Swiper JS
-	wp_enqueue_script( 'swiper-js', get_template_directory_uri() . '/js/swiper.min.js', array(), '1.0.0', true );
-	//Add Fancybox JS
-	wp_enqueue_script( 'fancybox-js', get_template_directory_uri() . '/js/fancybox.min.js', array('jquery'), '1.0.0', true );
-	
-	// Load AOS CSS only on frontend (not admin)
-	if (!is_admin()) {
-		wp_enqueue_style('aos-css', get_template_directory_uri() . '/css/aos.css', array(), '1.0.0');
-	}
-	
-	// Enqueue Quote Form Scripts only on /free-quote/ page
-	if (is_page('free-quote')) {
-		// Enqueue jQuery UI for datepicker
-		wp_enqueue_script('jquery-ui-datepicker');
-		wp_enqueue_style('jquery-ui-css', 'https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css', array(), '1.12.1');
-		
-		// Enqueue EmailJS for form notifications
-		wp_enqueue_script( 'emailjs', 'https://cdn.emailjs.com/dist/email.min.js', array(), null, false );
-		
-		// Enqueue Quote Form Scripts (must load after EmailJS and jQuery UI)
-		wp_enqueue_script( 'quote-form-js', get_template_directory_uri() . '/js/form/quote-form.js', array('jquery', 'jquery-ui-datepicker', 'emailjs'), '1.0.2', true );
-	}
-	}
-	add_action('wp_enqueue_scripts', 'theme_custom_scripts'); 
-
-	
-// Custom Login
-function my_login_stylesheet() {
-    wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/css/bundle.css' );
-}
-add_action( 'login_enqueue_scripts', 'my_login_stylesheet' );
-
-// Custom Login Logo Link
-add_filter( 'login_headerurl', 'codecanal_loginlogo_url' ); 
-function codecanal_loginlogo_url($url) 
-{
-  return home_url(); 
-  /* User will be redirected to the site home page */
-} 
-/**
- * Registers support for editor styles & Enqueue it.
- */
-function enqueuing_editor_styling(){
-		// Enqueue editor styles.
-    wp_enqueue_style('gutenberg-styles', get_template_directory_uri().'/css/bundle.css'); 
-		// Enqueue Fancybox CSS
-		wp_enqueue_style('fancybox-css', get_template_directory_uri() . '/css/fancybox.min.css', array(), '1.0.0');
-
-}
-add_action( 'enqueue_block_assets', 'enqueuing_editor_styling' );
-
 /**
  * Add custom admin sidebar width for ACF blocks
  */
-// Custom Admin CSS to make sidebar wider
 function custom_admin_styles() {
   echo '<style>
     /* Make WordPress admin sidebar wider - 550px instead of 280px */
@@ -325,15 +286,9 @@ function custom_admin_styles() {
 }
 add_action('admin_head', 'custom_admin_styles');
 
-
 /**
- *  This is the callback that displays the block.
- *
- * @param   array  $block      The block settings and attributes.
- * @param   string $content    The block content (emtpy string).
- * @param   bool   $is_preview True during AJAX preview.
+ * Add custom block category for Rotate Digital blocks
  */
-
 function rd_blocks( $categories, $post ) {
 	return array_merge(
 		$categories,
@@ -345,59 +300,31 @@ function rd_blocks( $categories, $post ) {
 		)
 	);
 }
-add_filter( 'block_categories_all', 'rd_blocks', 10, 2);
+add_filter('block_categories_all', 'rd_blocks', 10, 2);
 
-function block_acf_init()
-{
-    $blocks = require(__DIR__.'/blocks.php');
-    foreach($blocks as $block) {
-        acf_register_block($block);
-    }
+/**
+ * Register ACF blocks
+ */
+function block_acf_init() {
+	$blocks = require(__DIR__.'/blocks.php');
+	foreach($blocks as $block) {
+		acf_register_block($block);
+	}
 }
-add_action( 'acf/init', 'block_acf_init' );
+add_action('acf/init', 'block_acf_init');
 
+/**
+ * ACF block render callback
+ */
 function my_acf_block_render_callback( $block, $innerblock, $content = '', $is_preview = false ) {
-    $context = Timber::context();
-    // Store block values.
-    $context['block'] = $block;
-    // Store field values.
-    $context['fields'] = get_fields();
-    // Store $is_preview value.
-    $context['is_preview'] = $is_preview;
-		//var_dump(str_replace(' ', '_', strtolower($block['title'])));
-    // Render the block.
-    Timber::render( 'templates/blocks/' . str_replace('acf/', '', strtolower($block['name'])) . '.twig', $context );
+	$context = Timber::context();
+	$context['block'] = $block;
+	$context['fields'] = get_fields();
+	$context['is_preview'] = $is_preview;
+	Timber::render( 'templates/blocks/' . str_replace('acf/', '', strtolower($block['name'])) . '.twig', $context );
 }
 
-
-
-// Erase Comment Menu
-add_action( 'admin_init', 'my_remove_admin_menus' );
-function my_remove_admin_menus() {
-    remove_menu_page( 'edit-comments.php' );
-}
-
-// Dashboard Menu Horizontal Separators Locations
-add_action( 'admin_menu', 'set_admin_menu_separator' );
-function set_admin_menu_separator() {
-	$position = 25;
-	global $menu;
-	$menu[$position] = array(
-		0   =>  '',
-		1   =>  'read',
-		2   =>  'separator' . $position,
-		3   =>  '',
-		4   =>  'wp-menu-separator'
-	);
-}
-
-// Removing Reviews Bundle plugin's upgrade notification
-add_action('admin_head', 'remove_annoying_notification');
-function remove_annoying_notification()
-{
-	echo '<style>
-    .notice.notice-error.is-dismissible {
-      display: none!important;
-    }
-  </style>';
-}
+/**
+ * Additional Functions
+ */
+require_once 'includes/index.php';

@@ -1,6 +1,5 @@
 <?php
 function rd_custom_post_types_register() {
-
   $post_types = [
     'service-areas' => [
       'supports' => [ 'title', 'revisions', 'editor', 'author', 'excerpt', 'thumbnail' ],
@@ -81,7 +80,6 @@ function rd_custom_post_types_register() {
   foreach ( $post_types as $key => $post_type ) {
     register_post_type($key, $post_type);
   }
-
 }
 
 add_action( 'init', 'rd_custom_post_types_register', 0 );
