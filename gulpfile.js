@@ -1,12 +1,12 @@
 let gulp = require('gulp'),
-  sourcemaps = require('gulp-sourcemaps'),
-  $ = require('gulp-load-plugins')(),
-  cleanCss = require('gulp-clean-css'),
-  rename = require('gulp-rename'),
-  postcss = require('gulp-postcss'),
-  autoprefixer = require('autoprefixer'),
-  gp_uglify = require('gulp-uglify'),
-  mmq = require('gulp-merge-media-queries');
+sourcemaps = require('gulp-sourcemaps'),
+$ = require('gulp-load-plugins')(),
+cleanCss = require('gulp-clean-css'),
+rename = require('gulp-rename'),
+postcss = require('gulp-postcss'),
+autoprefixer = require('autoprefixer'),
+gp_uglify = require('gulp-uglify'),
+mmq = require('gulp-merge-media-queries');
 
 const paths = {
   css: {
@@ -17,6 +17,10 @@ const paths = {
     src: './assets/js/**/!(*.min).js',
     dest: './assets/js'
   },
+  twig: {
+    src: './gutenberg/blocks/**/*.twig',
+    dest: './gutenberg/build/blocks'
+  }
 }
 
 // Base Styles
@@ -55,6 +59,12 @@ function scripts () {
     .pipe(gulp.dest([paths.js.dest]))
 }
 
+// Twig Templates
+function twigTemplates() {
+  return gulp.src([paths.twig.src], { base: './gutenberg/blocks' })
+    .pipe(gulp.dest(paths.twig.dest))
+}
+
 // Server (watch)
 function watchStyles() {
   gulp.watch([paths.css.src], styles);
@@ -64,14 +74,22 @@ function watchJs() {
   gulp.watch([paths.js.src], scripts);
 }
 
+function watchTwig() {
+  gulp.watch([paths.twig.src], twigTemplates);
+}
+
 // Watch task
-const watch = gulp.parallel(
-  watchStyles,
-  watchJs,
+const watch = gulp.series(
+  twigTemplates,
+  gulp.parallel(
+    watchStyles,
+    watchJs,
+    watchTwig
+  )
 );
 
 // Build task
-const build = gulp.parallel(styles, scripts);
+const build = gulp.parallel(styles, scripts, twigTemplates);
 
 // Default task
 exports.watch = watch;

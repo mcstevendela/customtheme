@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "name": "rd/bar",
+  "category": "rd-dedicated-blocks",
+  "version": "1.0.0",
+  "title": "Bar", 
+  "description": "A test acf block bar",
+  "script": "file:./index.js",
+  "icon": "plus",
+  "textdomain": "rotatedigital",
+  "attributes": {
+    "previewImage": {
+      "type": "string",
+      "default": "http://localhost:10028/wp-content/uploads/2026/01/Hero-Area-scaled.webp"
+    }
+  },
+  "acf": {
+    "blockVersion": 3,
+    "renderTemplate": "render.twig",
+    "hideFieldsInSidebar": true
+  }
+}
