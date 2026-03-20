@@ -1,0 +1,23 @@
+.rd-cta {
+  @apply relative lg:pt-[180px];
+
+  &-wrapper {
+    @apply relative pt-5 pb-[220px] px-5 lg:px-[70px] lg:py-[56px] rounded-[10px] bg-blue;
+  }
+
+  &__bg {
+    @apply absolute w-[278px] lg:w-[645px] bottom-0 transform translate-x-[50%] right-[50%] lg:right-0 lg:translate-x-0 object-cover z-[1];
+  }
+
+  &__title {
+    @apply my-0 text-white lg:max-w-[548px] w-full text-center lg:text-left;
+  }
+
+  &-content {
+    @apply relative z-[3] flex flex-col gap-[30px] lg:pr-[500px];
+  }
+
+  &-btn {
+    @apply flex justify-center lg:justify-start;
+  }
+}

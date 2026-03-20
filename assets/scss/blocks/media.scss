@@ -1,0 +1,290 @@
+.rd-media {
+  &-wrapper {
+    @apply flex flex-col lg:flex-row justify-between items-center gap-[30px] lg:gap-[90px];
+  }
+
+  &__tag {
+    @apply mb-5 lg:mb-[30px];
+  }
+
+  &-image {
+    @apply relative lg:max-w-[768px] w-full rounded-[10px] overflow-hidden;
+  }
+
+  &__image {
+    @apply lg:min-h-[508px] object-cover;
+  }
+
+  &-content {
+    @apply lg:max-w-[590px] w-full;
+  }
+
+  &__title {
+    @apply mt-0 mb-[30px] lg:mb-10; 
+  }
+
+  &__text {
+    @apply block mb-0;
+  }
+
+  &__align--center {
+    @apply text-center lg:text-left;
+  }
+
+  // Media List
+  &-list {
+    @apply p-0 mt-10;
+  }
+
+  &-item {
+    @apply flex gap-5 mb-6;
+
+    &:last-child {
+      @apply mb-0;
+    }
+  }
+
+  &-icon {
+    @apply w-[46px] h-[46px] flex justify-center items-center flex-shrink-0 rounded-full overflow-hidden bg-light-blue;
+  }
+
+  &-item__title {
+    @apply mt-0 mb-3;
+  }
+
+  &-btn {
+    @apply mt-[30px] lg:mt-10 flex justify-center lg:justify-start;
+  }
+
+  &-btn--in {
+    @apply hidden lg:inline-block mt-0;
+  }
+
+  &-btn--out {
+    @apply inline-block lg:hidden mt-0;
+  }
+
+  //About Block
+  &--about &-content {
+    @apply lg:max-w-[910px];
+  }
+
+  //Pill Block
+  &--pill {
+    @apply relative bg-white;
+  }
+
+  &--pill &-wrapper {
+    @apply relative z-[2] flex-col-reverse lg:flex-row-reverse gap-10 lg:gap-[100px] justify-center text-center;
+  }
+
+  &--pill &-image {
+    @apply flex-shrink-0 w-full max-w-full lg:max-w-[470px];
+  }
+
+  &--pill &__image {
+    @apply w-full h-[398px] lg:h-[675px] object-cover object-center;
+  }
+
+  &--pill &-content {
+    @apply flex flex-col gap-10 lg:gap-[60px] w-full max-w-full;
+  }
+
+  &--pill &__title {
+    @apply text-center mb-0;
+  }
+
+  &--pill &__subtitle {
+    @apply mb-5 lg:mb-[30px];
+  }
+
+  &-pills {
+    @apply flex flex-wrap gap-5 justify-center;
+
+    &-item {
+      @apply flex items-center w-auto gap-[10px] bg-white border border-light-yellow-border rounded-[10px] py-3 px-4 font-passion text-3xl text-black transition-all;
+
+      &--link {
+        @apply lg:hover:border-light-yellow lg:hover:bg-light-yellow lg:hover:text-yellow;
+      }
+    }
+
+    &__icon {
+      @apply w-[30px] h-[30px] inline-block object-contain flex-shrink-0;
+    }
+
+    &--start {
+      @apply justify-start;
+    }
+  }
+
+  &--pill &-wrapper--start {
+    @apply justify-start text-left;
+  }
+
+  &--pill &-wrapper--start &__title {
+    @apply text-center lg:text-left;
+  }
+
+  // Gallery Block
+  &--gallery {
+    @apply relative;
+
+    &::before {
+      @apply absolute top-0 left-0 w-full h-full bg-light-blue opacity-[.94] content-[''];
+      z-index: 1;
+    }
+
+    .swiper {
+      &-nav {
+        @apply w-full flex justify-center z-10 mt-10 gap-5;
+      }
+
+      &-btn {
+        @apply w-[60px] h-[60px] bg-white flex justify-center items-center rounded-full cursor-pointer transition-all lg:hover:bg-blue;
+
+        & svg path {
+          @apply fill-black transition-all;
+        }
+
+        &:hover svg path {
+          @screen lg {
+            @apply fill-white;
+          }
+        }
+      }
+
+      &-next {
+        @apply transform rotate-180;
+      }
+    }
+  }
+
+  &--gallery &-wrapper {
+    @apply relative z-[2] flex flex-col items-center gap-10 lg:gap-[60px];
+  }
+
+  &--gallery &__title {
+    @apply text-center mb-0;
+  }
+
+  &--gallery &-content {
+    @apply max-w-full grid-cols-2 md:grid-cols-3 gap-6 hidden lg:grid;
+  }
+
+  &--gallery &-slider {
+    @apply lg:hidden w-full block;
+  }
+
+  &--gallery &-gallery-item {
+    @apply grid gap-6;
+
+    & img {
+      @apply rounded-[10px] h-[400px] object-cover w-full;
+    }
+
+    &:first-child img:nth-child(even),
+    &:last-child img:nth-child(even) {
+      @apply lg:h-[244px];
+    }
+
+    &:nth-child(2) img:nth-child(odd) {
+      @apply lg:h-[244px];
+    }
+  }
+
+  &--gallery &-btn {
+    @apply w-full mt-[30px] lg:mt-[60px];
+  }
+
+  // FAQ Block
+  &--faq {
+    @apply bg-light-yellow;
+  }
+
+  &--faq &-wrapper--faq {
+    @apply items-center lg:items-start gap-0 lg:gap-[140px];
+  }
+
+  &--faq &-heading {
+    @apply text-center lg:text-left;
+  }
+
+  &--faq &__tag::before {
+    z-index: 1;
+  }
+
+  &--faq &__title {
+    @apply mb-[30px];
+  }
+
+  &--faq &__description {
+    @apply text-base leading-[28px];
+  }
+
+  &--faq &-faq-item:not(:last-child) {
+    @apply mb-4;
+  }
+
+  &--faq &-faq-question {
+    @apply py-3 pl-8 pr-3 border-2 border-gray-dark16 rounded-[100px] flex justify-between items-center cursor-pointer transition-all;
+  }
+
+  &--faq &-faq__text {
+    @apply font-passion pr-2 text-2xl lg:text-3xl text-black transition-all;
+    width: calc(100% - 60px - 32px);
+  }
+
+  &--faq &-faq-question:hover {
+    @apply lg:bg-white;
+  }
+
+  &--faq &-faq-question:hover &-faq__text {
+    @apply lg:text-yellow;
+  }
+
+  &--faq &-faq-icon {
+    @apply w-[60px] h-[60px] border-2 border-gray-dark16 rounded-full transition-all flex justify-center items-center;
+  }
+
+  &--faq &-faq-answer {
+    @apply mt-4 pl-8 lg:pr-3 hidden;
+  }
+
+  &--faq &-btn {
+    @apply mt-10 lg:mt-[60px] justify-center flex lg:justify-start;
+  }
+
+  &--faq &-btn--top {
+    @apply hidden lg:flex;
+  }
+
+  &--faq &-btn--bottom {
+    @apply flex lg:hidden;
+  }
+
+  // FAQ Block Open
+  &--faq &-faq-item.open {
+    @apply mb-8;
+  }
+
+  &--faq &-faq-item.open &-faq-question {
+    @apply border-light-yellow lg:hover:bg-light-yellow pb-0; 
+  }
+
+  &--faq &-faq-item.open &-faq-icon {
+    @apply transform rotate-180 border-yellow bg-yellow;
+
+    & svg path {
+      @apply fill-white;
+    }
+  }
+
+  &--faq &-faq-item.open &-faq__text {
+    @apply text-yellow;
+  }
+
+  &--faq &-faq-item.open &-faq-answer {
+    @apply block;
+  }
+}

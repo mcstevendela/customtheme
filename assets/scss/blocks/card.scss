@@ -1,0 +1,143 @@
+.rd-card {
+  @apply relative;
+  
+  &--icon {
+    @apply bg-light-yellow;
+  }
+
+  &-heading {
+    @apply text-center mx-auto;
+
+    &--icon {
+      @apply max-w-full w-full;
+    }
+
+    &-image {
+      @apply max-w-[236px] lg:max-w-[400px] mx-auto mb-[30px];
+    }
+  }
+
+  &__tag {
+    @apply mb-5 lg:mb-[30px];
+
+    &::before {
+      z-index: 1;
+    }
+  }
+
+  &__title {
+    @apply my-0;
+  }
+
+  &__text {
+    @apply block mt-[30px];
+  }
+
+  &-main {
+    @apply pt-10 lg:pt-[60px] gap-6 lg:gap-[36px] flex flex-col lg:flex-row flex-wrap justify-center;
+
+    &--icon {
+      @apply gap-[30px] lg:gap-x-[120px] lg:gap-y-10;
+    }
+  }
+
+  &-item {
+    @apply relative block transition-all bg-white rounded-[10px] border border-light-yellow-border w-full lg:w-[31.33%];
+
+    &-wrapper {
+      @apply p-4 flex flex-col items-center gap-3 text-center h-full justify-between transition-all;
+
+      &--icon {
+        @apply p-0 gap-5 justify-start;
+      }
+    }
+
+    &-content {
+      @apply flex flex-col items-center gap-3 text-center transition-all;
+    }
+
+    &-image {
+      @apply mb-4 w-full;
+    }
+    
+    &__image {
+      @apply w-full rounded-lg object-cover object-center h-[224px];
+    }
+
+    &__title {
+      @apply font-passion text-[25px] my-0 px-5;
+    }
+
+    &__text {
+      @apply  transition-all my-0 px-5;
+    }
+
+    &-button {
+      @apply px-5 pb-5;
+    }
+
+    &__button {
+      @apply w-full;
+    }
+
+    &__tag {
+      @apply font-bold text-blue bg-blue20 px-5 py-[10px] rounded-[50px];
+
+    }
+
+    &-icon {
+      @apply w-[80px] h-[80px] flex justify-center items-center bg-white rounded-full mb-[10px];
+    }
+
+    &--icon {
+      @apply border-0 bg-transparent w-full lg:w-[26.6%];
+
+      .rd-card-item__title, .rd-card-item__text {
+        @apply px-0;
+      }
+    }
+  }
+
+  &-item--cursor {
+    @apply cursor-pointer;
+
+    @screen lg {
+      &:hover {
+        @apply bg-light-yellow;
+      }
+
+      &:hover .rd-card-item__button {
+        @apply text-white;
+        background: linear-gradient(#FDBC55, #F39C12);
+      }
+    }
+  }
+
+  .swiper {
+    &-nav {
+      @apply w-full flex justify-center z-10 mt-10 gap-5;
+    }
+
+    &-btn {
+      @apply w-[60px] h-[60px] bg-white flex justify-center items-center rounded-full cursor-pointer transition-all lg:hover:bg-blue;
+
+      & svg path {
+        @apply fill-black transition-all;
+      }
+
+      &:hover svg path {
+        @screen lg {
+          @apply fill-white;
+        }
+      }
+    }
+
+    &-next {
+      @apply transform rotate-180;
+    }
+  }
+
+  &-btn {
+    @apply pt-10 lg:pt-[60px] flex justify-center;
+  }
+}

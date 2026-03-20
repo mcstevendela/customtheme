@@ -1,25 +1,24 @@
+/** @type {import('tailwindcss').Config} */
+
 module.exports = {
   content: [
-    './*.php',
-    './templates/**/*.twig',
-    './js/**/*.js',
-    '!./scss/plugins/aos.scss',
-    '!./scss/aos-frontend.scss'
+    "./templates/**/*.{twig,html}",
+    "./gutenberg/{blocks,components}/**/*.{js,twig}",
+    "./*.php",
+    "./static/**/*.html",
   ],
   theme: {
     screens: {
-      'xs': '343px',
-      // => @media (min-width: 480px) { ... }
-      'sm': '640px',
-      // => @media (min-width: 640px) { ... }
+      'xs': '0',
+      'sm': '576px',
       'md': '768px',
-      // => @media (min-width: 768px) { ... }
-      'lg': '1024px',
-      // => @media (min-width: 1024px) { ... }
-      'xl': '1280px',
-      // => @media (min-width: 1280px) { ... }
-      '2xl': '1536px',
-      // => @media (min-width: 1536px) { ... }
+      'lg': '992px',
+      'xl': '1200px',
+      'xxl': '1400px'
+    },
+    fontFamily: {
+      inter: ['Inter', 'sans-serif'],
+      passion: ['Passion One', 'sans-serif'],
     },
     extend: {
       colors: {
@@ -41,14 +40,7 @@ module.exports = {
         'white12': '#FFFFFF1F',
         'red': '#FF0000',
       },
-      fontFamily: {
-        inter: ['Inter', 'sans-serif'],
-        passion: ['Passion One', 'sans-serif'],
-      },
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 }

@@ -1,0 +1,136 @@
+.rd-testimonial {
+  @apply relative;
+  &-container {
+    @apply relative z-[2];
+  }
+
+  &-heading {
+    @apply text-center lg:text-left;
+
+    &__subtitle {
+      @apply mb-5 lg:mb-[30px];
+    }
+
+    &__title {
+      @apply my-0;
+    }
+  }
+
+  &-content {
+    @apply pt-5 lg:pt-[60px];
+  }
+
+  &-btn {
+    @apply text-center mt-[100px] lg:mt-[60px];
+  }
+
+  & r-p {
+    overflow: visible !important;
+  }
+
+  & rp-reviews {
+    margin: 0 !important;
+  }
+
+  & rp-review-inner {
+    @apply p-[30px];
+    background-color: #F8F0E5 !important;
+    box-shadow: none !important;
+  }
+
+  & rp-review rp-logo {
+    top: 30px !important;
+    right: 30px !important;
+  }
+
+  & rp-review-text {
+    margin-top: 26px !important;
+    font-size: 16px !important;
+    color: #333 !important;
+  }
+
+  & rp-review-name {
+    font-family: 'Passion One', cursive !important;
+    color: #333 !important;
+
+    & a {
+      font-size: 30px !important;
+      text-transform: uppercase !important;
+    }
+  }
+
+  & rp-controls {
+    width: 140px !important;
+    top: 100% !important;
+    right: 50% !important;
+    transform: translateX(50%) !important;
+    margin-top: 26px !important;
+
+    @media (min-width: 1024px) {
+      top: -120px !important;
+      right: 0 !important;
+      transform: translateX(0) !important;
+      margin-top: 0 !important;
+    }
+  }
+
+  & rp-btn-prev,
+  & rp-btn-next {
+    width: 60px !important;
+    height: 60px !important;
+    border-radius: 100% !important;
+    background: #F8F0E5 !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+
+    &::before {
+      content: "";
+      width: 23px;
+      height: 23px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-size: contain;
+    }
+
+    @media (min-width: 1024px) {
+      &:hover {
+        background: linear-gradient(#FDBC55, #F39C12) !important;
+      }
+    }
+
+    & svg {
+      display: none !important;
+    }
+  }
+
+  & rp-btn-next {
+    margin-right: 0 !important;
+
+    &::before {
+      background: url('/wp-content/themes/studentmovers/images/icons/arrow-right-black.svg') no-repeat center;
+    }
+
+    @media (min-width: 1024px) {
+      &:hover::before {
+        background: url('/wp-content/themes/studentmovers/images/icons/arrow-right-white.svg') no-repeat center;
+      }
+    }
+  }
+
+  & rp-btn-prev {
+    margin-right: 0 !important;
+
+    &::before {
+      background: url('/wp-content/themes/studentmovers/images/icons/arrow-left-black.svg') no-repeat center;
+    }
+
+    @media (min-width: 1024px) {
+      &:hover::before {
+        background: url('/wp-content/themes/studentmovers/images/icons/arrow-left-white.svg') no-repeat center;
+      }
+    }
+  }
+}

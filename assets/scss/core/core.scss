@@ -1,0 +1,18 @@
+html {
+  overflow-x: hidden;
+}
+
+body {
+  @apply bg-white font-inter text-gray p-0 m-0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+:focus {
+  outline: none;
+}
+
+code, kbd, pre, samp {
+  @apply font-inter;
+}

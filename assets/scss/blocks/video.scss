@@ -1,0 +1,72 @@
+.rd-video {
+  @apply bg-light-blue;
+
+  &-heading {
+    @apply mb-[30px] lg:mb-20;
+  }
+
+  &__thumbnail {
+    @apply relative w-full min-h-[400px] lg:min-h-[480px] bg-center bg-cover rounded-[10px] overflow-hidden;
+  }
+
+  &__title-overlay {
+    @apply absolute bottom-0 left-0 w-full h-full flex flex-col justify-end items-center text-white py-[26px] px-[30px] gap-3 transition-all rounded-[10px] overflow-hidden;
+    background: linear-gradient(180deg, rgba(30, 27, 19, 0) 55.21%, #1E1B13 100%);
+  }
+
+  &__title, &__description {
+    @apply my-0 text-white;
+  }
+
+  &__description {
+    @apply opacity-60;
+  }
+
+  &__play-button {
+    @apply absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[74px] h-[74px] flex justify-center items-center bg-blue bg-opacity-80 rounded-full transition-all z-10;
+  }
+
+  &__link:hover &__play-button {
+    @screen lg {
+      @apply bg-opacity-100;
+    }
+  }
+
+  &__link:hover &__title-overlay {
+    @screen lg {
+      background: linear-gradient(180deg, rgba(30, 27, 19, 0.7) 100%, #1E1B13 100%);
+    }
+  }
+
+  &-wrap {
+    @apply relative;
+  }
+
+  .swiper {
+    &-nav {
+      @apply lg:absolute lg:top-1/2 lg:transform lg:-translate-y-1/2 w-full flex justify-center lg:justify-between z-10 mt-[30px] lg:mt-0 gap-5 lg:gap-0;
+    }
+
+    &-btn {
+      @apply w-[60px] h-[60px] bg-white flex justify-center items-center rounded-full cursor-pointer transition-all lg:hover:bg-blue;
+
+      & svg path {
+        @apply fill-black transition-all;
+      }
+
+      &:hover svg path {
+        @screen lg {
+          @apply fill-white;
+        }
+      }
+    }
+
+    &-next {
+      @apply transform rotate-180 lg:-mr-[86px];
+    }
+
+    &-prev {
+      @apply lg:-ml-[86px];
+    }
+  }
+}

@@ -1,0 +1,244 @@
+document.addEventListener('DOMContentLoaded', function() {
+  convertImages('img.injectable');
+  mobileMenu();
+  accordion();
+  smoothScroll();
+  headerScroll();
+});
+
+const convertImages = (query, callback) => {
+  const images = document.querySelectorAll(query);
+  images.forEach(image => {
+    fetch(image.src)
+      .then(res => res.text())
+      .then(data => {
+        const parser = new DOMParser();
+        const svg = parser.parseFromString(data, 'image/svg+xml').querySelector('svg');
+
+        if (!svg) throw new Error('SVG not found');
+
+        if (image.id) svg.id = image.id;
+        if (image.className) svg.classList = image.classList;
+
+        image.parentNode.replaceChild(svg, image);
+      })
+      .then(() => {
+        if (typeof callback === 'function') callback();
+      })
+      .catch(error => console.error(error));
+  });
+};
+
+function mobileMenu() {
+  document.querySelector('.rd-header-mobile').addEventListener('click', function() {
+    this.classList.toggle('open');
+
+    document.querySelector('.rd-header-mobile-menu').classList.toggle('open');
+    document.querySelector('.rd-header-mobile-top__icon').classList.toggle('open');
+
+    //Attach rd-icon--handler click handlers
+    document.querySelectorAll('.rd-icon--handler').forEach(function(icon) {
+      icon.addEventListener('click', function(e) {
+        e.stopPropagation(); // prevent event bubbling if needed
+        e.preventDefault(); // prevent default
+        // Find closest ancestor with class 'rd-header-menu-top__link'
+        let linkParent = icon.closest('.rd-header-menu-top__link ');
+        linkParent.classList.toggle('open');
+        
+        if (linkParent) {
+          // Find the next sibling ul after .rd-header-menu-top__link parent
+          let nextUl = linkParent.nextElementSibling;
+          if (nextUl && nextUl.tagName.toLowerCase() === 'ul') {
+            nextUl.classList.toggle('open');
+          }
+        }
+      });
+    });
+  });
+}
+
+function accordion() {
+  document.querySelectorAll('.rd-media-faq').forEach(main => {
+    main.querySelectorAll('.rd-media-faq-item').forEach(item => {
+      const question = item.querySelector('.rd-media-faq-question');
+
+      question.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.rd-media-faq-item.open').forEach(openItem => {
+          openItem.classList.remove('open');
+        });
+
+        // Toggle current
+        if (!isOpen) {
+          item.classList.add('open');
+        }
+      });
+    });
+    // Open first item by default
+    const firstItem = document.querySelector('.rd-media-faq-item');
+    if (firstItem) {
+      firstItem.classList.add('open');
+    }
+  });
+}
+
+function smoothScroll(offset = 160) {
+  const links = document.querySelectorAll('a[href^="#"]');
+
+  links.forEach(link => {
+    link.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href').substring(1);
+      const targetElement = document.getElementById(targetId);
+
+      if (targetElement) {
+        e.preventDefault();
+
+        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+}
+
+function headerScroll() {
+  const header = document.querySelector('.rd-header');
+
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      header.classList.add('rd-header-scrolled');
+    } else {
+      header.classList.remove('rd-header-scrolled');
+    }
+  });
+}
+
+(function ($) {
+  $(document).ready(function() {
+    const logos = new Swiper('.logos', {
+      speed: 1200,
+      duration: 5000,
+      grabCursor: true,
+      loop: true,
+      autoplay: true,
+      navigation: {
+        nextEl: '.swiper-next',
+        prevEl: '.swiper-prev',
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        768: {
+          slidesPerView: 3,
+          spaceBetween: 40,
+        },
+        840: {
+          slidesPerView: 8,
+          spaceBetween: 60,
+        },
+      },
+    });
+
+    const videos = new Swiper('.videos', {
+      speed: 1200,
+      duration: 5000,
+      grabCursor: true,
+      loop: true,
+      autoplay: true,
+      navigation: {
+        nextEl: '.swiper-next',
+        prevEl: '.swiper-prev',
+      },
+      breakpoints: {
+        320: {
+          slidesPerView: 1,
+          spaceBetween: 0,
+        },
+        768: {
+          slidesPerView: 2,
+          spaceBetween: 25,
+        },
+        840: {
+          slidesPerView: 3,
+          spaceBetween: 25,
+        },
+      },
+    });
+
+    const cards = new Swiper('.cards', {
+      speed: 1200,
+      duration: 5000,
+      grabCursor: true,
+      loop: true,
+      slidesPerView: 1,
+      navigation: {
+        nextEl: '.swiper-next',
+        prevEl: '.swiper-prev',
+      }
+    });
+
+    const location = new Swiper('.locations', {
+      speed: 1200,
+      duration: 5000,
+      grabCursor: true,
+      loop: true,
+      slidesPerView: 1,
+      navigation: {
+        nextEl: '.rd-header-loc-swiper-next',
+        prevEl: '.rd-header-loc-swiper-prev',
+      }
+    });
+
+    const medias = new Swiper('.medias', {
+      speed: 1200,
+      duration: 5000,
+      grabCursor: true,
+      loop: true,
+      autoplay: true,
+      slidesPerView: 1,
+      navigation: {
+        nextEl: '.swiper-next',
+        prevEl: '.swiper-prev',
+      }
+    });
+
+    // Initialize Desktop Swiper (visible on desktop, hidden on mobile)
+    const sliderReviewsDesktop = new Swiper('.testimonials', {
+      speed: 800,
+      centeredSlides: false,
+      centerInsufficientSlides: true,
+      slidesPerView: 1,
+      grabCursor: true,
+      loop: true,
+      autoplay: true,
+      navigation: {
+        nextEl: '.swiper-next',
+        prevEl: '.swiper-prev',
+      },
+      breakpoints: {
+        768: {
+          loop: false,
+          autoplay: false,
+        },
+      },
+    });
+
+
+    Fancybox.bind("[data-fancybox]", {
+      Thumbs : {
+        type: false
+      },
+      Carousel: {
+        Navigation: false,
+      },
+    });
+  });
+})(jQuery);

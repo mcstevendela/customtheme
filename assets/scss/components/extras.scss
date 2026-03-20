@@ -1,0 +1,14 @@
+
+.rd {
+  &-desktop {
+    @apply hidden xl:block;
+  }
+
+  &-mobile {
+    @apply block xl:hidden;
+  }
+}
+
+.sp-wrap-cpt:not(:first-child) {
+  @apply mt-6;
+}

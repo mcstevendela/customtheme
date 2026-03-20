@@ -1,0 +1,37 @@
+.btn {
+  @apply font-passion inline-block px-10 py-5 text-center text-base leading-normal font-normal transition-all uppercase text-[21px] cursor-pointer;
+
+  &-primary {
+    @apply text-white rounded-full;
+    background: linear-gradient(#FDBC55, #F39C12);
+
+    &:hover {
+      @apply text-yellow;
+      background: #F8F0E5;
+    }
+  }
+
+  &-secondary {
+    @apply text-yellow rounded-full;;
+    background: #F8F0E5;
+
+    &:hover {
+      @apply text-white;
+      background: #006FFF;
+    }
+  }
+
+  &-tertiary {
+    @apply text-white rounded-full;
+    background: linear-gradient(#FDBC55, #F39C12);
+
+    &:hover {
+      @apply text-yellow;
+      background: #fff;
+    }
+  }
+
+  &-full {
+    @apply w-full;
+  }
+}

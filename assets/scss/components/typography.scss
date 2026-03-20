@@ -1,0 +1,76 @@
+body {
+  @apply text-[16px] leading-[28px] font-inter;
+}
+
+// Headings
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  @apply text-black font-passion uppercase leading-none;
+}
+
+h1, .h1 {
+  @apply text-4xl lg:text-[64px] my-10;
+}
+
+h2, .h2 {
+  @apply text-[30px] lg:text-[50px] mt-12 mb-6;
+}
+
+h3, .h3 {
+  @apply text-2xl lg:text-2xl my-4;
+}
+
+h4, .h4 {
+  @apply text-lg my-4;
+}
+
+h5, .h5 {
+  @apply text-lg my-4;
+}
+
+h6, .h6 {
+  @apply text-lg lg:text-xl;
+}
+
+// Links
+a {
+  @apply lg:transition-all;
+}
+
+.rd-content a {
+  @apply text-yellow underline;
+
+  &:hover {
+    @apply text-black;
+  }
+}
+
+// Paragraph
+p {
+  @apply my-4;
+}
+
+// List
+.rd-content ul {
+  @apply pl-7 my-[30px];
+
+  & li {
+    @apply relative leading-[30px] list-disc;
+
+    &::before {
+      content: "";
+      @apply absolute -left-4 top-3 w-1 h-1 rounded-full;
+    }
+  }
+}
+
+.rd-content ol {
+  @apply pl-7 list-decimal my-[30px];
+}
+
+.rd-heading {
+  @apply text-center mb-[30px] lg:mb-10;
+
+  &__title {
+    @apply mt-0 mb-[30px];
+  }
+}

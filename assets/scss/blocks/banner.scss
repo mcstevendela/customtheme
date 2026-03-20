@@ -1,0 +1,212 @@
+.rd-banner {
+  @apply relative py-[146px] xl:pt-[200px] xl:pb-[100px];
+
+  &-bg {
+    @apply absolute w-full h-full top-0 left-0;
+
+    &::after {
+      @apply absolute w-full h-full top-0 left-0 bg-black opacity-70;
+      content: '';
+      z-index: 1;
+    }
+  }
+
+  &-wrapper {
+    @apply relative z-[3] flex flex-col xl:flex-row items-center justify-between gap-5 xl:gap-[100px];
+  }
+
+  &-content {
+    @apply flex flex-col justify-center items-center xl:items-start w-full xl:max-w-[628px];
+  }
+
+  &__tag {
+    @apply text-white mb-5 lg:mb-[30px];
+  }
+
+  &__title {
+    @apply text-[50px] xl:text-[64px] mb-5 lg:mb-[30px] mt-0 text-white text-center xl:text-left font-passion leading-none normal-case;
+  }
+
+  &__text {
+    @apply text-white text-center xl:text-left my-0;
+  }
+
+  &-list {
+    &__item {
+      @apply flex items-start gap-3 text-white font-passion text-xl;
+
+      &:not(:last-child) {
+        @apply mb-2;
+      }
+    }
+
+    &__icon {
+      @apply mt-1;
+    }
+  }
+
+  &__button {
+    @apply lg:mt-10;
+
+    &--desktop {
+      @apply hidden lg:block;
+    }
+
+    &--mobile {
+      @apply lg:hidden;
+    }
+  }
+
+  &-tag {
+    @apply pt-12 xl:pt-[188px] flex flex-col xl:flex-row max-w-[250px] xl:max-w-full mx-auto;
+
+    &-item {
+      @apply flex gap-[15px] xl:px-[125px] xl:border-r pb-5 xl:pb-0;
+
+      &:first-child {
+        @apply xl:pl-0;
+      }
+
+      &:last-child {
+        @apply xl:pr-0 xl:border-r-0 pb-0;
+      }
+    }
+
+    &__icon {
+      @apply w-6 xl:w-[30px] h-6 xl:h-[30px];
+    }
+
+    &__text {
+      max-width: calc(100% - 45px);
+      @apply text-white font-medium;
+    }
+  }
+
+  &-inner {
+    @apply py-[70px] xl:py-0 xl:pt-[145px] xl:pb-[100px];
+  }
+
+  &-inner &-content {
+    @apply max-w-[968px] text-center flex-col items-center justify-center mx-auto;
+  }
+
+  &-inner &__title {
+    @apply mt-0 text-center;
+  }
+
+  &-inner &__text {
+    @apply text-center;
+  }
+
+  &-form {
+    @apply xl:max-w-[435px] w-full rounded-[10px] flex flex-col items-center p-8 pb-4;
+    background-color: rgba(145, 145, 145, 0.30) !important;
+    box-shadow: 0px 8px 58px 0px #0000001F;
+
+    &__title {
+      @apply font-passion text-white text-center mt-0 mb-5 text-[40px] font-bold;
+    }
+
+    .fluentform {
+      @apply w-full;
+    }
+
+    .fluentform-step {
+      @apply p-0;
+    }
+
+    .ff-step-container {
+      @apply relative;
+    }
+
+    .ff-step-header {
+      @apply absolute bottom-[100px] xl:bottom-[22px] left-0 w-full mb-0 xl:max-w-[230px];
+    }
+
+    .ff-column-container {
+      @apply gap-[10px];
+    }
+
+    .ff-el-group {
+      margin-bottom: 16px !important;
+    }
+
+    .ff_submit_btn_wrapper {
+      margin-bottom: 0 !important;
+    }
+
+    .ff-el-progress-status {
+      @apply text-white text-sm;
+    }
+
+    .ff-el-progress {
+      background-color: rgba(255, 255, 255, 0.12);
+      @apply rounded-[3px];
+    }
+
+    .ff-el-progress-bar {
+      @apply bg-white;
+
+      & span {
+        @apply font-inter font-bold text-black;
+      }
+    }
+
+    .error {
+      @apply text-white;
+    }
+
+    .step-nav {
+      @apply mt-20 xl:mt-5;
+    }
+
+    .ff-inner_submit_container {
+      @apply xl:p-3 xl:bg-white xl:rounded-lg;
+
+      .ff-t-cell, .ff_step_nav_last, .ff-btn-prev, .ff_submit_btn_wrapper, .ff-btn-submit {
+        @apply w-full;
+      }
+
+      .step-nav {
+        @apply xl:m-0;
+      }
+
+      .ff-btn-submit {
+        @apply mt-20 xl:mt-0;
+      }
+    }
+  }
+
+  .rplg {
+    @apply w-full;
+
+    &-stars {
+      @apply ml-2;
+    }
+  }
+
+  &-review {
+    @apply block w-full;
+    margin-bottom: 20px !important;
+
+    &-top {
+      @apply flex flex-row xl:flex-row items-center justify-center text-white xl:justify-start xl:items-start;
+    }
+
+    &__text {
+      font-size: 15px !important;
+
+      &--bold {
+        @apply font-bold;
+      }
+    }
+
+    &-bottom {
+      @apply flex items-center justify-center mt-2 text-white text-center xl:text-left xl:justify-start xl:items-start;
+    }
+  }
+}
+
+.home .rd-banner {
+  @apply relative pt-[150px] pb-[30px] xl:pt-[266px] xl:pb-[140px];
+}
