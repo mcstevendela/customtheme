@@ -102,7 +102,7 @@
     @apply flex flex-wrap gap-5 justify-center;
 
     &-item {
-      @apply flex items-center w-auto gap-[10px] bg-white border border-light-yellow-border rounded-[10px] py-3 px-4 font-passion text-3xl text-black transition-all;
+      @apply flex items-center w-auto gap-[10px] bg-white border border-light-yellow-border rounded-[10px] py-3 px-4 font-secondary text-3xl text-black transition-all;
 
       &--link {
         @apply lg:hover:border-light-yellow lg:hover:bg-light-yellow lg:hover:text-yellow;
@@ -231,7 +231,7 @@
   }
 
   &--faq &-faq__text {
-    @apply font-passion pr-2 text-2xl lg:text-3xl text-black transition-all;
+    @apply font-secondary pr-2 text-2xl lg:text-3xl text-black transition-all;
     width: calc(100% - 60px - 32px);
   }
 

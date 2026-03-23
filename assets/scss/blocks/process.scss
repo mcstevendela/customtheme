@@ -24,7 +24,7 @@
   }
 
   &__number {
-    @apply relative w-[35px] h-[35px] flex justify-center items-center bg-yellow text-white font-passion rounded-full text-lg mx-auto -mt-[17.5px] z-20;
+    @apply relative w-[35px] h-[35px] flex justify-center items-center bg-yellow text-white font-secondary rounded-full text-lg mx-auto -mt-[17.5px] z-20;
   }
 
   &__icon {
@@ -32,7 +32,7 @@
   }
 
   &__title {
-    @apply font-passion text-[25px] my-0 text-center;
+    @apply font-secondary text-[25px] my-0 text-center;
   }
 
   &__description {

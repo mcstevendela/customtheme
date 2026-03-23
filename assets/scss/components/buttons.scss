@@ -1,5 +1,5 @@
 .btn {
-  @apply font-passion inline-block px-10 py-5 text-center text-base leading-normal font-normal transition-all uppercase text-[21px] cursor-pointer;
+  @apply font-secondary inline-block px-10 py-5 text-center text-base leading-normal font-normal transition-all uppercase text-[21px] cursor-pointer;
 
   &-primary {
     @apply text-white rounded-full;

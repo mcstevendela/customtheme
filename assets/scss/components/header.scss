@@ -109,7 +109,7 @@
     }
 
     &-top__link {
-      @apply text-base font-bold uppercase font-inter text-white inline-block py-1 lg:py-4;
+      @apply text-base font-bold uppercase font-primary text-white inline-block py-1 lg:py-4;
 
       & svg {
         @apply w-3 h-3;
@@ -148,7 +148,7 @@
     }
 
     &-drop__link {
-      @apply block text-black text-base font-inter font-bold uppercase py-2 lg:py-4 border-b border-gray-dark lg:hover:border-yellow transition-all;
+      @apply block text-black text-base font-primary font-bold uppercase py-2 lg:py-4 border-b border-gray-dark lg:hover:border-yellow transition-all;
     }
 
     &-drop-sub {

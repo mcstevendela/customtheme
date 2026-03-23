@@ -27,18 +27,18 @@
   }
 
   & .ff-default .ff-el-form-control:not(.ff-el-phone) {
-    @apply rounded-[10px] text-black py-4 px-6 text-gray-light text-[15px] font-inter;
+    @apply rounded-[10px] text-black py-4 px-6 text-gray-light text-[15px] font-primary;
 
     &::placeholder {
-      @apply text-gray-light text-[15px] font-inter;
+      @apply text-gray-light text-[15px] font-primary;
     }
   }
 
   & .ff-default .ff-el-phone {
-    @apply py-4 pl-16 rounded-[10px] text-gray-light text-[15px] font-inter min-h-[52px];
+    @apply py-4 pl-16 rounded-[10px] text-gray-light text-[15px] font-primary min-h-[52px];
 
     &::placeholder {
-      @apply text-gray-light text-[15px] font-inter;
+      @apply text-gray-light text-[15px] font-primary;
     }
   }
 
@@ -57,7 +57,7 @@
 
   & .ff-btn.ff-btn-prev,
   & .ff-btn.ff-btn-next {
-     @apply font-passion inline-block px-10 py-4 text-center text-base leading-normal font-normal transition-all uppercase text-white text-xl rounded-full;
+     @apply font-secondary inline-block px-10 py-4 text-center text-base leading-normal font-normal transition-all uppercase text-white text-xl rounded-full;
      background: linear-gradient(#FDBC55, #F39C12);
 
      &:hover {
