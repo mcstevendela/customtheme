@@ -1,42 +1,30 @@
+/********************
+  * Table of Contents
+  *
+  * 1. Tailwind Directives
+  * 2. Global Styles - ( Core )
+
+  ********************/
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@tailwind variants;
 
-@import 'plugins/swiper';
+/********************
+  * Global Styles
+  ********************/
+@import './core/core.scss';
 
-@import 'components/fonts';
-@import 'components/colors';
-@import 'components/images';
-@import 'components/typography';
-@import 'components/buttons';
-@import 'components/spacing';
-@import 'components/grid';
-@import 'components/responsive';
-@import 'components/transitions';
-@import 'components/extras';
-@import 'components/forms';
-@import 'components/wpadmin';
-@import 'components/slider';
-@import 'components/tags';
+/********************
+  * Components
+  ********************/
+@import './components/spacing.scss';
+@import './components/images.scss';
+@import './components/fonts.scss';
+@import './components/buttons.scss';
 
-@import 'components/header';
-@import 'components/footer';
+@import './components/header.scss';
+@import './components/footer.scss';
 
-@import 'blocks/banner';
-@import 'blocks/media';
-@import 'blocks/card';
-@import 'blocks/cta';
-@import 'blocks/team';
-@import 'blocks/faq';
-@import 'blocks/logo';
-@import 'blocks/testimonial';
-@import 'blocks/form';
-@import 'blocks/flexible';
-@import 'blocks/about';
-@import 'blocks/blog';
-@import 'blocks/video';
-@import 'blocks/process';
-@import 'blocks/map';
+@import './components/extras.scss'
 
-@import 'core/core';

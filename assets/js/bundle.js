@@ -120,7 +120,7 @@ function headerScroll() {
 }
 
 (function ($) {
-  $(document).ready(function() {
+  /*$(document).ready(function() {
     const logos = new Swiper('.logos', {
       speed: 1200,
       duration: 5000,
@@ -240,5 +240,5 @@ function headerScroll() {
         Navigation: false,
       },
     });
-  });
+  });*/
 })(jQuery);

@@ -3,7 +3,7 @@ html {
 }
 
 body {
-  @apply bg-white font-inter text-gray p-0 m-0;
+  @apply bg-white font-primary p-0 m-0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
@@ -14,5 +14,5 @@ body {
 }
 
 code, kbd, pre, samp {
-  @apply font-inter;
+  @apply font-primary
 }

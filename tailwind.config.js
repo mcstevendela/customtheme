@@ -17,8 +17,8 @@ module.exports = {
       'xxl': '1400px'
     },
     fontFamily: {
-      inter: ['Inter', 'sans-serif'],
-      passion: ['Passion One', 'sans-serif'],
+      primary: ['Inter', 'sans-serif'],
+      secondary: ['Passion One', 'sans-serif'],
     },
     extend: {
       colors: {

@@ -23,11 +23,10 @@ document.addEventListener("mouseover", function(e) {
 			// Get the image URL for this block
 			const imageUrl = wp.data.select('core/blocks').getBlockType("rd/" + blockName)?.attributes?.previewImage?.default;
 
-      console.log(blockName);
 			// adding our styles if there is a link to the picture
 			if (imageUrl) {
 				previewContainer.style.background = `url(${imageUrl}) no-repeat center`;
-				previewContainer.style.backgroundSize = 'contain';
+				previewContainer.style.backgroundSize = 'cover';
 				previewContainer.style.fontSize = '0px';
 			} else {
 				// remove our styles if there is no link

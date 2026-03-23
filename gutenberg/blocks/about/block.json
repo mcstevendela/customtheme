@@ -6,6 +6,7 @@
   "title": "Bar", 
   "description": "A test acf block bar",
   "script": "file:./index.js",
+  "style": "file:./style-index.css",
   "icon": "plus",
   "textdomain": "rotatedigital",
   "attributes": {
@@ -16,7 +17,7 @@
   },
   "acf": {
     "blockVersion": 3,
-    "renderTemplate": "render.twig",
+    "renderTemplate": "index.twig",
     "hideFieldsInSidebar": true
   }
 }

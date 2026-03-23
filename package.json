@@ -8,8 +8,11 @@
     "build": "npm-run-all --sequential wpbuild tailwindbuild gulpbuild",
     "wpbuild": "wp-scripts build --webpack-src-dir=gutenberg/blocks --output-path=gutenberg/build/blocks --webpack-copy-php",
     "wpstart": "wp-scripts start --webpack-src-dir=gutenberg/blocks --output-path=gutenberg/build/blocks --webpack-copy-php",
-    "tailwindbuild": "tailwindcss -i ./assets/css/style.css -o ./gutenberg/build/css/style.css --postcss --minify",
-    "tailwindwatch": "tailwindcss -i ./assets/css/style.css -o ./gutenberg/build/css/style.css --watch --postcss --minify",
+    "sassbuild": "sass --no-source-map --style=expanded ./assets/scss/style.scss ./gutenberg/build/css/style.pre.css",
+    "sasswatch": "sass --watch --no-source-map --style=expanded ./assets/scss/style.scss:./gutenberg/build/css/style.pre.css",
+    "tailwindbuild": "npm run sassbuild && tailwindcss -i ./gutenberg/build/css/style.pre.css -o ./gutenberg/build/css/style.css --postcss --minify",
+    "tailwindwatch": "npm-run-all --parallel sasswatch tailwindwatchcss",
+    "tailwindwatchcss": "tailwindcss -i ./gutenberg/build/css/style.pre.css -o ./gutenberg/build/css/style.css --watch --postcss --minify",
     "gulpwatch": "gulp",
     "gulpbuild": "gulp build",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -40,7 +43,9 @@
     "gulp-uglify": "^3.0.2",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.32",
+    "postcss-import": "^15.1.0",
     "postcss-nested": "^6.0.1",
+    "sass": "^1.77.8",
     "tailwindcss": "^3.3.6"
   },
   "dependencies": {

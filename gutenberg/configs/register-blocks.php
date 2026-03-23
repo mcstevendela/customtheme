@@ -31,10 +31,9 @@ function rd_register_blocks(): void {
         DIRECTORY_SEPARATOR
       );
 
-      $args['render_callback'] = function( $attributes, $content, $block ) use ( $relative_twig, $metadata ) {
+      $args['render_callback'] = function( $attributes, $content, $block ) use ( $relative_twig ) {
         $context = Timber::context();
         $context['fields'] = get_fields();
-        $context['preview'] = is_admin() && isset( $_GET['preview'] ) && $_GET['preview'] === 'true';
         Timber::render( $relative_twig, $context );
       };
     }

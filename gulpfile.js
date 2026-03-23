@@ -10,7 +10,7 @@ mmq = require('gulp-merge-media-queries');
 
 const paths = {
   css: {
-    src: './assets/css/!(*style|*.min).css',
+    src: './assets/scss/!(*style|*.min).scss',
     dest: './assets/css',
   },
   js: {
